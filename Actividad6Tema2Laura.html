@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dinero</title>
+  </head>
+  <body>
+    <div>
+      <h1 id="cabecera">Datos</h1>
+      <div id="div1"></div>
+      <div id="div2"></div>
+      <div id="div3"></div>
+      <div id="color"></div>
+    </div>
+    <script>
+      debugger;
+      alert(
+        "Hola. Eres el visitante número nosecuantos. Introduce tus datos para ganar 10.000€ :D"
+      );
+      var nombre = prompt("Introduce tu nombre");
+      document.getElementById("div1").innerHTML =
+        "<p>Tu nombre es " + nombre + ".</p>";
+      var apellido = prompt("Introduce tus apellidos");
+      document.getElementById("div2").innerHTML =
+        "<p>Tus apellidos son " + apellido + ".</p>";
+      var edad = parseInt(prompt("Introduce tu edad"));
+      var anyo = 2022 - edad;
+      document.getElementById("div3").innerHTML =
+        "<p>Tienes " +
+        edad +
+        " años. Si tu cumpleaños ya ha pasado este año, naciste en " +
+        anyo +
+        ".</p>";
+      var color = confirm("¿Tu color favorito es el verde?");
+      var texto;
+      if (color) {
+        texto = "verde";
+      } else {
+        texto = prompt("Entonces, ¿cuál es tu color favorito?");
+      }
+      document.getElementById("color").innerHTML =
+        "<p>Has elegido el color " + texto + ".</p>";
+      console.log("Al usuario le gusta el " + texto + ".");
+      document.write(
+        "<p>Has introducido todos tus datos. ¡Felicidades! Te enviaremos el dinero a tu cuenta bancaria.</p>"
+      );
+      document.write(
+        "<h1>Gracias por proporcionarnos tus datos personales, " +
+          nombre +
+          " " +
+          apellido +
+          " de " +
+          edad +
+          " años. No nos hacemos responsables del uso que se le dé a esta información. Recordaremos que tu color favorito es el " +
+          texto +
+          ".</h1>"
+      );
+    </script>
+  </body>
+</html>
