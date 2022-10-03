@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nota</title>
+  </head>
+  <body>
+    <h2>
+      Realiza un script que muestre mediante mensajes los dígitos que componen
+      un número. Éste tiene que ser menor de 1000.
+    </h2>
+    <div id="numero"></div>
+    <script type="text/javascript">
+      var num = prompt("Introduce un número: ");
+      for (let i = 0; i < num.length; i++) {
+        document.write("<p>" + num[i] + "</p>"); // o alert?
+      }
+      document.getElementById("numero").innerHTML =
+        "<p>Dígitos del número " + num + "</p>";
+    </script>
+  </body>
+</html>

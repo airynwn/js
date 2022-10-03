@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nota</title>
+  </head>
+  <body>
+    <h2>Solicita un número y muestra al usuario su tabla de multiplicar.</h2>
+    <div id="numero"></div>
+    <script type="text/javascript">
+      var num = prompt("Introduce un número: ");
+      for (let i = 1; i <= 10; i++) {
+        document.write("<p>" + num * i + "</p>");
+      }
+      document.getElementById("numero").innerHTML =
+        "<p>Tabla de multiplicar del " + num + "</p>";
+    </script>
+  </body>
+</html>

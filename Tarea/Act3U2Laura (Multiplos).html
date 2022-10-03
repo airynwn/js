@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nota</title>
+  </head>
+  <body>
+    <h2>
+      Realiza un script que muestre en el documento los múltiplos de 8
+      comprendidos entre dos números que se solicitarán al usuario. No importa
+      el orden en el que los inserte el usuario, siempre se presentarán de menor
+      al mayor, ambos inclusive.
+    </h2>
+    <div id="numeros"></div>
+    <script type="text/javascript">
+      var num1 = prompt("Introduce el primer número: ");
+      var num2 = prompt("Introduce el segundo número: ");
+
+      var min = Math.min(num1, num2);
+      var max = Math.max(num1, num2);
+
+      for (let i = 1; i <= max; i++) {
+        if (8 * i >= min && 8 * i <= max) {
+          document.write("<p>" + 8 * i + "</p>");
+        }
+      }
+      document.getElementById("numeros").innerHTML =
+        "<p>Múltiplos de 8 entre " + num1 + " y " + num2 + "</p>";
+    </script>
+  </body>
+</html>
