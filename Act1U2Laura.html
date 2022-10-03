@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nota</title>
+  </head>
+  <body>
+    <h2>
+      1. Realiza un script que le pregunte al usuario la nota obtenida en un
+      examen, y en función del resultado devuelva “Suspenso”, “Aprobado”,
+      “Notable” o “Sobresaliente”.
+    </h2>
+    <script type="text/javascript">
+      var nota = prompt("Introduce la nota obtenida en el examen: ");
+      nota >= 9 && nota <= 10
+        ? alert("Sobresaliente oleeeeeeeeee")
+        : nota >= 7 && nota < 9
+        ? alert("Notable")
+        : nota >= 0 && nota < 5
+        ? alert("Suspenso...")
+        : alert("Aprobado");
+    </script>
+  </body>
+</html>

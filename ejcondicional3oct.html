@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var ano = prompt("Introduce un año: ");
+      ano % 400 == 0
+        ? alert("El año " + ano + " es bisiesto")
+        : ano % 100 == 0
+        ? alert("El año " + ano + " no es bisiesto")
+        : ano % 4 == 0
+        ? alert("El año " + ano + " es bisiesto")
+        : alert("El año " + ano + " no es bisiesto");
+      // condicion ? expresion1 : condicion2 ? expresion2 :
+      // condicion3 ? expresion3 : expresion4
+    </script>
+  </body>
+</html>
