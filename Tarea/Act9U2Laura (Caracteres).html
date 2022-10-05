@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caracteres</title>
+  </head>
+  <body>
+    <h2>
+      Realiza un script en el que un usuario introduzca una frase (ésta puede
+      contener todo tipo de caracteres), ir mostrando todos los caracteres uno a
+      uno, excepto si es un número que lo obviará.
+    </h2>
+    <script type="text/javascript">
+      var frase = prompt("Introduce una frase");
+      for (c of frase.split("")) {
+        if (!isNaN(c)) {
+          continue;
+        }
+        document.write("<p>" + c + "</p>");
+      }
+    </script>
+  </body>
+</html>
