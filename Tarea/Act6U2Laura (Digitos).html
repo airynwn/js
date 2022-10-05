@@ -14,8 +14,14 @@
     <div id="numero"></div>
     <script type="text/javascript">
       var num = prompt("Introduce un número: ");
+
+      if (num >= 1000) {
+        alert("El número proporcionado no es válido. Debe ser menor de 1000.");
+        throw "Número inválido";
+      }
+
       for (let i = 0; i < num.length; i++) {
-        document.write("<p>" + num[i] + "</p>"); // o alert?
+        alert(num[i]);
       }
       document.getElementById("numero").innerHTML =
         "<p>Dígitos del número " + num + "</p>";
