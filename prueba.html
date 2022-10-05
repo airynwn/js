@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>prueba for in</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+              var cadena = "En un lugr de l Mnch de cuyo nombre no quiero cordrme...";
+      var letras = cadena.split(""); //sin espacio entre comillas, array de caracteres
+      var resultado = "";
+      for (i in letras) {
+       if (letras[i] == 'a') {
+      break;
+       }
+       resultado += letras[i];
+      }
+       alert(resultado); // muestra "En un lug"
+
+       var test = ['a','b','c','d'];
+       for (i of test) { // OF = abcd, IN = 0123
+        document.write(i);
+       }
+    </script>
+  </body>
+</html>
