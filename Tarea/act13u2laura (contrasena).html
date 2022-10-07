@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contraseña</title>
+  </head>
+  <body>
+    <h2>
+      Realiza un script que pida la contraseña de acceso a una página web y
+      compruebe si es la misma que la almacenada en una variable. Si es
+      correcta, le dará la bienvenida, sino se la volverá a pedir.
+    </h2>
+    <script type="text/javascript">
+        var contrasena = "nosequeponer1234";
+        var login;
+        while (login != contrasena) {
+            login = prompt("Introduce tu contraseña: ");
+
+        }
+        alert("¡Bienvenido!");
+    </script>
+  </body>
+</html>
