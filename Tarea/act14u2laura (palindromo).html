@@ -15,52 +15,24 @@
     </h2>
     <script type="text/javascript">
       var cadena = prompt("Introduce una cadena: ");
-      var c = cadena.trim().toLowerCase();
+      var c = cadena.trim().toLowerCase().replaceAll(" ", "");
       var res = true;
       var l = c.length;
-      var j = 1;
-      alert(c.charAt(j));
-      for (i = 0; i < c.length(); i++) {
+      alert(c);
+      for (i = 0, j = 1; i < c.length; i++, j++) {
           if (c.charAt(i) == c.charAt(l - j)) {
-               document.write("<p>"+c.charAt(i)+" es igual que "+c.charAt(l - j)+"</p>");
-           } else {
-               document.write("<p>"+c.charAt(i)+" es distinto que "+c.charAt(l - j)+"</p>");
-               res = false;
-           }
-           j--
-      }
-
-    //   var reves = [];
-    //   for (i = c.length; i >= 0; i--) {
-    //       reves.push(c[i]);
-    //   }
-    //   reves.shift(); // quita el primer elemento undefined
-    //   var j = reves.length - 1;
-
-    //   document.write("<p>"+reves+"</p>");
-    //   document.write("<p>"+c+"</p>");
-
-    //   document.write("<p>"+c[0]+" "+reves[j-1]+"</p>");
-
-    //    for (i in c) {
-    //        if (c[i] == reves[j]) {
-    //            document.write("<p>"+c[i]+" es igual que "+reves[j]+"</p>");
-    //        } else {
-    //            document.write("<p>"+c[i]+" es distinto que "+reves[j]+"</p>");
-    //            res = false;
-    //        }
-    //        j--
-    //    }
-
-
+              document.write("<p>"+c.charAt(i)+" es igual que "+c.charAt(l - j)+"</p>");
+          } else {
+              document.write("<p>"+c.charAt(i)+" es distinto que "+c.charAt(l - j)+"</p>");
+              res = false;
+          }
+        }
+            
       if (res) {
           alert("La cadena "+cadena+" es un palíndromo");
       } else {
           alert("No es un palíndromo");
       }
-
-      //alert(res);
-      //alert(c);
     </script>
   </body>
 </html>

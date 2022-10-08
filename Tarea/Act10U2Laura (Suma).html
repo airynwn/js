@@ -14,17 +14,23 @@
       suma la parte entera y la decimal
     </h2>
     <script type="text/javascript">
-      var num = prompt("Introduce un número");
+      var num = parseFloat(prompt("Introduce un número"));
       var res = 0;
+      var choice = confirm("¿Quieres sumar también la parte decimal?");
       // hacer 2 opciones: elegir sumar entera o entera y decimal
-      for (dig of num.split("")) {
-        if (dig == '.') {
-            continue;
+      for (dig of num.toString().split("")) {
+        if (choice && dig == ".") {
+          continue;
+        } else if (!choice && dig == ".") {
+          break;
         }
-          res += parseInt(dig);
-          document.write("<p>"+dig+"</p>");
+        res += parseInt(dig);
+        document.write("<p>" + dig + "</p>");
       }
-      document.write("<p>La suma de los dígitos de "+num+" es "+res+"</p>");
+      document.write(
+        "<p>" + (choice ? "Con" : "Sin") + " la parte decimal, la suma de los dígitos \
+          de " + num + " es " + res + "</p>"
+      );
     </script>
   </body>
 </html>

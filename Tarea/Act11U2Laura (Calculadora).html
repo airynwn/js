@@ -22,12 +22,46 @@
       menú.
     </p>
     <script type="text/javascript">
-      var choice = prompt(
-          "Calculadora\nPulse 1 para sumar\nPulse 2 para restar\n\
-          Pulse 3 para multiplicar\nPulse 4 para dividir\n\
-          Pulse 5 para obtener el módulo\nPulse 6 para salir"
+      var salir = 0;
+      while (salir == 0) {
+        var n1 = parseInt(prompt("Introduce el primer número"));
+        var n2 = parseInt(prompt("Introduce el segundo número"));
+
+        var choice = prompt(
+          "Pulse 1 para sumar\nPulse 2 para restar\n\
+Pulse 3 para multiplicar\nPulse 4 para dividir\n\
+Pulse 5 para obtener el módulo\nPulse 6 para salir"
         );
-      
+        if (choice == "6") {
+          var c = confirm("¿Estás seguro de que quieres salir?");
+          if (c) {
+            break;
+          } else {
+            continue;
+          }
+        }
+
+        switch (choice) {
+          case "1":
+            alert(n1 + " + " + n2 + " = " + (n1 + n2));
+            break;
+          case "2":
+            alert(n1 + " - " + n2 + " = " + (n1 - n2));
+            break;
+          case "3":
+            alert(n1 + " * " + n2 + " = " + (n1 * n2));
+            break;
+          case "4":
+            alert(n1 + " / " + n2 + " = " + (n1 / n2));
+            break;
+          case "5":
+            alert(n1 + " % " + n2 + " = " + (n1 % n2));
+            break;
+          default:
+            alert("Tienes que elegir una de las opciones especificadas.");
+            break;
+        }
+      }
     </script>
   </body>
 </html>
