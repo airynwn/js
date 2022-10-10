@@ -53,7 +53,7 @@
         <li>establece el valor de "resuelto" en verdadero
             si la habitación coincide con la habitación del sospechoso
         </li>
-    </ul>
+    </ol>
     <h3>Luego, use esta plantilla para imprimir un mensaje
         a la consola si se resolvió el misterio:
     </h3>
@@ -61,35 +61,41 @@
 
     <form action="">
         <select name="hab" id="hab">
-            <option value="baile">el salón de baile</option>
-            <option value="galeria">la galería</option>
-            <option value="billar">la sala de billar</option>
-            <option value="comedor">el comedor</option>
+            <option value="el salón de baile">el salón de baile</option>
+            <option value="la galería">la galería</option>
+            <option value="la sala de billar">la sala de billar</option>
+            <option value="el comedor">el comedor</option>
         </select>
         <select name="sus" id="sus">
-            <option value="parkes">El Sr. Parkes</option>
-            <option value="vancleve">La Sra. Van Cleve</option>
-            <option value="sparr">La Sra. Sparr</option>
-            <option value="kalehoff">El Sr. Kalehoff</option>
+            <option value="El Sr. Parkes">El Sr. Parkes</option>
+            <option value="La Sra. Van Cleve">La Sra. Van Cleve</option>
+            <option value="La Sra. Sparr">La Sra. Sparr</option>
+            <option value="El Sr. Kalehoff">El Sr. Kalehoff</option>
         </select>
     </form>
     <input type="button" value="resolver" onclick="resolver()">
+    <div id="resultado"></div>
 
     <script type="text/javascript">
-        var habs = ["el salón de baile", "la galería", 
-        "la sala de billar", "el comedor"];
-        var suss = ["El Sr. Parkes", "La Sra. Van Cleve",
-    "La Sra. Sparr", "El Sr. Kalehoff"];
-        var armas = ["veneno", "el trofeo",
-    "el palo de billar", "el cuchillo"];
+        function resolver() {
+            var habs = ["el salón de baile", "la galería", 
+            "la sala de billar", "el comedor"];
+            var suss = ["El Sr. Parkes", "La Sra. Van Cleve",
+        "La Sra. Sparr", "El Sr. Kalehoff"];
+            var armas = ["veneno", "el trofeo",
+        "el palo de billar", "el cuchillo"];
+        
+            var hab = document.getElementById("hab").value;
+            var sus = document.getElementById("sus").value;
+            var arma = armas[habs.indexOf(hab)];
 
-        var hab = document.getElementById("hab").value;
-        var sus = document.getElementById("sus").value;
-
-        function resolver(hab, sus) {
             var h = habs.indexOf(hab);
             var s = suss.indexOf(sus);
-            
+            var resuelto = s == h;
+
+            if (resuelto) {
+                console.log("¡" + sus + " lo hizo en " + hab + " con " + arma + "!");
+            }
        }  
     </script>
 </body>
