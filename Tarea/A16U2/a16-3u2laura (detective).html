@@ -61,16 +61,16 @@
 
     <form action="">
         <select name="hab" id="hab">
-            <option value="baile">Salón de baile</option>
-            <option value="galeria">Galería</option>
-            <option value="billar">Sala de billar</option>
-            <option value="comedor">Comedor</option>
+            <option value="baile">el salón de baile</option>
+            <option value="galeria">la galería</option>
+            <option value="billar">la sala de billar</option>
+            <option value="comedor">el comedor</option>
         </select>
         <select name="sus" id="sus">
-            <option value="parkes">Sr. Parkes</option>
-            <option value="vancleve">Sra. Van Cleve</option>
-            <option value="sparr">Sra. Sparr</option>
-            <option value="kalehoff">Sr. Kalehoff</option>
+            <option value="parkes">El Sr. Parkes</option>
+            <option value="vancleve">La Sra. Van Cleve</option>
+            <option value="sparr">La Sra. Sparr</option>
+            <option value="kalehoff">El Sr. Kalehoff</option>
         </select>
     </form>
     <input type="button" value="resolver" onclick="resolver()">
@@ -87,6 +87,8 @@
         var sus = document.getElementById("sus").value;
 
         function resolver(hab, sus) {
+            var h = habs.indexOf(hab);
+            var s = suss.indexOf(sus);
             
        }  
     </script>
