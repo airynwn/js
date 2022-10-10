@@ -31,6 +31,8 @@
     <div id="log"></div>
     <div id="num"></div>
     <script type="text/javascript">
+      // hacer sin tener en cuenta si el usuario
+      // pone una cadena true o lo que sea
         var cadenas = [];
         var bools = [];
         var nums = [];
@@ -39,7 +41,7 @@
         for (i of arr) {
           if (typeof i === "string") {
             cadenas.push(i);
-          } else if (typeof i ==="boolean") {
+          } else if (typeof i === "boolean") {
             bools.push(i);
           } else {
             nums.push(i);

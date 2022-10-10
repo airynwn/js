@@ -17,7 +17,7 @@
       var num = parseFloat(prompt("Introduce un número"));
       var res = 0;
       var choice = confirm("¿Quieres sumar también la parte decimal?");
-      // hacer 2 opciones: elegir sumar entera o entera y decimal
+
       for (dig of num.toString().split("")) {
         if (choice && dig == ".") {
           continue;
@@ -27,6 +27,7 @@
         res += parseInt(dig);
         document.write("<p>" + dig + "</p>");
       }
+      
       document.write(
         "<p>" + (choice ? "Con" : "Sin") + " la parte decimal, la suma de los dígitos \
           de " + num + " es " + res + "</p>"

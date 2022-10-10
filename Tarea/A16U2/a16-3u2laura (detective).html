@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misterio</title>
+</head>
+<body>
+    <h2>Uno de los asistentes a una fiesta está
+        interpretando en secreto y sin saberlo a un asesino,
+        y los demás asistentes deben determinar quién de ellos
+        es el asesino. En este misterio de asesinato hay:
+    </h2>
+    <ul>
+        <li>Cuatro salas: el salón de baile, la galería, 
+            la sala de billar y el comedor
+        </li>
+        <li>Cuatro armas:
+            veneno, un trofeo, un palo de billar y un cuchillo
+        </li>
+        <li>Cuatro sospechosos:
+            Sr. Parkes, Sra. Van Cleve, Sra. Sparr y Sr.Kalehoff
+        </li>
+    </ul>
+    <h3>También sabemos que cada arma corresponde
+        a una habitación particular, así que:
+    </h3>
+    <ul>
+        <li>el veneno pertenece al salón de baile</li>
+        <li>el trofeo pertenece a la galería</li>
+        <li>el palo de billar pertenece a la sala de billar</li>
+        <li>y el cuchillo pertenece al comedor.</li>
+    </ul>
+    <h3>Y sabemos que cada sospechoso está ubicado
+        en una habitación específica en el momento del asesinato:
+    </h3>
+    <ul>
+        <li>El Sr. Parkes estaba ubicado en el comedor.</li>
+        <li>La Sra. Van Cleve estaba ubicada en la galería.</li>
+        <li>La Sra. Sparr estaba ubicada en la sala de billar.</li>
+        <li>El Sr. Kalehoff estaba ubicado en el salón de baile.</li>
+    </ul>
+    <h3>La información se introduce a través de dos listas desplegables
+        donde se indique la habitación donde se ha cometido el crimen
+        y otra para indicar el sospechoso. Tras pulsar un botón
+        se debe resolver el misterio. 
+        Para ayudar a resolver este misterio, escriba una combinación
+        de declaraciones condicionales que:
+    </h3>
+    <ol>
+        <li>establece el valor del arma según la habitación</li>
+        <li>establece el valor de "resuelto" en verdadero
+            si la habitación coincide con la habitación del sospechoso
+        </li>
+    </ul>
+    <h3>Luego, use esta plantilla para imprimir un mensaje
+        a la consola si se resolvió el misterio:
+    </h3>
+    <ul><li>____ lo hizo en el _____ con el _____!</li></ul>
+
+    <form action="">
+        <select name="hab" id="hab">
+            <option value="baile">Salón de baile</option>
+            <option value="galeria">Galería</option>
+            <option value="billar">Sala de billar</option>
+            <option value="comedor">Comedor</option>
+        </select>
+        <select name="sus" id="sus">
+            <option value="parkes">Sr. Parkes</option>
+            <option value="vancleve">Sra. Van Cleve</option>
+            <option value="sparr">Sra. Sparr</option>
+            <option value="kalehoff">Sr. Kalehoff</option>
+        </select>
+    </form>
+    <input type="button" value="resolver" onclick="resolver()">
+
+    <script type="text/javascript">
+        var habs = ["el salón de baile", "la galería", 
+        "la sala de billar", "el comedor"];
+        var suss = ["El Sr. Parkes", "La Sra. Van Cleve",
+    "La Sra. Sparr", "El Sr. Kalehoff"];
+        var armas = ["veneno", "el trofeo",
+    "el palo de billar", "el cuchillo"];
+        function resolver(hab, sus) {
+            
+       }  
+    </script>
+</body>
+</html>

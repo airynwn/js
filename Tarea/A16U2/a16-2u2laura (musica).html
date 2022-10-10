@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Música</title>
+</head>
+<body>
+    <h2>Los grupos musicales reciben un nombre en función 
+        del número de componentes. Realiza una serie 
+        de sentencias condicionales que:
+    </h2>
+    <ul>
+        <li>muestre "not a group" 
+            si musicians es menor o igual que 0</li>
+        <li>muestre "solo" si musicians es igual a 1</li>
+        <li>muestre "duet" si musicians es igual a 2</li>
+        <li>muestre "trio" si musicians es igual a 3</li>
+        <li>muestre "quartet" si musicians es igual a 4</li>
+        <li>muestre "this is a large group" 
+            si musicians es mayor que 4</li>
+    </ul>
+
+    <script type="text/javascript">
+        var musicians = parseInt(prompt("Introduce \
+        el número de músicos: "));
+        var res = "";
+        
+        switch (musicians) {
+            case musicians <= 0:
+                res = "not a group";
+                break;
+            case 1:
+                res = "solo";
+                break;
+            case 2:
+                res = "duet";
+                break;
+            case 3:
+                res = "trio";
+                break;
+            case 4:
+                res = "quartet";
+                break;
+            case musicians > 4:
+                res = "this is a large group";
+                break;
+            default:
+                res = "Error";
+                break;
+        }
+
+        alert(res);
+    </script>
+</body>
+</html>
