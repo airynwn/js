@@ -11,10 +11,49 @@
       Realiza un script donde se utilizan las conversiones de tipo. A mayor
       número de diferentes conversiones de tipos diferentes, mayor puntuación de
       la actividad. Utiliza tu creatividad para diseñar una web con una
-      aplicación en concreto y que necesites el uso de las conversiones de tipo
+      aplicación en concreto y que necesites el uso de las conversiones de tipo.
     </h2>
+    <br>
+    <h1>Conversiones de tipo</h1>
+    <div id="input"></div>
+    <div id="num"></div>
+    <div id="str"></div>
+    <div id="bool"></div>
+    <div id="dec"></div>
     <script type="text/javascript">
-        
+        var input = prompt("Introduce el valor que quieras convertir a otros tipos: ");
+        var inputIsFloat = input.split("").includes(".");
+        var tipo = "string";
+        if (!isNaN(input)) {
+          var n = confirm("Has introducido un valor numérico.\n\
+        ¿Quieres que se reconozca como uno, en vez de como una cadena?");
+          if (n) {
+            tipo = "número";
+            inputIsFloat ? input = parseFloat(input) : input = parseInt(input);
+          }
+        }
+
+        if (input == "true" || input == "false") {
+          var b = confirm("Has introducido un valor booleano.\n\
+¿Quieres que se reconozca como uno, en vez de como una cadena?");
+          if (b) {
+            tipo = "booleano";
+            input == "true" ? input = true : input = false;
+          }
+        }
+
+  
+        document.getElementById("input").innerHTML = 
+          "<h3>Se ha introducido el " + tipo + " " + 
+            (tipo == "string" ? ("\"" + input + "\"") : input)
+             + ".</h3>";
+        document.getElementById("num").innerHTML = "<b>Conversión a número</b>: "+ Number(input);
+        document.getElementById("str").innerHTML = "<b>Conversión a cadena</b>: \"" + String(input) + "\"";
+        document.getElementById("bool").innerHTML = "<b>Conversión a booleano</b>: " + Boolean(input);
+        if (inputIsFloat) {
+          document.getElementById("dec").innerHTML = "<b>Conversión a entero</b>: " + parseInt(input);
+        }
+
     </script>
   </body>
 </html>
