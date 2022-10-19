@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>
+      Haciendo uso de los métodos vistos en clase e introduciendo tu fecha de
+      nacimiento: Mostrar en la página web : los meses, días y años que tienes a
+      fecha actual.
+    </h2>
+
+    <script type="text/javascript">
+        var nacimiento = new Date(2001, 8, 14);
+        var actual = new Date();
+        var resto = actual - nacimiento;
+        var anos = resto / (1000 * 60 * 60 * 24 * 365)
+        var meses = resto % (1000 * 60 * 60 * 24 * 365) / (1000 * 60 * 60 * 24) / 30.42;
+        var dias = resto % (1000 * 60 * 60 * 24 * 365) % (1000 * 60 * 60 * 24) / (1000 * 60 * 60) / 24;
+
+
+        document.write("años: " + anos + "<br>meses: " + meses + "<br>dias: " + dias);
+        //document.write(anos + " años<br>" + 
+        //               meses + " meses<br>" + 
+        //               dias + " días");
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fechas</title>
+  </head>
+  <body>
+    <h2>
+      Calcular el tiempo restante expresado en días entre la fecha actual y la
+      fecha de fin de año. La información deberá aparecer en la página web.
+      Calcularla también expresado en milisegundos.
+    </h2>
+
+    <script type="text/javascript">
+      var actual = new Date();
+      var fin = new Date(2022, 11, 31);
+      var resto = fin - actual;
+      document.write(resto + " milisegundos");
+      document.write("<br>");
+      document.write(parseInt(resto / 86400000) + " días");
+    </script>
+  </body>
+</html>
