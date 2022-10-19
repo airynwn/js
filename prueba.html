@@ -9,52 +9,152 @@
   <body>
     <p id="demo"></p>
     <script type="text/javascript">
-      var cadena = "En un lugr de l Mnch de cuyo nombre no quiero cordrme...";
-      var letras = cadena.split(""); //sin espacio entre comillas, array de caracteres
-      var resultado = "";
-      for (i in letras) {
-        if (letras[i] == "a") {
-          break;
-        }
-        resultado += letras[i];
-      }
-      alert(resultado); // muestra "En un lug"
+            var cadena = "En un lugr de l Mnch de cuyo nombre no quiero cordrme...";
+            var letras = cadena.split(""); //sin espacio entre comillas, array de caracteres
+            var resultado = "";
+            for (i in letras) {
+              if (letras[i] == "a") {
+                break;
+              }
+              resultado += letras[i];
+            }
+            alert(resultado); // muestra "En un lug"
 
-      var test = ["a", "b", "c", "d"];
-      for (i of test) {
-        // OF = abcd, IN = 0123
-        document.write(i);
-      }
+            var test = ["a", "b", "c", "d"];
+            for (i of test) {
+              // OF = abcd, IN = 0123
+              document.write(i);
+            }
 
-      var x = 0.1;
-      var y = 0.2;
-      var z = x + y;
-      if (z == 0.3) {
-        var z = (x * 10 + y * 10) / 10;
-      }
+            var x = 0.1;
+            var y = 0.2;
+            var z = x + y;
+            if (z == 0.3) {
+              var z = (x * 10 + y * 10) / 10;
+            }
 
-      document.write(z.toFixed(1)); // truncar decimales
+            document.write(z.toFixed(1)); // truncar decimales
 
-      var a = 10 - "5";
-      document.write(a);
+            var a = 10 - "5";
+            document.write(a);
 
-      function myFunction() {
-        var message, x;
-        message = document.getElementById("message");
-        message.innerHTML = "";
-        x = document.getElementById("demo").value;
-        try {
-          if (x == "") throw empty;
-          if (isNaN(x)) throw "not a number";
-          x = Number(x);
-          if (x < 5) throw "too low";
-          if (x > 5) throw "too high";
-        } catch (err) {
-          message.innerHTML = "Input is " + err;
-        }
-      }
+            function myFunction() {
+              var message, x;
+              message = document.getElementById("message");
+              message.innerHTML = "";
+              x = document.getElementById("demo").value;
+              try {
+                if (x == "") throw empty;
+                if (isNaN(x)) throw "not a number";
+                x = Number(x);
+                if (x < 5) throw "too low";
+                if (x > 5) throw "too high";
+              } catch (err) {
+                message.innerHTML = "Input is " + err;
+              }
+            }
 
-      
+            // var miFecha = new Date();
+            // document.write("La fecha del día de hoy: ");
+            // document.write(
+            //   miFecha.getDate() +
+            //     "/" +
+            //     (miFecha.getMonth() + 1) +
+            //     "/" +
+            //     miFecha.getFullYear()
+            // );
+            document.write("<br>");
+            var miFecha = new Date();
+            document.write("miFecha.getDay()=" + miFecha.getDay() + "<BR>");
+            var nacimiento = new Date(2001, 8, 14);
+            var tbdays = new Array(
+              "Domingo",
+              "Lunes",
+              "Martes",
+              "Miércoles",
+              "Jueves",
+              "Viernes",
+              "Sábado"
+            );
+            document.write("Nací un " + tbdays[nacimiento.getDay()]);
+
+            document.write("<br>");
+
+            var miFecha = new Date();
+            document.write("Hora : ");
+            document.write(
+              miFecha.getHours() +
+                ":" +
+                miFecha.getMinutes() +
+                ":" +
+                miFecha.getSeconds() +
+                ":" +
+                miFecha.getMilliseconds()
+            );
+            document.write("<BR>");
+            // formateo de la hora
+            var h = miFecha.getHours();
+            if (h < 10) {
+              h = "0" + h;
+            }
+            var m = miFecha.getMinutes();
+            if (m < 10) {
+              m = "0" + m;
+            }
+            var s = miFecha.getSeconds();
+            if (s < 10) {
+              s = "0" + s;
+            }
+            var ms = miFecha.getMilliseconds();
+            document.write("Hora con un formato personalizado : ");
+            document.write(h + ":" + m + ":" + s + ":" + ms);
+
+            document.write("<br>");
+
+            var miFecha = new Date();
+            //cantidad de milisegundos desde el 1/1/1970
+            document.write(
+              "Milisegundos desde el 1/1/1970 hasta ahora " + miFecha.getTime()
+            );
+
+            document.write("<br>");
+            var miFecha=new Date()
+      document.write("La fecha de hoy es " + miFecha + "</br>")
+      document.write("Dia de la semana " + miFecha.getDay() + "</br>"); // Dia de la semana
+      //Para ser correctos
+      var tbdays=new Array
+      ("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado")
+      document.write("Dia de la semana " + tbdays[miFecha.getDay()] + "</br>"); // Dia de la
+      semana
+      document.write("Dia del mes " + miFecha.getDate() + "</br>"); //Dia del mes
+      document.write("Mes " + miFecha.getMonth()+ "</br>"); //Mes
+      //Para ser correctos
+      document.write("Mes correcto " + (miFecha.getMonth()+1)+ "</br>"); //Mes
+      var tbmonths=new Array
+      ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre")
+      document.write("Mes correcto " + tbmonths[(miFecha.getMonth())]+ "</br>"); //Mes
+      document.write("Año " + miFecha.getYear() + "</br>"); //Año
+      //Para ser correctos
+      document.write("Año " + miFecha.getFullYear() + "</br>"); //Año
+      var h=miFecha.getHours();
+      var m=miFecha.getMinutes();
+      var s=miFecha.getSeconds();
+      var ms=miFecha.getMilliseconds();
+      document.write("Hora" +h + ":" + m + ":" + s + ":" + ms + "</br>"); //hora
+      //Para ser correctos
+      if (h<10) {h="0"+ h}
+      if (m<10) {m="0"+ m}
+      if (s<10) {s="0"+ s}
+      document.write("Hora" +h + ":" + m + ":" + s + ":" + ms + "</br>"); //hora
+      document.write("Milisegundos desde 1970 - " + miFecha.getTime() + "</br></br>")
+      document.write("Minutos de diferencia entre hora local y la zona horaria de referencia - " + miFecha.getTimezoneOffset() + "</br>");
+      document.write("Dia de la semana UTC " + miFecha.getUTCDay() + "</br>"); // Dia de la
+      semana
+      document.write("Dia del mes UTC " + miFecha.getUTCDate() + "</br>"); //Dia del mes
+      document.write("Mes UTC " + (miFecha.getUTCMonth() +1)+ "</br>"); //Mes
+      document.write("Año UTC " + miFecha.getUTCFullYear() + "</br>"); //Año
+      document.write("Hora UTC" + miFecha.getUTCHours() + ":" + miFecha.getUTCMinutes() +
+      ":" + miFecha.getUTCSeconds() + ":" + miFecha.getUTCMilliseconds() + "</br>"); //hora
     </script>
   </body>
 </html>
