@@ -14,11 +14,10 @@
     </h2>
     <script type="text/javascript">
       var frase = prompt("Introduce una frase");
-      for (c of frase.split("")) {
-        if (!isNaN(c)) {
-          continue;
+      for (c of frase) {
+        if (isNaN(c)) {
+          alert(c);
         }
-        alert(c);
       }
     </script>
   </body>

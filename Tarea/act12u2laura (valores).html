@@ -31,13 +31,12 @@
     <div id="log"></div>
     <div id="num"></div>
     <script type="text/javascript">
-      // hacer sin tener en cuenta si el usuario
-      // pone una cadena true o lo que sea
+
         var cadenas = [];
         var bools = [];
         var nums = [];
-        // var arr = prompt("Introduce 2 bool, 2 int, 2 string");
         var arr = [true, 5, false, "hola", "adios", 2];
+
         for (i of arr) {
           if (typeof i === "string") {
             cadenas.push(i);
@@ -48,18 +47,6 @@
           }
         }
 
-        // for (i of arr) {
-        //   if (!isNaN(i)) {
-        //     nums.push(i);
-        //   } else if (i == "false") {
-        //     bools.push(false);
-        //   } else if (i == "true") {
-        //     bools.push(true);
-        //   } else {
-        //     cadenas.push(i);
-        //   }
-        // }
-        
         document.getElementById("txt").innerHTML = ("<p>"+(cadenas[0] > cadenas[1] ? cadenas[0] : cadenas[1]) +" es mayor</p>");
         document.getElementById("log").innerHTML = "<p>"+bools[0]+" && "+bools[1]+" = "+(bools[0] && bools[1])+"</p>\
         <p>"+bools[0]+" || "+bools[1]+" = "+(bools[0] || bools[1])+"</p>";

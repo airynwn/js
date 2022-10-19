@@ -18,7 +18,6 @@
       var c = cadena.trim().toLowerCase().replaceAll(" ", "");
       var res = true;
       var l = c.length;
-      alert(c);
       for (i = 0, j = 1; i < c.length; i++, j++) {
           if (c.charAt(i) == c.charAt(l - j)) {
               document.write("<p>"+c.charAt(i)+" es igual que "+c.charAt(l - j)+"</p>");
@@ -29,7 +28,7 @@
         }
             
       if (res) {
-          alert("La cadena "+cadena+" es un palíndromo");
+          alert("La cadena \""+cadena+"\" es un palíndromo");
       } else {
           alert("No es un palíndromo");
       }

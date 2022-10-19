@@ -24,32 +24,22 @@
 
     <script type="text/javascript">
         var musicians = parseInt(prompt("Introduce \
-        el número de músicos: "));
+el número de músicos: "));
         var res = "";
-        
-        switch (musicians) {
-            case musicians <= 0:
-                res = "not a group";
-                break;
-            case 1:
-                res = "solo";
-                break;
-            case 2:
-                res = "duet";
-                break;
-            case 3:
-                res = "trio";
-                break;
-            case 4:
-                res = "quartet";
-                break;
-            case musicians > 4:
-                res = "this is a large group";
-                break;
-            default:
-                res = "Error";
-                break;
-        }
+
+        musicians <= 0 
+        ? res = "not a group"
+        : musicians == 1
+        ? res = "solo"
+        : musicians == 2
+        ? res = "duet"
+        : musicians == 3
+        ? res = "trio"
+        : musicians == 4
+        ? res = "quartet"
+        : musicians > 4
+        ? res = "this is a large group"
+        : res = "Error"
 
         alert(res);
     </script>
