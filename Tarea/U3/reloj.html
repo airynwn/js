@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creación de un reloj</title>
+</head>
+<body>
+    <div id="laHora"></div>
+    <script type="text/javascript">
+        function crono() {
+            var miFecha = new Date();
+            var horas = miFecha.getHours();
+            var minutos = miFecha.getMinutes();
+            var segundos = miFecha.getSeconds();
+            if (horas > 12) {
+                ampm = 'pm';
+                horas -= 12;
+            } else {
+                ampm = 'am';
+            }
+
+            if (horas < 10) {
+                horas = '0' + horas;
+            }
+            if (minutos < 10) {
+                minutos = '0' + minutos;
+            }
+            if (segundos < 10) {
+                segundos = '0' + segundos;
+            }
+
+            document.getElementById("laHora").innerText = 
+            horas + ":" + minutos + ":" + segundos + " " + ampm;
+        }
+        window.onload = function () {
+            setInterval(crono, 1000);
+        }
+
+    </script>
+</body>
+</html>
