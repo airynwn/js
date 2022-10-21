@@ -22,6 +22,34 @@
         var meses = actual.getMonth() - nacimiento.getMonth();
         var dias = actual.getDate() - nacimiento.getDate();
 
+        var calendario = [31, 28, 31,
+                          30, 31, 30,
+                          31, 31, 30,
+                          31, 30, 31];
+        
+        var bisiesto = nacimiento.getFullYear() % 4 == 0;
+
+        if (bisiesto) {
+          // Si es un año bisiesto, Febrero tiene un día más
+          calendario[1] += 1;
+        }
+
+        nacimiento.setFullYear(actual.getFullYear());
+        if ((actual - nacimiento) < 0) {
+          // Si todavía no ha cumplido años
+          anos -= 1;
+        }
+
+        if (meses < 0) {
+          // Si faltan meses le suma el número negativo al total
+          meses = 12 + meses;
+        }
+
+        if (dias < 0) {
+          // Si faltan días, le suma el número negativo al total
+          dias = calendario[nacimiento.getMonth()] + dias;
+        }
+
         document.getElementById("res").innerHTML = 
                 (`Tienes ${anos} años, ${meses} meses y ${dias} días`);
     </script>
