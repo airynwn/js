@@ -16,6 +16,10 @@
 
     <script type="text/javascript">
         var fecha = prompt("Introduce tu fecha de nacimiento (año-mes-día)");
+        if (new Date(fecha) > new Date()) {
+            alert("No puedes venir del futuro.");
+            throw new Error("Fecha incorrecta");
+        }
         var nacimiento = new Date(fecha);
         var actual = new Date();
         var anos = actual.getFullYear() - nacimiento.getFullYear();
@@ -27,7 +31,8 @@
                           31, 31, 30,
                           31, 30, 31];
         
-        var bisiesto = nacimiento.getFullYear() % 4 == 0;
+        var bisiesto = nacimiento.getFullYear() % 400 == 0 || 
+        (nacimiento.getFullYear() % 100 != 0 && nacimiento.getFullYear() % 4 == 0);;
 
         if (bisiesto) {
           // Si es un año bisiesto, Febrero tiene un día más
@@ -38,6 +43,11 @@
         if ((actual - nacimiento) < 0) {
           // Si todavía no ha cumplido años
           anos -= 1;
+        }
+
+        if (dias < 0) {
+          // Si la diferencia de días es negativa, le quita un mes (1 de febrero - 2 de enero)
+          meses -= 1;
         }
 
         if (meses < 0) {
