@@ -47,17 +47,14 @@
 
         if (dias < 0) {
           // Si la diferencia de días es negativa, le quita un mes (1 de febrero - 2 de enero)
+          // y le suma el número negativo al total de días
+          dias = calendario[nacimiento.getMonth()] + dias;
           meses -= 1;
         }
 
         if (meses < 0) {
           // Si faltan meses le suma el número negativo al total
           meses = 12 + meses;
-        }
-
-        if (dias < 0) {
-          // Si faltan días, le suma el número negativo al total
-          dias = calendario[nacimiento.getMonth()] + dias;
         }
 
         document.getElementById("res").innerHTML = 
