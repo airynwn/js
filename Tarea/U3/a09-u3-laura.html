@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="primer"></div>
+    <div id="ultima"></div>
+    <div id="total"></div>
+    <script type="text/javascript">
+        var frase = prompt("Introduce una frase");
+        var arr = frase.split(" ");
+        document.getElementById("primer").innerHTML = "La primera palabra es " + arr[0];
+        document.getElementById("ultima").innerHTML = "La última palabra es " + arr[arr.length - 1];
+        document.getElementById("total").innerHTML = "El número de palabras es " + arr.length;
+    </script>
+</body>
+</html>
