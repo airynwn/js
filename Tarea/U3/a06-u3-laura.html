@@ -14,7 +14,7 @@
             <option value="-10">UTC -10: Hawai</option>
             <option value="-9">UTC -9: Alaska</option>
             <option value="-8">UTC -8: Hora del pacífico (USA y Canadá)</option>
-            <option value="-7">UTC -7:Hora de las montañas rocosas (USA y Canadá)</option>
+            <option value="-7">UTC -7: Hora de las montañas rocosas (USA y Canadá)</option>
             <option value="-6">UTC -6: América central</option>
             <option value="-5">UTC -5: Hora central (USA y Canadá)</option>
             <option value="-4">UTC -4: Hora del Atlántico (Canadá)</option>
@@ -49,9 +49,9 @@
             alert("En UTC " + zonahoraria + " son las " + res);
         }
 
-        function crono(utc) {
+        function crono() {
             var miFecha = new Date();
-            var horas = miFecha.getHours() + utc;
+            var horas = miFecha.getHours() + parseInt(document.getElementById("zona").value) - 1;
             var minutos = miFecha.getMinutes();
             var segundos = miFecha.getSeconds();
             if (horas > 12) {
@@ -75,11 +75,8 @@
             horas + ":" + minutos + ":" + segundos + " " + ampm;
         }
         window.onload = function () {
-            setInterval(crono(utc), 1000);
-            // esta parado
+            setInterval(crono, 1000);
         }
-
-        crono(parseInt(document.getElementById("zona").value));
     </script>
 </body>
 </html>
