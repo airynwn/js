@@ -7,15 +7,37 @@
     <title>Document</title>
 </head>
 <body>
+    <h3>Solicitar una frase desde teclado, almacenar cada palabra en un array y mostrar los siguientes datos:
+        <ul>
+            <li>
+                La primera palabra de la frase.
+            </li>
+            <li>
+                La última palabra de la frase.
+            </li>
+            <li>
+                El número de palabras de la frase.</h3>
+            </li>
+        </ul>
     <div id="primer"></div>
     <div id="ultima"></div>
     <div id="total"></div>
     <script type="text/javascript">
         var frase = prompt("Introduce una frase");
-        var arr = frase.split(" ");
-        document.getElementById("primer").innerHTML = "La primera palabra es " + arr[0];
-        document.getElementById("ultima").innerHTML = "La última palabra es " + arr[arr.length - 1];
-        document.getElementById("total").innerHTML = "El número de palabras es " + arr.length;
+        var esPalabra = /\w/;
+        var arr = [];
+        for (palabra of frase.split(" ")) {
+            if (esPalabra.test(palabra)) {
+                arr.push(palabra);
+            }
+        }
+        if (arr.length > 0) {
+            document.getElementById("primer").innerHTML = "La primera palabra es " + arr[0];
+            document.getElementById("ultima").innerHTML = "La última palabra es " + arr[arr.length - 1];
+            document.getElementById("total").innerHTML = "El número de palabras es " + arr.length;
+        } else {
+            document.write("No se han encontrado palabras");
+        }
     </script>
 </body>
 </html>
