@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>string</title>
+  </head>
+  <body>
+    <h2>
+      Realiza un script que pida al usuario una frase. De ella se extraerá la
+      parte comprendida entre unas marcas de inicio y fin (distintas) que serán
+      indicadas por el usuario
+    </h2>
+
+    Escribir en la página :
+    <ul>
+      <li>Frase completa</li>
+      <li>Frase extraida</li>
+    </ul>
+
+    NOTA: puedes utilizar los métodos indexof y slice
+    <div id="completa"></div>
+    <div id="extraida"></div>
+    <script type="text/javascript">
+      var frase = prompt("Introduce una frase: ");
+      var inicio = prompt("Introduce la marca de inicio: ");
+      var fin = prompt("Introduce la marca de fin: ");
+      var extraida = frase.slice(frase.indexOf(inicio), frase.indexOf(fin));
+      document.getElementById("completa").innerHTML =
+        "Frase completa: " + frase;
+      document.getElementById("extraida").innerHTML =
+        "Frase extraida: " + extraida;
+    </script>
+  </body>
+</html>

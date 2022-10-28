@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hora</title>
+  </head>
+  <body>
+    <h2>
+      El usuario deberá introducir una hora y se deberá validar el ingreso de
+      una hora con el formato hh:mm:ss o hh:mm En el caso de ser correcto se
+      indicará formato correcto y en caso contrario incorrecto
+    </h2>
+    <div id="res"></div>
+    <script type="text/javascript">
+      var patron = /^([0-1][0-9]|2[0-4]):[0-5][0-9](:[0-5][0-9])?$/;
+      var hora = prompt("Introduce una hora: ");
+      document.getElementById("res").innerHTML = patron.test(hora)
+        ? "Formato correcto"
+        : "Formato incorrecto";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dia de la semana123</title>
+</head>
+<body>
+    <div id="res"></div>
+    <script type="text/javascript">
+        var patron = /^(lunes|martes|miércoles|jueves|viernes|sábado|domingo)\s\d\d?$/
+        var frase = prompt("Introduce un día de la semana y un número con un espacio");
+        document.getElementById("res").innerHTML =
+        patron.test(frase) ? "Expresión válida" : "Expresión no válida";
+    </script>
+</body>
+</html>

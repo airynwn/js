@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>
+      Realiza un script que solicite una frase al usuario. Deberá indicar si
+      aparece en ella o no la palabra indicada por el usuario. En caso de que la
+      encuentre indicar a partir de qué posición se puede encontrar la primera
+      coincidencia. Indicar por cuantos caracteres está formada la palabra
+      buscada y por último sustituirla 'dwecl'.
+    </h2>
+    <div id="res"></div>
+    <script type="text/javascript">
+      var frase = prompt("Introduce una frase: ");
+      var palabra = prompt("Introduce una palabra: ");
+      var buscar = new RegExp(palabra);
+      if (buscar.test(frase)) {
+        document.getElementById("res").innerHTML =
+          "Primera posición: " +
+          frase.indexOf(palabra) +
+          "<br>\
+            La palabra " +
+          palabra +
+          " está formada por " +
+          palabra.length +
+          " caracteres.</br>" +
+          frase.replace(palabra, "dwecl");
+      } else {
+        document.getElementById("res").innerHTML =
+          "La palabra " + palabra + " no aparece en la frase.";
+      }
+    </script>
+  </body>
+</html>

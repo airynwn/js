@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>matricula</title>
+  </head>
+  <body>
+    <h2>
+      Valida una matrícula moderna (Formato: 0000 AAA) 
+      (incluido el espacio)
+    </h2>
+    <div id="res"></div>
+    <script type="text/javascript">
+      var patron = /^\d{4}\s[A-Z]{3}$/;
+      var matricula = prompt("Introduce una matrícula moderna: ");
+      document.getElementById("res").innerHTML = patron.test(matricula)
+        ? "Matrícula correcta"
+        : "Matrícula incorrecta";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mayus</title>
+  </head>
+  <body>
+    <h2>
+      Pide al usuario que introduzca una cadena y determinar si esa cadena está
+      formada sólo por letras mayúsculas, sólo por minúsculas o por una mezcla
+      de ambas
+    </h2>
+    <div id="res"></div>
+    <script type="text/javascript">
+      var cadena = prompt("Introduce una cadena: ");
+      if (cadena.toLowerCase() == cadena) {
+        // sale esto si son solo numeros etc no letras
+        document.getElementById("res").innerHTML =
+          "La cadena '" + cadena + "' está formada por letras minúsculas";
+      } else if (cadena.toUpperCase() == cadena) {
+        document.getElementById("res").innerHTML =
+          "La cadena '" + cadena + "' está formada por letras mayúsculas";
+      } else {
+        document.getElementById("res").innerHTML =
+          "La cadena '" +
+          cadena +
+          "' está formada por una mezcla\
+             de letras mayúsculas y minúsculas";
+      }
+    </script>
+  </body>
+</html>
