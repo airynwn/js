@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>texto con varias lineas</title>
-</head>
-<body>
-    <textarea id="texto" style="width: 200px; height: 200px;">
-prueba 
-frase1 aea aea e
-frase2 assd dsa dsa as
-frsae3 dfdsfsd
-dsdfnkadfd dsf sdaf sdaf dsf asdsfjasid
-dfsm
-fuiuewrjewqrrewqkl
+  </head>
+  <body>
+    <h2>
+      El usuario deberá introducir un texto con varias lineas (crea un textarea). <br>
+      Realizar un scrip que escriba en la primera palabra de cada frase.
+    </h2>
+    <textarea id="texto" style="width: 200px; height: 200px">
+Primera línea hola
+Segunda líneaaa aaa aaaaaaaaaaaaaa
+Tercera línea
+Cuarta afdahdsfd
+Quinta dsjkfadds fdsa dsaf dasfndsa 
+Sexta   a a a a a a a a a a a a
+123 hola
+                test
+!!!! a
     </textarea>
+    <br>
     <script type="text/javascript">
-        //var texto = prompt("Introduce un texto con varias líneas");
-        //document.getElementById("texto").innerHTML = texto;
-        var patron = /^(\n)?\w.*$/;
-        document.write(
-            document.getElementById("texto").innerHTML.split("\n"));
-            {}
+      //var texto = prompt("Introduce un texto con varias líneas");
+      //document.getElementById("texto").innerHTML = texto;
+      var patron = /^(\s)*\w+/gm;
+      var busqueda = document.getElementById("texto").innerHTML.match(patron);
+      var i = 1;
+      for (palabra of busqueda) {
+        document.write(i + ": " + palabra + "<br>");
+        i++;
+      }
     </script>
-</body>
+  </body>
 </html>
