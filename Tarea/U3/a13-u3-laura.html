@@ -14,16 +14,16 @@
     <script type="text/javascript">
       // false
       var f1 = false;
-      var f2 = boolean(0);
-      var f3 = boolean("");
-      var f4 = boolean(null);
-      var f5 = boolean(NaN);
+      var f2 = Boolean(0);
+      var f3 = Boolean("");
+      var f4 = Boolean(null);
+      var f5 = Boolean(NaN);
       // true
       var t1 = true;
-      var t2 = boolean(1);
-      var t3 = boolean("hola");
-      var t4 = t2.valueOf();
-      var t5 = new Boolean(" ");
+      var t2 = Boolean(1);
+      var t3 = Boolean("hola");
+      var t4 = Boolean([1, 2, 3]);
+      var t5 = Boolean({1: 'test'});
     </script>
   </body>
 </html>
