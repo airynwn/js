@@ -43,8 +43,11 @@
             var zonahoraria = parseInt(document.getElementById("zona").value);
             var actualcero = new Date().getHours() - 1;
             var res = actualcero + zonahoraria;
-            if (res > 24) {
+            if (res >= 24) {
                 res -= 24;
+            }
+            if (res < 0) {
+                res = 24 + res;
             }
             alert("En UTC " + zonahoraria + " son las " + res);
         }
@@ -54,11 +57,12 @@
             var horas = miFecha.getHours() + parseInt(document.getElementById("zona").value) - 1;
             var minutos = miFecha.getMinutes();
             var segundos = miFecha.getSeconds();
-            if (horas > 12) {
-                ampm = 'pm';
-                horas -= 12;
-            } else {
-                ampm = 'am';
+
+            if (horas < 0) {
+                horas = 24 + horas;
+            }
+            if (horas >= 24) {
+                horas -= 24;
             }
 
             if (horas < 10) {
@@ -72,7 +76,7 @@
             }
 
             document.getElementById("hora").innerText = 
-            horas + ":" + minutos + ":" + segundos + " " + ampm;
+            horas + ":" + minutos + ":" + segundos + " ";
         }
         window.onload = function () {
             setInterval(crono, 1000);

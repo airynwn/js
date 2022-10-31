@@ -26,7 +26,7 @@
       var frase = prompt("Introduce una frase: ");
       var inicio = prompt("Introduce la marca de inicio: ");
       var fin = prompt("Introduce la marca de fin: ");
-      var extraida = frase.slice(frase.indexOf(inicio), frase.indexOf(fin) + 1);
+      var extraida = frase.slice(frase.indexOf(inicio), frase.lastIndexOf(fin) + 1);
       document.getElementById("completa").innerHTML =
         "Frase completa: " + frase;
       document.getElementById("extraida").innerHTML =
