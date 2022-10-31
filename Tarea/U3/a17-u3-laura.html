@@ -11,26 +11,22 @@
       El usuario deberá introducir un texto con varias lineas (crea un textarea). <br>
       Realizar un scrip que escriba en la primera palabra de cada frase.
     </h2>
-    <textarea id="texto" style="width: 200px; height: 200px">
-Primera línea hola
-Segunda líneaaa aaa aaaaaaaaaaaaaa
-Tercera línea
-Cuarta afdahdsfd
-Quinta dsjkfadds fdsa dsaf dasfndsa 
-Sexta   a a a a a a a a a a a a
-123 hola
-                test
-!!!! a
-    </textarea>
+    <textarea id="texto" style="width: 200px; height: 200px"></textarea>
     <br>
+    <div id="resultado"></div>
     <script type="text/javascript">
-      var patron = /^(\s)*\w+/gm;
-      var busqueda = document.getElementById("texto").innerHTML.match(patron);
-      var i = 1;
-      for (palabra of busqueda) {
-        document.write(i + ": " + palabra + "<br>");
-        i++;
+      function buscar() {
+        var patron = /^(\s)*\w+/gm;
+        var busqueda = document.getElementById("texto").value.match(patron);
+        var i = 1;
+        var res = "";
+        for (palabra of busqueda) {
+          res += i + ": " + palabra + "<br>";
+          i++;
+        }
+        document.getElementById("resultado").innerHTML = res;
       }
     </script>
+    <input type="button" value="buscar" onclick="buscar()">
   </body>
 </html>
