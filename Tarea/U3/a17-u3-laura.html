@@ -16,7 +16,8 @@
     <div id="resultado"></div>
     <script type="text/javascript">
       function buscar() {
-        var patron = /^(\s)*\w+/gm;
+        // var patron = /^(\s)*\w+/gm; (antiguo)
+        var patron = /^\w+|(?<=\.)(\s|\n)\w+/gm;
         var busqueda = document.getElementById("texto").value.match(patron);
         var i = 1;
         var res = "";
