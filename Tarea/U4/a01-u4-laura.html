@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importe</title>
+</head>
+<body>
+    <h2>Crea un script donde declares una función obtenerImporteConImpuestos que reciba dos parámetros: 
+
+El importe sin impuestos (numérico) 
+El tipo de producto (numérico entero). (tipo 1, tipo 2, tipo 3)
+    La función debe mostrar por pantalla el importe sin impuestos más el 21% si el tipo de producto es de tipo  1.
+
+    El importe sin impuestos más el 10% si el tipo de producto es tipo 2.
+
+    El importe sin impuestos más el 5% si el tipo de producto es tipo 3. 
+
+Si el usuario no especifica el tipo de producto, consideramos que es de tipo 1. Devolver la cantidad con dos cifras decimales.
+
+    (Función declarada)</h2>
+
+    <div id="res"></div>
+
+    <script type="text/javascript">
+        var sin = parseFloat(prompt("Introduce el importe sin impuestos"));
+        var tipo = parseInt(prompt("Introduce el tipo de producto"));
+        
+        function obtenerImporteConImpuestos (importeSinImpuestos, tipoProducto) {
+            // importe sin impuestos: numerico
+            // tipo del producto: numerico entero (tipo 1, tipo 2, tipo 3)
+            if (tipoProducto === 2) {
+                return (importeSinImpuestos + (importeSinImpuestos * 0.1)).toFixed(2);
+            } else if (tipoProducto === 3) {
+                return (importeSinImpuestos + (importeSinImpuestos * 0.05)).toFixed(2);
+            } else {
+                return (importeSinImpuestos + (importeSinImpuestos * 0.21)).toFixed(2);
+            }
+        }
+
+        document.getElementById("res").innerHTML = obtenerImporteConImpuestos(sin, tipo);
+    </script>
+</body>
+</html>
