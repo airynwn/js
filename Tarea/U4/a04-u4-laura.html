@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="buscar"></div>
+    <script type="text/javascript">
+        var arr = [];
+        for (i = 1, j = 0; i <= 21; i++) {
+            if (i % 2 != 0) {
+                arr[j] = i;
+                j++;
+            }
+        }
+        var suma = arr.reduce((total, num) => total + num, 0);
+        var reves = arr.reverse();
+        var busqueda = prompt("Escribe un valor");
+        if (arr.indexOf(busqueda) >= 0) {
+            document.getElementById("buscar").innerHTML = 
+            "La búsqueda tuvo éxito. Se encontró en la posición " + arr.indexOf(busqueda);
+            delete arr[arr.indexOf(busqueda)];
+        } else {
+            document.getElementById("buscar").innerHTML = "La busqueda no tuvo éxito";
+        }
+        var asc = arr.sort(function(a,b){return a-b});
+        var desc = arr.sort(function(a,b){return b-a});
+    </script>
+</body>
+</html>
