@@ -16,8 +16,11 @@
                 j++;
             }
         }
+        // document.write(arr);
         var suma = arr.reduce((total, num) => total + num, 0);
+        // document.write(suma)
         var reves = arr.reverse();
+        // document.write(reves);
         var busqueda = prompt("Escribe un valor");
         if (arr.indexOf(busqueda) >= 0) {
             document.getElementById("buscar").innerHTML = 
@@ -27,7 +30,9 @@
             document.getElementById("buscar").innerHTML = "La busqueda no tuvo éxito";
         }
         var asc = arr.sort(function(a,b){return a-b});
+        // document.write(asc);
         var desc = arr.sort(function(a,b){return b-a});
+        // document.write(desc);
     </script>
 </body>
 </html>
