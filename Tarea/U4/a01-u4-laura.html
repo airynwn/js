@@ -7,19 +7,26 @@
     <title>Importe</title>
 </head>
 <body>
-    <h2>Crea un script donde declares una función obtenerImporteConImpuestos que reciba dos parámetros: <br>
+    <h4>Crea un script donde declares una función obtenerImporteConImpuestos que reciba dos parámetros: <br>
 
 El importe sin impuestos (numérico) <br>
 El tipo de producto (numérico entero). (tipo 1, tipo 2, tipo 3) <br>
-    La función debe mostrar por pantalla el importe sin impuestos más el 21% si el tipo de producto es de tipo  1. <br>
+<ul>
+    <li>
+        La función debe mostrar por pantalla el importe sin impuestos más el 21% si el tipo de producto es de tipo  1.
+    </li>
+    <li>
+        El importe sin impuestos más el 10% si el tipo de producto es tipo 2.
+    </li>
+    <li>
+        El importe sin impuestos más el 5% si el tipo de producto es tipo 3. <br>
+    </li>
+    <li>
+        Si el usuario no especifica el tipo de producto, consideramos que es de tipo 1. Devolver la cantidad con dos cifras decimales. <br>
+    </li>
+</ul>
 
-    El importe sin impuestos más el 10% si el tipo de producto es tipo 2. <br>
-
-    El importe sin impuestos más el 5% si el tipo de producto es tipo 3. <br>
-
-Si el usuario no especifica el tipo de producto, consideramos que es de tipo 1. Devolver la cantidad con dos cifras decimales. <br>
-
-    (Función declarada)</h2>
+    (Función declarada)</h4>
 
     <div id="res"></div>
 
@@ -28,14 +35,12 @@ Si el usuario no especifica el tipo de producto, consideramos que es de tipo 1. 
         var tipo = parseInt(prompt("Introduce el tipo de producto"));
         
         function obtenerImporteConImpuestos (importeSinImpuestos, tipoProducto) {
-            // importe sin impuestos: numerico
-            // tipo del producto: numerico entero (tipo 1, tipo 2, tipo 3)
-            if (tipoProducto === 2) {
-                return (importeSinImpuestos + (importeSinImpuestos * 0.1)).toFixed(2);
-            } else if (tipoProducto === 3) {
-                return (importeSinImpuestos + (importeSinImpuestos * 0.05)).toFixed(2);
-            } else {
-                return (importeSinImpuestos + (importeSinImpuestos * 0.21)).toFixed(2);
+            if (tipoProducto == 2) {
+                return (importeSinImpuestos * 1.1).toFixed(2);
+            } else if (tipoProducto == 3) {
+                return (importeSinImpuestos * 1.05).toFixed(2);
+            } else if (tipoProducto == 1 || isNaN(tipoProducto)) {
+                return (importeSinImpuestos * 1.21).toFixed(2);
             }
         }
 

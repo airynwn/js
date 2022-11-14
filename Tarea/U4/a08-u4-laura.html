@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nuevos metodos de arrays (2)</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+          <th>Array original</th>
+          <th>¿Son enteros positivos?</th>
+          <th>Valores por triple</th>
+          <th>Multiplicación</th>
+        </thead>
+        <tr>
+          <td id="arr1"></td>
+          <td id="positivo"></td>
+          <td id="triple"></td>
+          <td id="multi"></td>
+        </tr>
+      </table>
+    <script type="text/javascript">
+        function nuevosMetodos() {
+            var arr = Array.from({length: 5}, () => parseInt(prompt("Introduce un valor")));
+            document.getElementById("arr1").innerHTML = arr;
+            document.getElementById("positivo").innerHTML = (arr.slice().every(elem => elem >= 0)) ? 'Sí' : 'No';
+            document.getElementById("triple").innerHTML = arr.slice().map(num => num * 3);
+            document.getElementById("multi").innerHTML = arr.slice().reduce((total, num) => total * num, 1);
+        }
+        nuevosMetodos();
+    </script>
+</body>
+</html>

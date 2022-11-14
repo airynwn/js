@@ -6,23 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body><h3>Crear un vector de 10 elementos con valores aleatorios comprendidos entre 0 y 1000. <br>
+
+        Buscar el menor y el mayor. Generar otro vector a partir de él que deje fuera dichos valores. <br>
+        
+        (NOTA: puedes utilizar los métodos sort() y slice()  )</h3>
     <div id="arr1"></div>
     <div id="min"></div>
     <div id="max"></div>
     <div id="otro"></div>
     <script type="text/javascript">
-        var arr = [];
-        for (i = 0; i < 10; i++) {
-            arr[i] = Math.floor(Math.random() * 1001);
+        function randomval() {
+            var arr = [];
+            for (i = 0; i < 10; i++) {
+                arr[i] = Math.floor(Math.random() * 1001);
+            }
+            document.getElementById("arr1").innerHTML = "<b>Original</b>: " + arr;
+            var menor = arr.sort(function(a,b){return a-b})[0];
+            var mayor = arr.sort(function(a,b){return b-a})[0];
+            document.getElementById("min").innerHTML = "<b>Menor</b>: " + menor;
+            document.getElementById("max").innerHTML = "<b>Mayor</b>: " + mayor;
+            var nuevo = arr.sort(function(a,b){return a-b}).slice(1, arr.length - 1);
+            document.getElementById("otro").innerHTML = "<b>Nuevo array sin menor y mayor</b>: " + nuevo;
         }
-        document.getElementById("arr1").innerHTML = arr;
-        var menor = arr.sort(function(a,b){return a-b})[0];
-        var mayor = arr.sort(function(a,b){return b-a})[0];
-        document.getElementById("min").innerHTML = "Menor: " + menor;
-        document.getElementById("max").innerHTML = "Mayor: " + mayor;
-        var nuevo = arr.sort(function(a,b){return a-b}).slice(1, arr.length - 1);
-        document.getElementById("otro").innerHTML = "Nuevo: " + nuevo;
-    </script>
+
+        randomval();
+        </script>
 </body>
 </html>

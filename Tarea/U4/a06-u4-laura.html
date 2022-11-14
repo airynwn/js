@@ -8,7 +8,42 @@
 </head>
 <body>
     <script type="text/javascript">
-        
+        function notasAlumnos() {
+            // queeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+            
+            // var mod = prompt("Introduce tres módulos separados por comas: ").split(",");
+            // var alum = prompt("Introduce cinco alumnos separados por comas: ").split(",");
+
+            var arr = [];
+            arr[0][0] = prompt("Introduce el primer módulo");
+            arr[0][1][0], arr[0][1][1] = prompt(`Introduce el nombre del primer alumno \
+                            y su nota en ${arr[0][0]} separados por comas`).split(",");
+            arr[1][0] = prompt("Introduce el segundo módulo");
+            arr[2][0] = prompt("Introduce el tercer módulo");
+
+            var ar = [];
+            for (fila = 0, m = 0, a = 0, n = 0; fila <= 2; fila++, m++, a++, n++) {
+                if (a > 4) {
+                    a = 0;
+                }
+                if (n > 4) {
+                    n = 0;
+                }
+                ar[fila][m] = prompt()
+
+                m = 0;
+            }
+
+            var test = [
+                [
+                    mod[0], [[a[0], a1n1], [a[1], a2n1], [a[2], a3n1], [a[3], a4n1], [a[4], a5n1]]
+                ], [
+                    mod[1], [[a[0], a1n2], [a[1], a2n2], [a[2], a3n2], [a[3], a4n2], [a[4], a5n2]]
+                ], [
+                    mod[2], [[a[0], a1n3], [a[1], a2n3], [a[2], a3n3], [a[3], a4n3], [a[4], a5n3]]
+                ], 
+            ]
+        }
     </script>
 </body>
 </html>

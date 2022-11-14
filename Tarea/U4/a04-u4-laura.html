@@ -7,32 +7,68 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="buscar"></div>
+    <h3>Crea un array con los números impares del 1 al 21.
+        <ul>
+            <li>
+                Calcula el sumatorio de dichos números impares e imprime el resultado.
+            </li>
+            <li>
+                Muestra en orden inverso el array creado anteriormente.
+            </li>
+            <li>
+                Lea un valor que escriba el usuario y búsquelo en el array. Indique si la búsqueda tuvo éxito indicando la posición o si no tuvo éxito.
+            </li>
+            <li>
+                En caso de tener éxito, borra su valor.
+            </li>
+            <li>
+                Muéstrelo ordenado de forma ascendente, y a continuación de forma descendente.
+            </li>
+        </ul>
+    </h3>
+    <table border="1">
+        <thead>
+          <th>Sumatorio</th>
+          <th>Orden inverso</th>
+          <th>Búsqueda</th>
+          <th>Ascendente</th>
+          <th>Descendente</th>
+        </thead>
+        <tr>
+          <td id="sumatorio"></td>
+          <td id="inverso"></td>
+          <td id="buscar"></td>
+          <td id="ascen"></td>
+          <td id="descen"></td>
+        </tr>
+      </table>
     <script type="text/javascript">
-        var arr = [];
-        for (i = 1, j = 0; i <= 21; i++) {
-            if (i % 2 != 0) {
-                arr[j] = i;
-                j++;
+        function impares() {     
+            var arr = [];
+            for (i = 1, j = 0; i <= 21; i++) {
+                if (i % 2 != 0) {
+                    arr[j] = i;
+                    j++;
+                }
             }
+            var suma = arr.reduce((total, num) => total + num, 0);
+            document.getElementById("sumatorio").innerHTML = suma;
+            var reves = arr.slice().reverse();
+            document.getElementById("inverso").innerHTML = reves;
+            var busqueda = parseInt(prompt("Escribe un valor"));
+            if (arr.indexOf(busqueda) >= 0) {
+                document.getElementById("buscar").innerHTML = 
+                "La búsqueda tuvo éxito. Se encontró en la posición " + arr.indexOf(busqueda);
+                delete arr[arr.indexOf(busqueda)];
+            } else {
+                document.getElementById("buscar").innerHTML = "La busqueda no tuvo éxito";
+            }
+            var asc = arr.sort(function(a,b){return a-b});
+            document.getElementById("ascen").innerHTML = asc;
+            var desc = arr.sort(function(a,b){return b-a});
+            document.getElementById("descen").innerHTML = desc;
         }
-        // document.write(arr);
-        var suma = arr.reduce((total, num) => total + num, 0);
-        // document.write(suma)
-        var reves = arr.reverse();
-        // document.write(reves);
-        var busqueda = prompt("Escribe un valor");
-        if (arr.indexOf(busqueda) >= 0) {
-            document.getElementById("buscar").innerHTML = 
-            "La búsqueda tuvo éxito. Se encontró en la posición " + arr.indexOf(busqueda);
-            delete arr[arr.indexOf(busqueda)];
-        } else {
-            document.getElementById("buscar").innerHTML = "La busqueda no tuvo éxito";
-        }
-        var asc = arr.sort(function(a,b){return a-b});
-        // document.write(asc);
-        var desc = arr.sort(function(a,b){return b-a});
-        // document.write(desc);
+        impares();
     </script>
 </body>
 </html>

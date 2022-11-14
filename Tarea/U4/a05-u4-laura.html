@@ -8,17 +8,25 @@
 </head>
 <body>
     <script type="text/javascript">
-        var arr = [];
-        for (i = 0; i < 5; i++) {
-            arr[i] = prompt("Introduce una palabra");
+        // numero de palabras ???
+        function palabras() {
+            var arr = [];
+            for (i = 0; i < 5; i++) {
+                arr[i] = prompt("Introduce una palabra");
+            }
+            var reves = arr.slice().reverse();
+            var primera = arr[0];
+            var ultima = arr[arr.length - 1];
+            var num = arr.length;
+            var asc = arr.slice().sort();
+            var desc = arr.slice().sort().reverse();
+            alert(
+                "Todas las palabras: " + arr + "\n" + "Todas al revés: " + reves + "\n" + 
+                "Primera: " + primera + "\n" + "Última: " + ultima + "\n" + 
+                "Número de palabras: " + num + "\n" + "Orden A-Z: " + asc + "\n" + "Orden Z-A: " + desc
+                );
         }
-
-        // todas: arr
-        var reves = arr.reverse();
-        var primera = arr[0];
-        var ultima = arr[arr.length - 1];
-        var num = arr.length;
-        var asc = arr.sort();
+        palabras();
     </script>
 </body>
 </html>

@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vectores</title>
+  </head>
+  <body>
+    <h3>
+      Realiza los cambios necesarios en el ejercicio anterior para que la última
+      acción de generar un nuevo vector a partir de los valores de otro, dejando
+      fuera el primer y último, pase a ser un método del objeto Array.
+    </h3>
+    <table border="1">
+      <thead>
+        <th>Array original</th>
+        <th>Sin primer ni último valor</th>
+      </thead>
+      <tr>
+        <td id="arr1"></td>
+        <td id="nuevo"></td>
+      </tr>
+    </table>
     <script type="text/javascript">
-        Array.prototype.nombre = function {
-            //noseque
-        }
+      Array.prototype.randomval = function (arr) {
+        document.getElementById("arr1").innerHTML = arr;
+        var nuevo = arr.slice(1, arr.length - 1);
+        document.getElementById("nuevo").innerHTML = nuevo;
+      };
+
+      Array.prototype.randomval([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]); // ej
     </script>
-</body>
+  </body>
 </html>
