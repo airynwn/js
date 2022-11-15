@@ -23,10 +23,10 @@
             }
             document.getElementById("arr1").innerHTML = "<b>Original</b>: " + arr;
             var menor = arr.sort(function(a,b){return a-b})[0];
-            var mayor = arr.sort(function(a,b){return b-a})[0];
+            var mayor = arr.sort(function(a,b){return b-a})[0]; // o el ultimo de menor
             document.getElementById("min").innerHTML = "<b>Menor</b>: " + menor;
             document.getElementById("max").innerHTML = "<b>Mayor</b>: " + mayor;
-            var nuevo = arr.sort(function(a,b){return a-b}).slice(1, arr.length - 1);
+            var nuevo = arr.slice(1, arr.length - 1);
             document.getElementById("otro").innerHTML = "<b>Nuevo array sin menor y mayor</b>: " + nuevo;
         }
 
