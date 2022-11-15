@@ -23,13 +23,13 @@
       </tr>
     </table>
     <script type="text/javascript">
-      Array.prototype.randomval = function (arr) {
-        return arr.slice(1, arr.length - 1);
+      Array.prototype.randomval = function () {
+        return this.slice(1, this.length - 1);
       };
       // ejemplo
       var a = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
       document.getElementById("arr1").innerHTML = a;
-      var nuevo = Array.prototype.randomval(a); 
+      var nuevo = a.randomval(); 
       document.getElementById("nuevo").innerHTML = nuevo;
     </script>
   </body>
