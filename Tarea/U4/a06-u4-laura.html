@@ -7,43 +7,67 @@
     <title>alumnos</title>
 </head>
 <body>
+    <table border="1">
+        <thead>
+          <th>Nombre</th>
+          <th>Módulo 1<th>
+          <th>Módulo 2</th>
+          <th>Módulo 3</th>
+        </thead>
+        <tr>
+          <td id="1"></td>
+          <td id="2"></td>
+          <td id="3"></td>
+          <td id="4"></td>
+        </tr>
+      </table>
+      <table border="1">
+        <thead>
+            <th>nombre</th>
+            <th>mod1</th>
+            <th>mod2</th>
+            <th>mod3</th>
+        </thead>
+        <tr>
+            <td id="a1">hola</td>
+            <td id="a2">mod1</td>
+            <td id="a3">mod2</td>
+            <td id="a4">mod3</td>
+        </tr>
+      </table>
     <script type="text/javascript">
-        function notasAlumnos() {
-            // queeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-            
-            // var mod = prompt("Introduce tres módulos separados por comas: ").split(",");
-            // var alum = prompt("Introduce cinco alumnos separados por comas: ").split(",");
-
-            var arr = [];
-            arr[0][0] = prompt("Introduce el primer módulo");
-            arr[0][1][0], arr[0][1][1] = prompt(`Introduce el nombre del primer alumno \
-                            y su nota en ${arr[0][0]} separados por comas`).split(",");
-            arr[1][0] = prompt("Introduce el segundo módulo");
-            arr[2][0] = prompt("Introduce el tercer módulo");
-
-            var ar = [];
-            for (fila = 0, m = 0, a = 0, n = 0; fila <= 2; fila++, m++, a++, n++) {
-                if (a > 4) {
-                    a = 0;
-                }
-                if (n > 4) {
-                    n = 0;
-                }
-                ar[fila][m] = prompt()
-
-                m = 0;
-            }
-
-            var test = [
-                [
-                    mod[0], [[a[0], a1n1], [a[1], a2n1], [a[2], a3n1], [a[3], a4n1], [a[4], a5n1]]
-                ], [
-                    mod[1], [[a[0], a1n2], [a[1], a2n2], [a[2], a3n2], [a[3], a4n2], [a[4], a5n2]]
-                ], [
-                    mod[2], [[a[0], a1n3], [a[1], a2n3], [a[2], a3n3], [a[3], a4n3], [a[4], a5n3]]
-                ], 
-            ]
+        function validarNota(nota) {
+            while (nota < 0 || nota > 10 || isNaN(nota)) {
+                nota = parseInt(prompt("Debes introducir una nota válida comprendida entre 0 y 10."));
+            } 
+            return nota;
         }
+
+        function notasAlumnos() {
+            var arr = [];
+            for (fila = 0; fila < 2; fila++) {
+                let alu = prompt(`Nombre del alumno ${fila + 1}`);
+                let nota1 = validarNota(parseInt(prompt(`Nota de ${alu} en el primer módulo`)));
+                let nota2 = validarNota(parseInt(prompt(`Nota de ${alu} en el segundo módulo`)));
+                let nota3 = validarNota(parseInt(prompt(`Nota de ${alu} en el tercer módulo`)));
+
+                arr[fila] = [
+                    alu,
+                    nota1,
+                    nota2,
+                    nota3
+                ]
+            }
+            return arr;
+        }
+        
+        // falta esto de ponerlo bien en la tabla que no se como lo quiere
+        var arr = notasAlumnos();
+        document.write(arr[0]);
+        document.getElementById("a1").innerHTML = arr[0][0];
+        document.getElementById("a2").innerHTML = arr[0][1];
+        document.getElementById("a3").innerHTML = arr[0][2];
+        document.getElementById("a4").innerHTML = arr[0][3];
     </script>
 </body>
 </html>
