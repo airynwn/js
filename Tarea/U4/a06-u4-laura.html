@@ -9,31 +9,16 @@
 <body>
     <table border="1">
         <thead>
-          <th>Nombre</th>
-          <th>Módulo 1<th>
-          <th>Módulo 2</th>
-          <th>Módulo 3</th>
+            <th>Alumno</th>
+            <th>Módulo 1</th>
+            <th>Módulo 2</th>
+            <th>Módulo 3</th>
         </thead>
-        <tr>
-          <td id="1"></td>
-          <td id="2"></td>
-          <td id="3"></td>
-          <td id="4"></td>
-        </tr>
-      </table>
-      <table border="1">
-        <thead>
-            <th>nombre</th>
-            <th>mod1</th>
-            <th>mod2</th>
-            <th>mod3</th>
-        </thead>
-        <tr>
-            <td id="a1">hola</td>
-            <td id="a2">mod1</td>
-            <td id="a3">mod2</td>
-            <td id="a4">mod3</td>
-        </tr>
+        <tr id="1"></tr>
+        <tr id="2"></tr>
+        <tr id="3"></tr>
+        <tr id="4"></tr>
+        <tr id="5"></tr>
       </table>
     <script type="text/javascript">
         function validarNota(nota) {
@@ -45,7 +30,7 @@
 
         function notasAlumnos() {
             var arr = [];
-            for (fila = 0; fila < 2; fila++) {
+            for (fila = 0; fila < 5; fila++) {
                 let alu = prompt(`Nombre del alumno ${fila + 1}`);
                 let nota1 = validarNota(parseInt(prompt(`Nota de ${alu} en el primer módulo`)));
                 let nota2 = validarNota(parseInt(prompt(`Nota de ${alu} en el segundo módulo`)));
@@ -60,14 +45,19 @@
             }
             return arr;
         }
-        
-        // falta esto de ponerlo bien en la tabla que no se como lo quiere
-        var arr = notasAlumnos();
-        document.write(arr[0]);
-        document.getElementById("a1").innerHTML = arr[0][0];
-        document.getElementById("a2").innerHTML = arr[0][1];
-        document.getElementById("a3").innerHTML = arr[0][2];
-        document.getElementById("a4").innerHTML = arr[0][3];
+
+        function crearFilas(arr) {
+            for (fila = 1; fila <= 5; fila++) {
+                var total = "";
+                for (i of arr[`${fila}` - 1]) {
+                    total += `<td>${i}</td>`;
+                }
+                document.getElementById(`${fila}`).innerHTML = total;
+                    
+            }
+        }
+        var notas = notasAlumnos();
+        crearFilas(notas);
     </script>
 </body>
 </html>
