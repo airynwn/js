@@ -8,59 +8,65 @@
   </head>
   <body>
     <script type="text/javascript">
-      // ponerlo bonito
       function Vehiculo(marca, modelo, color, anoFabricacion) {
-        // Crear objeto Vehículo.
-        this.marca = marca; // Crear constructor.
-        this.modelo = modelo; // Crear propiedades: marca, modelo, color y año fabricación
+        // Crear objeto Vehículo. // a. Crear constructor.
+        this.marca = marca; // b.Crear propiedades: marca, modelo, color y año fabricación
+        this.modelo = modelo; 
         this.color = color;
         this.anoFabricacion = anoFabricacion;
-      } // Instanciar dos objetos.
+      } 
+      // c. Instanciar dos objetos.
       var vehi1 = new Vehiculo("Renault", "Clio", "Rojo", 2022);
       var vehi2 = new Vehiculo("Nissan", "Micra", "Negro", 2021);
-      //   alert(vehi1.marca); // una propiedad con notación por puntos. Objeto 1 - marca.
 
-      //   alert(vehi2["color"]); // propiedad con notación por corchetes. Objeto 2 - color.
+      alert(vehi1.marca); // d. una propiedad con notación por puntos. Objeto 1 - marca.
+      alert(vehi2["color"]); // e. una propiedad con notación por corchetes. Objeto 2 - color.
 
       Vehiculo.prototype.mostrarDatos = function () {
-        // Crear el método mostrarDatos.
+        // f. Crear el método mostrarDatos.
         return `Marca: ${this.marca}\nModelo: ${this.modelo}\n\
             Color: ${this.color}\nAño de fabricación: ${this.anoFabricacion}`;
       };
-      // Crear un método que tenga argumentos acelerar(velocidad).
-      //      Mostrará por pantalla que el coche ha acelerado a la velocidad pasada.
       Vehiculo.prototype.acelerar = function (velocidadd) {
-        return "El coche ha acelerado a " + velocidad + ".";
+        // g. Crear un método que tenga argumentos acelerar(velocidad).
+        // Mostrará por pantalla que el coche ha acelerado a la velocidad pasada.
+        return "El coche ha acelerado a " + velocidad + "km.";
       };
 
-      // . Crear un método con función interna arrancar.
-      //      Mostrará por pantalla que el coche de marca _, modelo_, de color_ ha arrancado.
       Vehiculo.prototype.arrancar = function () {
+        // h. Crear un método con función interna arrancar.
+        // Mostrará por pantalla que el coche de marca _, modelo_, de color_ ha arrancado.
         return `El coche de marca ${this.marca}, modelo ${this.modelo},\
         de color ${this.color} ha arrancado.`;
       };
 
-      // Asignar unanueva propiedad cilindrada
-      Vehiculo.prototype.cilindrada = "no se que es";
-      // Asignar un nuevo método frenar.
-      //Mostrará por pantalla que el coche de marca_, modelo_, color_ ha parado).
+      Vehiculo.prototype.cilindrada = null; // i. Asignar una nueva propiedad cilindrada
+
       Vehiculo.prototype.frenar = function () {
+        // j. Asignar un nuevo método frenar.
+        // Mostrará por pantalla que el coche de marca_, modelo_, color_ ha parado).
         return `El coche de marca ${this.marca}, modelo ${this.modelo},\
         de color ${this.color} ha parado.`;
       };
-      // Muestra todas las propiedades de Objeto1 utilizando:
-      //for in , Object.hasOwnPropertyNames(), Object.keys().
-      //Observa y analiza las diferencias. ¿Cómo se podrían modificar las propiedades a mostrar?
-      document.write("<b>For in</b>: <br>");
+
+      // k. Muestra todas las propiedades de Objeto1 utilizando:
+      // for in , Object.hasOwnPropertyNames(), Object.keys().
+      // Observa y analiza las diferencias. 
+      document.write("<b>For in muestra todas las propiedades,\
+      independientemente de si se han creado en el constructor o después. <br>\
+      También muestra todos los métodos. </b><br>");
       for (i in vehi1) {
         document.write(i + "<br>");
       }
 
-      document.write("<b>Property Names</b>: <br>");
+      document.write("<b>Object.getOwnPropertyNames() devuelve todas las propiedades de un objeto, \
+        ya sean enumerables o no.</b> <br>");
       document.write(Object.getOwnPropertyNames(vehi1));
 
-      document.write("<br><b>Keys</b>: <br>");
+      document.write("<br><b>Object.keys() devuelve las propiedades enumerables de un objeto.</b> <br>");
       document.write(Object.keys(vehi1));
+
+      // ¿Cómo se podrían modificar las propiedades a mostrar?
     </script>
   </body>
 </html>
