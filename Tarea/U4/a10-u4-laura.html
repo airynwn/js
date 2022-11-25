@@ -29,6 +29,9 @@
       var vehi1 = new Vehiculo("Renault", "Clio", "Rojo", 2022, 150);
       var vehi2 = new Vehiculo("Nissan", "Micra", "Negro", 2021, 100);
 
+      var tabla;
+      var cabecera;
+
       function crearTabla() {
 
         tabla = document.createElement("table");
@@ -44,7 +47,7 @@
           cabecera.appendChild(col);
         } 
         tabla.appendChild(cabecera);
-        }
+      }
         Vehiculo.prototype.crearFila = function () {
         var tr = tabla.insertRow();
         for (propiedad of Object.values(this)) {
