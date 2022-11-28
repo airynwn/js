@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body onload="alert('la pagina se ha cargado bien')">
+    <!-- Manejadores como atributos HTML -->
+    <h1
+      id="man1"
+      onckick="this.innerHTML='Javascript, Manejadores como atributo'"
+      onmouseout="this.style.background='red'"
+      onmouseover="this.style.background='blue'"
+    >
+      clickea aqui
+    </h1>
+    <!-- Manejadores como funciones externas -->
+    <h3
+      onclick="cambiar(this)"
+      onmouseout="fuera(this)"
+      onmouseover="dentro(this)"
+    >
+      pulsa para ver que sucede
+    </h3>
+
+    <script type="text/javascript">
+      function cambiar(elem) {
+        elem.innerHTML = "Javascript, manejadores como funciones externas";
+      }
+
+      function dentro(elem) {
+        elem.style.background = "blue";
+      }
+
+
+      function fuera(elem) {
+        elem.style.background = "red";
+      }
+    </script>
+
+    <a href="http://www.google.com" onclick="preguntar()">pincha aqui</a>
+
+    <script type="text/javascript">
+        function preguntar() {
+            if (confirm("Deseas ir a la página?")) {
+
+            }
+        }
+    </script>
+  </body>
+</html>
