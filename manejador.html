@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button type="button" onclick="alert('hola')">pulsa</button>
+        <button type="button" onmouseover="alert('hola')">pulsa</button>
+    </div>
+    <div id="contenidos" style="width: 150px; height: 60px; border: thin solid orange"
+    onmouseover="this.style.borderColor='black'"></div>
+    <a id="link" href="http://www.google.com">pincha</a>
+    <script type="text/javascript">
+        var link = document.getElementById("link");
+        link.addEventListener('click',function(e){
+            e.preventDefault(),
+            alert('has hecho click')
+        });
+    </script>
+</body>
+</html>
