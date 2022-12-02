@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1 id="evento">obtener informacion</h1>
-    <script type="text/javascript">
-        var evento = document.getElementById("evento");
-        evento.addEventListener('onmouseover', manejador);
-        evento.addEventListener('onmouseout', manejador);
+    <h1 id="evento1">evento 1</h1>
 
-        function manejador(e) {
-            if (!e) e = window.event;
-            switch(e.type) {
-                case "mouseover":
-                    this.style.color="blue";
-                case "mouseout":
-                    this.style.color="red";
-            }
+    <script type="text/javascript">
+      var evento = document.getElementById("evento");
+      evento.addEventListener("onmouseover", manejador);
+      evento.addEventListener("onmouseout", manejador);
+      // evento1.addEventListener
+
+      function manejador(e) {
+        if (!e) e = window.event;
+        switch (e.type) {
+          case "mouseover":
+            this.style.color = "blue";
+          case "mouseout":
+            this.style.color = "red";
         }
+      }
+
+      function saludar(e) {
+        if (!e) e = window.event;
+        if (e.target.id == "evento1" || e.target.id == "evento2") {
+          alert("has pinchado el evento " + e.target.id);
+        }
+      }
     </script>
-</body>
+  </body>
 </html>
