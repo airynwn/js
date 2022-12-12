@@ -5,39 +5,163 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de datos personales</title>
+    <style>
+        .verde {
+            background-color: chartreuse;
+            border: 4px dashed green;
+        }
+
+        .azul {
+            background-color: turquoise;
+            border: 2px solid purple;
+        }
+
+    </style>
 </head>
 <body>
     <form action="">
-        <fieldset>
+        <fieldset class="verde">
         <legend>Datos personales</legend>
         <div>
         <label for="nombre">
             Nombre:
-            <input type="text" name="nombre" id="nombre">
+            <input type="text" name="nombre" id="nombre" size="20" required>
         </label>
         </div>
         <div>
         <label for="apellidos">
             Apellidos:
-            <input type="text" name="apellidos" id="apellidos">
+            <input class="azul" type="text" name="apellidos" id="apellidos" size="20" required>
         </label>
         </div>
         <div>
         <label for="web">
             Página web:
-            <input type="url" name="web" id="web">
+            <input type="url" name="web" id="web" size="20" required>
         </label>
         </div>
         <div>
         <label for="correo">
             Correo:
-            <input type="email" name="correo" id="correo">
+            <input type="email" name="correo" id="correo" size="20" required>
+        </label>
+        </div>
+        <div>
+            <label for="texto">
+                Texto:
+                <textarea name="texto" id="texto" cols="30" rows="5"></textarea>
+            </label>
+        </div>
+        <div>
+            <label for="color">
+                Color:
+                <input type="color" name="color" id="color" required>
+            </label>
+        </div>
+        <div>
+            <select name="genero" id="genero" multiple>
+                <option value="mujer">Mujer</option>
+                <option value="hombre">Hombre</option>
+                <option value="nsnc">Prefiero no contestar</option>
+            </select>
+        </div>
+        <div>
+            <input name="gen" type="checkbox" value="mu"/> Mujer <br>
+            <input name="gen" type="checkbox" value="ho"/> Hombre <br>
+            <input name="gen" type="checkbox" value="no"/> Prefiero no contestar
+        </div>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Login</legend>
+        <label for="user">
+            Usuario:
+            <input type="text" name="user" id="user" size="20" required>
+        </label>
+    </div>
+    <div>
+        <label for="pw">
+            Contraseña:
+            <input type="password" name="pw" id="pw" size="20" required>
         </label>
         </div>
     </fieldset>
-    <button type="submit">Enviar</button>
-    <button type="reset">Borrar</button>
+
+    <fieldset>
+        <legend>Consentimiento</legend>
+            <input name="noticia" type="checkbox" value="noticia" checked="checked"/>
+            Quiero enterarme de las noticias y ofertas
+            <br>
+            <input name="condiciones" type="checkbox" value="condiciones"/>
+            Declaro haber leído y aceptar las condiciones del programa y la normativa sobre protección de datos
+    </fieldset>
+
+    <fieldset>
+        <legend>Preferencias</legend>
+            <input name="js" type="radio" value="js"/>
+            javascript
+            <br>
+            <input name="py" type="radio" value="py"/>
+            python
+            <br>
+            <input name="html" type="radio" value="html"/>
+            html
+    </fieldset>
+
+    <fieldset>
+        <legend>reserva hotel</legend>
+            fecha de llegada:
+            <input name="llegada" type="date"/>
+            <br>
+            hora de entrada:
+            <input name="entrada" type="time"/>
+            <br>
+            fecha de salida:
+            <input name="fsalida" type="date"/>
+            <br>
+            hora de salida:
+            <input name="hsalida" type="time"/>
+    </fieldset>
+
+    <fieldset>
+        <legend>compra</legend>
+            numero de botellas:
+            <input type="number" name="paquete" id="paquete" step="2">
+            <br>
+            numero de botellas en paquete:
+            <input type="number" name="paquete" id="paquete">
+            <br>
+            carne:
+            <select name="carne" id="carne">
+                <option value="e">elija</option>
+                <option value="cr">carne roja</option>
+                <option value="cv">carne vegana</option>
+            </select>
+            <br>
+            cantidad:
+            <input type="text" placeholder="10kg o 10gr"
+            pattern="[0-9]+(kg|gr)">
+            <br>
+            carne:
+            <select name="carne2" id="carne2">
+                <optgroup label="Carne roja">
+                  <option value="e">Elija</option>
+                  <option value="ter">Ternera</option>
+                  <option value="cer">Cerdo</option>
+                  <option value="bu">Buey</option>
+                </optgroup>
+                <optgroup label="Carne blanca">
+                  <option value="pollo">POLLO</option>
+                  <option value="pavo">pavo</option>
+                  <option value="conejo">conejo</option>
+                </optgroup>
+              </select>
+    </fieldset>
+    
+    <br>
+    <input class="azul" type="submit" name="enviar" value="Enviar"></button>
+    <input type="reset" name="borrar" value="Borrar"></button>
     </form>
-    <script type="text/javascript"></script>
+<script type="text/javascript"></script>
 </body>
 </html>
