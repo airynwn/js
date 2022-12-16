@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+function iniciar() {
+    document.getElementById("enviar").addEventListener('click', validar, false);
+}
+
+function validaNombre() {
+    var nombre = document.forms[0].elements[0];
+    if (!nombre.checkValidity()) {
+        if (nombre.validity.valueMissing) {
+            alert("el campo esta mal");
+            error(nombre, "El campo nombre no puede estar vacío");
+        }
+        if (nombre.validity.patternMismatch) {
+            error(nombre, "El campo nombre debe tener entre 2 y 15 letras");
+        }
+        return false;
+    }
+    return true;
+
+}
+
+function validar(e) {
+    if (validaNombre() && validaTelefono() && validaEdad()
+    && confirm("Pulsa aceptar si deseas enviar el formulario")) {
+        return true;
+    } else {
+        e.preventDefault();
+        return false;
+    }
+}
+
+function error(err, msg) {
+    document.getElementById("mensajeerror").innerHTML=err.validationMessage;
+    err.className="error";
+    err.focus();
+}
+
+    </script>
+
+<form action="">
+        <fieldset>
+            <legend>Formulario</legend>
+        <label for="nombre">
+            Nombre:
+        </label>
+        <input type="text" name="nombre" id="nombre"
+        pattern="[a-zA-Z]{2,15}" required>
+        <br>
+        <label for="edad">
+            Edad:
+        </label>
+        <input type="number" name="edad" id="edad"
+        min="18" max="100">
+        <br>
+        <label for="tlf">
+            Teléfono:
+        </label>
+        <input type="tel" name="tlf" id="tlf"
+        pattern="\d{9}">
+        <!-- <label for="fecnac">
+            Fecha de nacimiento:
+        </label>
+        <input type="date" name="fecnac" id="fecnac"> -->
+        <br>
+        <p id="mensajeerror"></p>
+        <br><button type="submit" value="enviar">Enviar</button><br>
+        <button type="reset" value="borrar">Borrar</button>
+    </fieldset>
+    </form>
+</body>
+</html>
