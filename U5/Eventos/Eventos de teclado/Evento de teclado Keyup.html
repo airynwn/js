@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Eventos de teclado</title>
+    </head>
+
+    <body>
+
+        <input type="text" id="texto" maxlength="20">
+        <p> Maxima cantidad de caracteres disponibles 
+            <span id="cantidad">20</span>
+        </p>
+
+        <script>
+            /*Podemos hacer uso de los distintos eventos de teclado como keypress, keydown y keyup y analizar las diferencias*/
+            addEventListener("DOMContentLoaded",tecla,false);
+            
+            var texto = document.getElementById("texto");
+
+            function tecla(){
+                texto.addEventListener("keyup",pulsa);
+            }
+
+            function pulsa(){
+                var cant= document.getElementById('texto').value.length;
+                var disp=20-parseInt(cant);
+                console.log(disp);
+                document.getElementById('cantidad').innerHTML=disp;
+
+            }
+        </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Validación mixta</title>
+
+        <script src="validacion1.js"></script>
+
+        <style>
+            .error {
+                border: solid 4px #FF0000;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <h1>Validación (atributos HTML + JavaScript) </h1>
+
+        <form action= "" method= "" id="miFormulario">
+            <fieldset><legend>Formulario</legend>
+                <p>Nombre: <input type="text" name="nombre" id="nombre" maxlength="15" pattern="[A-Za-z]{2,15}" title="Introduce entre 2 y 15 letras" required/></p>
+
+                <p>Edad: <input type="number" name="edad" id="edad" min="18" max="100" required/></p>
+
+                <p>Telefono: <input type="text" name="telefono" id="telefono" pattern="[0-9]{9}"  required/> </p>
+            </fieldset>     
+            <p id="mensajeError"></p>
+
+            <p>
+                <input type="submit" value="Enviar" id="enviar" />
+                <input type="reset" value="Borrar" id="borrar" />
+            </p>
+        
+        </form>
+
+    </body>
+</html>

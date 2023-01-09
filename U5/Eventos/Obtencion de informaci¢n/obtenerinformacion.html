@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="evento"> Obtener informacion de un evento</h1>
+    <h1 id="evento1"> Evento 1</h1>
+    <h1 id="evento2"> Evento 2</h1>
+    <script>
+        var evento = document.getElementById("evento");
+        var evento1= document.getElementById("evento1");
+        var evento2= document.getElementById("evento2");
+        evento.addEventListener("mouseover",manejador);
+        evento.addEventListener("mouseout",manejador);
+        evento1.addEventListener("click",saludar);
+        evento2.addEventListener("click",saludar);
+
+
+
+        
+        function manejador(e){
+            
+            switch(e.type){
+                case "mousif(!e) e = window.eventeover": this.style.color="blue";
+                break;
+                case "mouseout": this.style.color= "red";
+                break;
+
+            }
+        }
+
+        function saludar(e){
+            if(!e) e = window.event
+
+            if(e.target.id == "evento1"|| "evento2") alert("Has seleccionado el "+e.target.id);
+        }
+
+    </script>
+</body>
+</html>

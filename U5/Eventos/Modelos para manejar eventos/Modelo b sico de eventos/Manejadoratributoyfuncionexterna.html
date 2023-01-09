@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Modelo básico de eventos</title>
+
+</head>
+
+    <body onload=" alert('la pagina se ha cargado de forma correcta')">
+        
+        <!--Manejadores como atributos de elementos HTML-->
+        <h1 id="man1" onclick="this.innerHTML='Javascript, Manejadores como atributos'"
+            onmouseout="this.style.background='red'"
+            onmouseover="this.style.background='blue'"> Clickea aqui para cambiar el texto</h1>
+
+        <!--Manejadores como funciones externas-->
+        <h3 onclick="cambiartxt(this)" onmouseout="fuera(this)" onmouseover="dentro(this)">
+        Pulsa aqui para ver que sucede</h3>
+
+        <script>
+            function cambiartxt(elem){
+                elem.innerHTML='Javascript, Manejadores como funciones externas'
+            }
+            function dentro(elem){
+                elem.style.background='blue'
+            }
+            function fuera(elem){
+                elem.style.background='red'
+            }
+        </script>
+
+        </script>
+    </body>
+</html>

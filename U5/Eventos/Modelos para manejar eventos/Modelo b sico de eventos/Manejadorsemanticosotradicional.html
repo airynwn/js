@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Registro de eventos tradicional o manejadores semánticos</title>
+    </head>
+
+    <body>
+        <h2 id="ftrad"> Pulsa aqui para ver que sucede</h2>
+
+        <h2 id="ftrad2"> Pulsa aqui para ver que sucede</h2>
+
+        <h3 id="tradicional"> Pincha aqui para ver que ocurre</h3>
+
+        <script>
+            document.getElementById("ftrad").onclick=cambiar;
+            function cambiar(){
+                alert("Entramos a cambiar");
+                document.getElementById("ftrad").innerHTML='Javascript, Modelo tradicional'
+            }
+       
+            document.getElementById("ftrad2").onclick=cambiar2;
+            function cambiar2(){
+                alert("Entramos a cambiar");
+                document.getElementById("ftrad2").innerHTML='Javascript, Modelo tradicional'
+                document.getElementById("ftrad2").onclick= null;
+            }
+      
+            window.onload= function(){
+                alert('La pagina se ha cargado con exito')
+                document.getElementById("tradicional").onclick=mensaje;
+            }
+
+            function mensaje(){
+                document.getElementById("tradicional").innerHTML="Registro de eventos tradicional";
+            }
+        </script>
+    </body>
+</html>

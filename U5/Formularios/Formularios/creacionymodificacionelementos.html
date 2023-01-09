@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Creación y modificación de elementos</title>
+
+        <style>
+            .col{
+                color:red;
+            }
+        </style>
+
+    </head>
+
+    <body> 
+        
+        <div> 
+            <p id="parrafo1">Este es el primer párrafo</p>
+            <p id="parrafo2">Este es el segundo párrafo</p>
+            <p id="parrafo3" class="col">Este es el tercer párrafo</p>
+        </div>
+
+        <br/>
+
+        <button id="cambiarTextos">Cambiar texto de párrafos</button>
+        <button id="cambiarClases">Cambiar clases de párrafos</button>
+        <button id="quitarClases">Quitar clases de todos los párrafos</button>
+
+        <script>
+            window.addEventListener("load",inicio);
+            
+            function inicio(){
+                document.getElementById("cambiarTextos").addEventListener("click",cambiarTextos);
+                document.getElementById("cambiarClases").addEventListener("click",cambiarClases);
+                document.getElementById("quitarClases").addEventListener("click",quitarClases);
+            }
+
+            var contador = 0;
+
+            /* Creamos una función que nos modifique el texto si hacemos click un número impar de veces
+                y en caso de hacerlo un número par nos lo devuelva a su estado original.*/
+
+            function cambiarTextos(){
+
+                contador=contador+1;
+
+                if(contador % 2 != 0){
+                    //Selecciónar el elemento por su Id
+                    document.getElementById("parrafo1").innerHTML = "Primer párrafo cambiado";
+                    //Selecionar el elemento segundo de la etiqueta p
+                    document.getElementsByTagName("p")[1].innerHTML = "Segundo párrafo cambiado";
+                    //seleccionamos el primer elemento de la clase col
+                    document.getElementsByClassName("col")[0].innerHTML = "Tercer párrafo cambiado";
+                }
+                
+                else{
+                    /* Para reestaurar los originales quitamos los colores de todos los parrafos y le volvemos a
+                        dar color al parrafo3*/
+                    quitarClases();
+                    cambiarClases3();
+                
+                    document.getElementById("parrafo1").innerHTML = "Este es el primer párrafo";
+                    document.getElementsByTagName("p")[1].innerHTML = "Este es el segundo párrafo";
+                    document.getElementsByClassName("col")[0].innerHTML = "Este es el tercer párrafo";
+                    document.getElementById("parrafo3").className = "col";
+                }
+            }
+            
+            //Le añadimos color a los 2 primeros parrafos de forma diferente
+            function cambiarClases(){
+                document.getElementById("parrafo1").setAttribute("class","col");
+                document.getElementById("parrafo2").className = "col";
+            }
+            
+            function cambiarClases3(){
+                document.getElementById("parrafo3").setAttribute("class","col");
+            }
+
+            //Eliminamos los colores de las etiquetas p
+            function quitarClases(){
+                for(var i = 0; i<document.getElementsByTagName("p").length; i++){
+                    document.getElementsByTagName("p")[i].className="";
+                }
+            }
+        </script>
+  
+      
+    </body>
+</html>

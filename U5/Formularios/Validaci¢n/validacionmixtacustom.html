@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Validación mixta CustomValidity</title>
+
+    </head>
+
+    <body>
+
+        <h1>Validación (atributos HTML + JavaScript) CustomValidity </h1>
+
+        <form>
+
+            <p><input type="text" pattern="[A-Za-z]{3,10}" required></p>
+            
+            <input type="submit" value="Enviar" id="enviar" />
+            
+            <p id="valor"></p>
+
+        </form>
+
+        <script>
+
+            var texto= document.getElementsByTagName('input')[0];
+            /* var texto=document.querySelector('input');*/
+            var log=document.getElementById("valor")
+
+            /* Interrumpimos la validación*/
+            texto.addEventListener('input', ()=>{
+                    /* Quitamos el mensaje*/
+                    texto.setCustomValidity("");
+                    /*Comprobamos la validación del campo*/
+                    texto.checkValidity();
+            });
+
+            
+            /* Si el texto introducido no es valido realizamos la siguiente función*/
+            texto.addEventListener('invalid',()=>{
+                if(texto.validity.valueMissing){
+                    /* Si el error está en que no hay caracteres*/
+                    texto.setCustomValidity("Introduce algún caracter ")
+                }
+                /* Si el error está en el patrón le indicamos el siguiente mensaje*/
+                if(texto.validity.patternMismatch){
+                    texto.setCustomValidity("Introduce entre 3 y 10 caracteres no numericos ")
+                }
+            });
+
+
+        </script>
+    </body>
+</html>

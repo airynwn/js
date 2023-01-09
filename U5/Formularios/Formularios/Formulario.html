@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Checked</title>
+
+    </head>
+
+    <body>
+        <!-- En este ejemplo pretendemos que el usuario elija una única asignatura y que al hacer 
+            click sobre el boton submit imprima su elección-->
+        <form> 
+            <p>Seleccione su asignatura:</p>
+            
+            <!--Generamos los input de tipo radio todos con el mismo name para que el usuario
+                solo pueda elegir una opción-->
+
+            <p> <input type="radio" name="asignaturas" value="Diseño interfaces web" id="diseño"> Diseño interfaces web</p>
+            
+            <p> <input type="radio" name="asignaturas" value="Desarrollo web en entorno cliente" id="Desarrolloc"> Desarrollo web en entorno cliente </p>
+            
+            <p> <input type="radio" name="asignaturas" value="Prácticas formativas en empresas" id="Practicas"> Prácticas formativas en empresas </p>
+            
+            <p> <input type="radio" name="asignaturas" value="Proyecto de Desarrollo de aplicaciones web" id="proyecto"> Proyecto de Desarrollo de aplicaciones web </p>                    
+        </form>
+
+        <p> <button id="submit">Submit</button> </p>
+
+        <p id="texto"></p>
+
+        <script>
+
+            var submit = document.getElementById('submit');
+            var texto = document.getElementById('texto');
+
+            /*Le asociamos al boton submit el manejador click y creamos una función anónima
+                que nos permita identificar cual ha sido la elección del usuario y escribirla*/
+            submit.addEventListener('click', () => {
+                var rates = document.getElementsByName('asignaturas');
+                // Hacemos que recorra cada uno de los input cuyo name es asignaturas
+                rates.forEach((asignaturas) => {
+                    /*Comprobamos si ha sido seleccionado dicha opcion y si ha seleccionada 
+                        que la escriba en el identificador texto*/
+                    if (asignaturas.checked) {
+                        texto.innerText = `Has seleccionado: ${asignaturas.value}`;
+                    }
+                });
+
+            });
+        </script>
+        
+    </body>
+
+</html>
+
