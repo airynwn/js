@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookies</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // Crear cookie
+        document.cookie = "username=Laura;"
+        var test = document.cookie;
+        // Mostrar cookie
+        alert(test); // en firefox funciona y en chrome no
+        // Borrar cookie
+        document.cookie = "username=Laura; expires=Thu, 12 Jan 2023 14:00:00 UTC;"
+    </script>
+</body>
+</html>
