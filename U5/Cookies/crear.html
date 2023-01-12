@@ -9,12 +9,18 @@
 <body>
     <script type="text/javascript">
         // Crear cookie
-        document.cookie = "username=Laura;"
-        var test = document.cookie;
+        document.cookie = "username=Laura; expires=Thu, 12 Jan 2023 18:00:00 UTC;";
+        document.cookie = "color=rojo";
+        // Modificar
+        document.cookie = "username=Pepe;"
+        document.cookie = "color=verde;";
         // Mostrar cookie
+        var test = document.cookie;
         alert(test); // en firefox funciona y en chrome no
         // Borrar cookie
-        document.cookie = "username=Laura; expires=Thu, 12 Jan 2023 14:00:00 UTC;"
+        document.cookie = "username=; expires=Thu, 12 Jan 2023 14:00:00 UTC;";
+        document.cookie = "color=; expires=Thu, 1 Jan 2020 12:00:00 GMT;";
+        document.cookie = "username=; expires=Thu, 1 Jan 2020 15:00:00 GMT;";
     </script>
 </body>
 </html>
