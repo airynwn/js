@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>
+      Realiza el siguiente formulario
+      - Cuando pulse Haz clic para enviar
+      información, se enviará la información a un
+      correo electrónico en texto plano.
+      - Cuando pulse en Haz clic sobre mí, se redirigirá
+      a la página de Google.
+    </h2>
+    <fieldset>
+        <legend>Datos personales</legend>
+        <form action="">
+            <label for="nombre">Introduce tu nombre: </label>
+            <input type="text">
+            <br>
+            <label for="mensaje">Mensaje: </label>
+            <textarea name="mensaje" id="" cols="30" rows="10"></textarea>
+        </fieldset>
+        <br>
+        <label for="color">Elige un color: </label>
+        <br>
+        <input type="radio" name="rojo" id="rojo">
+        Rojo
+        <br>
+        <input type="radio" name="verde" id="verde">
+        Verde
+        <br>
+        <input type="radio" name="azul" id="azul">
+        Azul
+        <br>
+        <label for="asignatura">Selecciona la asignatura: </label>
+        <select class="asignatura" name="asignatura" id="asignatura">
+            <option value="mates">Matemáticas</option>
+            <option value="lengua">Lengua</option>
+            <option value="filosofía">Filosofía</option>
+            <option value="psicología">Psicología</option>
+        </select>
+        <br>
+        <label for="dias">Selecciona los días con disponibilidad: </label>
+        <br>
+        <input type="checkbox" name="lunes" id="lunes">
+        lunes
+        <br>
+        <input type="checkbox" name="martes" id="martes">
+        martes
+        <br>
+        <input type="checkbox" name="miercoles" id="miercoles">
+        miercoles
+        <br>
+        <input type="checkbox" name="jueves" id="jueves">
+        jueves
+        <br>
+        <input type="checkbox" name="viernes" id="viernes">
+        viernes
+        <br>
+        <label for="pref">Selecciona el día preferente: </label>
+        <select name="pref" id="pref">
+            <option value="lun">lunes</option>
+            <option value="mar">martes</option>
+            <option value="mie">miercoles</option>
+            <option value="jue">jueves</option>
+            <option value="vie">viernes</option>
+        </select>
+        <br>
+        <input type="submit" id="enviar" value="Haz clic para enviar información">
+        <input type="reset" value="Comenzar a rellenar de nuevo">
+        <input type="button" value="Haz clic sobre mí">
+    </form>
+
+    <div class="texto"></div>
+
+    <script type="text/javascript">
+        // Asignatura
+        var asignaturas = document.querySelector(".asignatura");
+        asignaturas.addEventListener("change", prof);
+        
+        function prof(e){
+            alert('El cuestionario se enviará al profesor de ' + e.target.value);
+        }
+
+        // Día preferente
+        // var preferente = document.querySelector(".dias");
+
+        // Color
+        var enviar = document.getElementById("enviar");
+        enviar.addEventListener("click", fondo);
+
+        // background color noseque
+        function fondo(){
+            var e = document.querySelector("input[name='color']:checked")
+            switch (e.value) {
+                case 'rojo':
+                    
+                    break;
+            
+                case 'verde':
+
+                    break;
+                case 'azul':
+
+                    break;
+                default:
+
+                    break;
+            }
+        }        
+
+    </script>
+  </body>
+</html>

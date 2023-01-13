@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>
+      12. Valida el siguiente formulario. Valide también que no puedan dejarse
+      en blanco. Validar el formulario ayudándote de los atributos de html5. La
+      validación se debe realizar poco a poco según el usuario vaya rellenando
+      los campos. En caso de introducir un valor incorrecto, limpiar el campo.
+    </h2>
+
+    <form action="">
+        <label for="dni">DNI: </label>
+        <input type="text">
+        <!-- 99.999.999-X -->
+        <br>
+        <label for="nombre">Nombre: </label>
+        <input type="text">
+        <!-- min: 1 nombre 1 apellido; max: 2 nombres 2 apellidos -->
+        <br>
+        <label for="fnac">Fecha de nacimiento: </label>
+        <input type="date" name="fnac" id="fnac">
+        <!-- dd mm yyyy -->
+        <br>
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email">
+        <!-- xxx@yyy.zzz -->
+        <br>
+        <label for="web">Página web: </label>
+        <input type="url" name="web" id="web">
+        <!-- http://www.xxx.yyy -->
+        <br>
+        <label for="pw">Contraseña: </label>
+        <input type="password" name="pw" id="pw">
+        <!-- 8 ~ 10 caracteres -->
+        <br>
+        <label for="pw2">Confirmar contraseña: </label>
+        <input type="password" name="pw2" id="pw2">
+        <!-- 8 ~ 10 caracteres -->
+        <br>
+        <input type="submit" value="Guardar">
+        <input type="button" value="Ver">
+        
+    </form>
+  </body>
+</html>

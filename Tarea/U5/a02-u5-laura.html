@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>
+      2. Realizar un script que permita mover una caja dentro de la ventana del
+      navegador tanto con las teclas de desplazamiento del teclado central como
+      con las del teclado numérico.
+    </h2>
+    <input id="caja" type="text">
+    <script>
+        addEventListener("DOMContentLoaded",tecla,false)
+// key down
+        function tecla(){
+            document.getElementById("caja").addEventListener("location",mover)
+        }
+        function mover(c){
+            if(!c) c = window.event
+            if(c.shiftKey){
+                alert('Has pulsado la tecla shift')
+            }
+            if(c.altKey){
+                alert('Has pulsado la tecla alt')
+            }
+            if(c.ctrlKey){
+                alert('Has pulsado la tecla control')
+            }          
+        }
+    </script>
+  </body>
+</html>

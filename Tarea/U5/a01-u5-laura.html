@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>
+      1. Realizar un script que cuando pulse el usuario con el botón del ratón
+      en cualquier sitio de la pantalla, identifique si ha pulsado con el botón
+      derecho, izquierdo o la rueda central.
+    </h2>
+    <script>
+        window.addEventListener("click",izq,false);
+        window.addEventListener("contextmenu",der,false);
+        window.addEventListener("wheel", rueda, false);
+
+        function izq(){
+            alert('Has pulsado con el botón izquierdo')
+        }
+
+        function der(){
+            alert('Has pulsado con el botón derecho');
+        }
+
+        function rueda(){
+            alert('Has pulsado con la rueda central');
+        }
+    </script>
+  </body>
+</html>
