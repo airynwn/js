@@ -13,20 +13,21 @@
       derecho, izquierdo o la rueda central.
     </h2>
     <script>
-        window.addEventListener("click",izq,false);
-        window.addEventListener("contextmenu",der,false);
-        window.addEventListener("wheel", rueda, false);
+        document.addEventListener("mousedown", click);
 
-        function izq(){
-            alert('Has pulsado con el botón izquierdo')
-        }
-
-        function der(){
-            alert('Has pulsado con el botón derecho');
-        }
-
-        function rueda(){
-            alert('Has pulsado con la rueda central');
+        function click(e){
+          var boton = e.button;
+          switch (boton) {
+            case 0:
+              alert('Has pulsado con el botón izquierdo');
+              break;
+            case 1:
+              alert('Has pulsado con la rueda central');
+              break;
+            case 2:
+              alert('Has pulsado con el botón derecho');
+              break;
+          }
         }
     </script>
   </body>
