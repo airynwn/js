@@ -5,6 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      div#caja {
+        width: 50px;
+        height: 50px;
+        background-color: pink;
+        border-radius: 10px;
+        border: midnightblue dotted 2px;
+        position: relative;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var left = 0;
+        var top = 0;
+        document.addEventListener("keydown", mover);
+
+        function mover(e) {
+          var key = e.keyCode;
+          console.log(key);
+          var caja = document.getElementById("caja");
+          switch (key) {
+            case 37:
+              left -= 10;
+              caja.style.left = left + "px";
+              break;
+            case 39:
+              left += 10;
+              caja.style.left = left + "px";
+              break;
+            case 38:
+              top -= 10;
+              caja.style.top = top + "px";
+              break;
+            case 40:
+              top += 10;
+              caja.style.top = top + "px";
+              break;
+          } 
+        }})
+    </script>
   </head>
   <body>
     <h2>
@@ -12,25 +52,6 @@
       navegador tanto con las teclas de desplazamiento del teclado central como
       con las del teclado numérico.
     </h2>
-    <input id="caja" type="text">
-    <script>
-        addEventListener("DOMContentLoaded",tecla,false)
-// key down
-        function tecla(){
-            document.getElementById("caja").addEventListener("location",mover)
-        }
-        function mover(c){
-            if(!c) c = window.event
-            if(c.shiftKey){
-                alert('Has pulsado la tecla shift')
-            }
-            if(c.altKey){
-                alert('Has pulsado la tecla alt')
-            }
-            if(c.ctrlKey){
-                alert('Has pulsado la tecla control')
-            }          
-        }
-    </script>
+    <div id="caja"></div>
   </body>
 </html>
