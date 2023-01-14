@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 id="msg">
+      4. Realizar un script que, al pulsar un botón del ratón, el color de fondo
+      del cuadro de mensaje debe ser amarillo (#FFFF00) y cuando se pulsa una
+      tecla, el color de fondo debe ser azul (#CCE6FF). Al volver a mover el
+      ratón, el color de fondo vuelve a ser blanco
+    </h2>
+    <script>
+        var msg = document.getElementById("msg");
+        document.addEventListener("mousedown", amarillo);
+        document.addEventListener("keydown", azul);
+        document.addEventListener("mousemove", blanco);
+
+        function amarillo() {
+            msg.style.background = "#FFFF00";
+        }
+
+        function azul() {
+            msg.style.background = "#CCE6FF";
+        }
+
+        function blanco() {
+            msg.style.background = "#FFFFFF";
+        }
+    </script>
+  </body>
+</html>
