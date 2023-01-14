@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>
+      5. Coloque en la aplicación una imagen, y que se cambie por otra imagen, y
+      ésta se mantenga mientras el usuario está pulsando algún botón del ratón,
+      cuando suelte debe volver la primera imagen.
+    </h2>
+    <img src="1.gif" id="cambio">
+    <script>
+      var img = document.getElementById("cambio");
+      document.addEventListener("mousedown", otraimg);
+      document.addEventListener("mouseup", primeraimg);
+
+      function otraimg() {
+        img.src = "1.gif";
+      }
+
+      function primeraimg() {
+        img.src = "2.gif";
+      }
+    </script>
+  </body>
+</html>
