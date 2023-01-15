@@ -83,11 +83,10 @@
 
         // 9. enviar el cuestionario al profesor de la asignatura seleccionada
         var asignaturas = document.querySelector(".asignatura");
-        asignaturas.addEventListener("change", prof);
-        
-        function prof(e){
-            alert('El cuestionario se enviará al profesor de ' + e.target.value);
-        }
+        asignaturas.addEventListener(
+            "change",
+            (e) => alert('El cuestionario se enviará al profesor de ' + e.target.value
+        ));
 
         // Día preferente
         // var preferente = document.querySelector(".dias");
