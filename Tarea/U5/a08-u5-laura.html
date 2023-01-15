@@ -81,7 +81,7 @@
         // Sobre mí -> Google
 
 
-        // Asignatura
+        // 9. enviar el cuestionario al profesor de la asignatura seleccionada
         var asignaturas = document.querySelector(".asignatura");
         asignaturas.addEventListener("change", prof);
         
@@ -92,7 +92,7 @@
         // Día preferente
         // var preferente = document.querySelector(".dias");
 
-        // cambiar coloro de fondo segun input radio seleccionado
+        // 11. cambiar coloro de fondo segun input radio seleccionado
         var colores = document.querySelectorAll('input[type=radio][name="color"]');
         colores.forEach(color => color.addEventListener(
             "change", () => document.body.style.background = color.value));   
