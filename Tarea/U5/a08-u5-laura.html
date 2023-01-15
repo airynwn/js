@@ -92,30 +92,10 @@
         // Día preferente
         // var preferente = document.querySelector(".dias");
 
-        // Color
-        // var colores = document.querySelector("color");
-        // colores.addEventListener("change", fondo);
+        // cambiar coloro de fondo segun input radio seleccionado
         var colores = document.querySelectorAll('input[type=radio][name="color"]');
         colores.forEach(color => color.addEventListener(
-            "change", () => document.body.style.background = color.value));
-
-        // background color noseque
-        // function fondo(e){
-        //     alert(e.value)
-        //     alert(e.target.value)
-        //     // var e = document.querySelector("input[name='color']:checked").value
-        //     switch (e) {
-        //         case 'rojo':
-        //             document.body.style.background = "crimson";
-        //             break;
-        //         case 'verde':
-        //             document.body.style.background = "lime";
-        //             break;
-        //         case 'azul':
-        //             document.body.style.background = "teal";
-        //             break;
-        //     }
-        // }        
+            "change", () => document.body.style.background = color.value));   
 
     </script>
   </body>
