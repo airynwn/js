@@ -27,13 +27,13 @@
         <br>
         <label for="color">Elige un color: </label>
         <br>
-        <input type="radio" name="rojo" id="rojo">
+        <input type="radio" name="color" id="rojo" value="crimson">
         Rojo
         <br>
-        <input type="radio" name="verde" id="verde">
+        <input type="radio" name="color" id="verde" value="limegreen">
         Verde
         <br>
-        <input type="radio" name="azul" id="azul">
+        <input type="radio" name="color" id="azul" value="deepskyblue">
         Azul
         <br>
         <label for="asignatura">Selecciona la asignatura: </label>
@@ -78,6 +78,9 @@
     <div class="texto"></div>
 
     <script type="text/javascript">
+        // Sobre mí -> Google
+
+
         // Asignatura
         var asignaturas = document.querySelector(".asignatura");
         asignaturas.addEventListener("change", prof);
@@ -90,28 +93,29 @@
         // var preferente = document.querySelector(".dias");
 
         // Color
-        var enviar = document.getElementById("enviar");
-        enviar.addEventListener("click", fondo);
+        // var colores = document.querySelector("color");
+        // colores.addEventListener("change", fondo);
+        var colores = document.querySelectorAll('input[type=radio][name="color"]');
+        colores.forEach(color => color.addEventListener(
+            "change", () => document.body.style.background = color.value));
 
         // background color noseque
-        function fondo(){
-            var e = document.querySelector("input[name='color']:checked")
-            switch (e.value) {
-                case 'rojo':
-                    
-                    break;
-            
-                case 'verde':
-
-                    break;
-                case 'azul':
-
-                    break;
-                default:
-
-                    break;
-            }
-        }        
+        // function fondo(e){
+        //     alert(e.value)
+        //     alert(e.target.value)
+        //     // var e = document.querySelector("input[name='color']:checked").value
+        //     switch (e) {
+        //         case 'rojo':
+        //             document.body.style.background = "crimson";
+        //             break;
+        //         case 'verde':
+        //             document.body.style.background = "lime";
+        //             break;
+        //         case 'azul':
+        //             document.body.style.background = "teal";
+        //             break;
+        //     }
+        // }        
 
     </script>
   </body>
