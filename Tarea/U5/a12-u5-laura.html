@@ -5,6 +5,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script type="text/javascript">
+      // var dni = document.getElementById("dni");
+      var dni = document.getElementsByTagName("input")[0];
+
+      dni.addEventListener("input", () => {
+        dni.setCustomValidity("");
+        dni.checkValidity();
+      });
+
+      dni.addEventListener("invalid", () => {
+        if (dni.validity.valueMissing || dni.validity.patternMismatch) {
+          dni.setCustomValidity("Formato válido: 99.999.999-X");
+          // dni.checkValidity();
+        }
+      });
+
+    //   function validarDni() {
+    //     var dni = document.getElementById("dni");
+    //     if (!dni.checkValidity()) {
+    //       if (dni.validity.valueMissing) {
+    //         error(dni, "Es necesario introducir un DNI.");
+    //       }
+    //       if (dni.validity.patternMismatch) {
+    //         error(dni, "Formato válido: 99.999.999-X");  
+    //       }
+    //       // borrar
+    //       return false;
+    //     }
+    //     return true;
+    //   }
+
+    //   function validarNombre() {
+    //     var nombre = document.getElementById("nombre");
+    //     if (!nombre.checkValidity()) {
+    //       if (nombre.validity.valueMissing) {
+    //           error(nombre, "Introduzca al menos un nombre y un apellido. Max: 2 nombres y 2 apellidos");
+    //       }
+    //       if (nombre.validity.patternMismatch) {
+    //           error(nombre, "Introduzca al menos un nombre y un apellido. Max: 2 nombres y 2 apellidos");
+    //       }
+    //       // borrar
+    //       return false;
+    //     }
+    //     return true;
+    //   }
+
+    // function validarFecha() {
+    //   var fecha = document.getElementById("fnac");
+    //   if (!fecha.checkValidity()) {
+    //     if (fecha.validity.valueMissing) {
+    //       error(fecha, "Es necesario introducir una fecha de nacimiento.");
+    //     }
+    //     if (fecha.validity.patternMismatch) {
+    //       error(fecha, "Formato válido: dd/mm/yyyy");
+    //     }
+    //     //borrar
+    //     return false;
+    //   }
+    //   return true;
+    // }
+
+    // function validarEmail() {
+    //   var email = document.getElementById("email");
+    //   if (!email.checkValidity()) {
+    //     if (email.validity.valueMissing) {
+    //       error(email, "Es necesario introducir un email.");
+    //     }
+    //     if (email.validity.patternMismatch) {
+    //       error(email, "Formato válido: xxx@yyy.zzz");
+    //     }
+    //     //borrar
+    //     return false;
+    //   }
+    // }
+
+    </script>
   </head>
   <body>
     <h2>
@@ -16,31 +92,32 @@
 
     <form action="">
         <label for="dni">DNI: </label>
-        <input type="text">
+        <input type="text" pattern="^\d{2}\.\d{3}.\d{3}-[A-Z]$" id="dni" required>
         <!-- 99.999.999-X -->
         <br>
         <label for="nombre">Nombre: </label>
-        <input type="text">
+        <input type="text" pattern="^([A-Z][a-z]*\s){2,4}$" id="nombre" required>
         <!-- min: 1 nombre 1 apellido; max: 2 nombres 2 apellidos -->
         <br>
         <label for="fnac">Fecha de nacimiento: </label>
-        <input type="date" name="fnac" id="fnac">
+        <input type="date" name="fnac" id="fnac"
+        pattern="^\d{2}\/\d{2}\/\d{4}$" required>
         <!-- dd mm yyyy -->
         <br>
         <label for="email">Email: </label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" required>
         <!-- xxx@yyy.zzz -->
         <br>
         <label for="web">Página web: </label>
-        <input type="url" name="web" id="web">
+        <input type="url" name="web" id="web" required>
         <!-- http://www.xxx.yyy -->
         <br>
         <label for="pw">Contraseña: </label>
-        <input type="password" name="pw" id="pw">
+        <input type="password" name="pw" id="pw" minlength="8" maxlength="10" required>
         <!-- 8 ~ 10 caracteres -->
         <br>
         <label for="pw2">Confirmar contraseña: </label>
-        <input type="password" name="pw2" id="pw2">
+        <input type="password" name="pw2" id="pw2" minlength="8" maxlength="10" required>
         <!-- 8 ~ 10 caracteres -->
         <br>
         <input type="submit" value="Guardar">
