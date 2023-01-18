@@ -46,19 +46,19 @@
         <br>
         <label for="dias">Selecciona los días con disponibilidad: </label>
         <br>
-        <input type="checkbox" name="lunes" id="lunes">
+        <input type="checkbox" name="dias" id="lunes">
         lunes
         <br>
-        <input type="checkbox" name="martes" id="martes">
+        <input type="checkbox" name="dias" id="martes">
         martes
         <br>
-        <input type="checkbox" name="miercoles" id="miercoles">
+        <input type="checkbox" name="dias" id="miercoles">
         miercoles
         <br>
-        <input type="checkbox" name="jueves" id="jueves">
+        <input type="checkbox" name="dias" id="jueves">
         jueves
         <br>
-        <input type="checkbox" name="viernes" id="viernes">
+        <input type="checkbox" name="dias" id="viernes">
         viernes
         <br>
         <label for="pref">Selecciona el día preferente: </label>
@@ -94,6 +94,22 @@
         // Si hay varios días marcados disponibles, se marca preferente el último de estos.
 
         // var preferente = document.querySelector(".dias");
+        // var submit = document.getElementById("enviar");
+        // submit.addEventListener("click", preferente);
+
+        // function preferente() {
+        //   var pref;
+        //   // var arr = document.getElementsByName("dias")
+        //   // for (i = 0; i < arr.length; i++) {
+        //   //     if (arr[i].checked) {
+        //   //       pref = arr[i];
+        //   //     }
+        //   // }
+        //   var arr = document.querySelectorAll("input[name='dias']:checked");
+        //   arr.forEach(dia => dia.addEventListener("change", () => alert(dia.value)))
+        //   alert(arr);
+        //   alert("Día preferente: " + pref);
+        // }
 
         // 11. cambiar coloro de fondo segun input radio seleccionado
         var colores = document.querySelectorAll('input[type=radio][name="color"]');

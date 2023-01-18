@@ -5,36 +5,239 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+  </head>
+  <body>
+    <h2>
+      12. Valida el siguiente formulario. Valide también que no puedan dejarse
+      en blanco. Validar el formulario ayudándote de los atributos de html5. La
+      validación se debe realizar poco a poco según el usuario vaya rellenando
+      los campos. En caso de introducir un valor incorrecto, limpiar el campo.
+    </h2>
+
+    <form action="">
+        <label for="dni">DNI: </label>
+        <input type="text" pattern="^\d{2}\.\d{3}.\d{3}-[A-Z]$" id="dni" required>
+        <!-- 99.999.999-X -->
+        <br>
+        <label for="nombre">Nombre: </label>
+        <input type="text" pattern="^([A-Z][a-z]*\s[A-Z][a-z]*){1,2}$" id="nombre" required>
+        <!-- min: 1 nombre 1 apellido; max: 2 nombres 2 apellidos -->
+        <br>
+        <label for="fnac">Fecha de nacimiento: </label>
+        <input type="date" name="fnac" id="fnac"
+        pattern="^\d{2}\/\d{2}\/\d{4}$" required>
+        <!-- dd mm yyyy -->
+        <br>
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email"
+        pattern="^\w*@[a-z]*\.[a-z]*$" required>
+        <!-- xxx@yyy.zzz -->
+        <br>
+        <label for="web">Página web: </label>
+        <input type="url" name="web" id="web"
+        pattern="^http\:\/\/www\.[a-z]*\.[a-z]*$" required>
+        <!-- http://www.xxx.yyy -->
+        <br>
+        <label for="pw">Contraseña: </label>
+        <input type="password" name="pw" id="pw"
+        pattern="^\w{8,10}$" required>
+        <!-- 8 ~ 10 caracteres -->
+        <br>
+        <label for="pw2">Confirmar contraseña: </label>
+        <input type="password" name="pw2" id="pw2"
+        pattern="^\w{8,10}$" required>
+        <!-- 8 ~ 10 caracteres -->
+        <br>
+        <input type="submit" id="enviar" value="Guardar">
+        <input type="button" id="ver" value="Ver">
+        
+    </form>
     <script type="text/javascript">
+
+    function crearCookie(campo, valor) {
+      document.cookie = campo + "=" + valor + ";";
+    }
+
+    // function leerCookies() {
+    //   alert(document.cookie);
+    // }
+    
+    var campos = getElementsByTagName("input");
+    alert(campos);
+
+    // crear cookie de todo
+    enviar = document.getElementById("enviar");
+    enviar.addEventListener("click", () => crearCookie('dni', dni.value));
+    // Leer cookies
+    leerCookie = document.getElementById("ver");
+    leerCookie.addEventListener("click", () => alert(document.cookie));
+
+    var dni = document.getElementsByTagName("input")[0];
+    // Interrumpir validación
+    dni.addEventListener("input", () => {
+      dni.setCustomValidity("");
+      dni.checkValidity();
+    });
+    // Si no es válido:
+    dni.addEventListener("invalid", () => {
+      if (dni.validity.valueMissing) {
+        dni.setCustomValidity("Debes introducir un DNI");
+      }
+      if (dni.validity.patternMismatch) {
+        dni.setCustomValidity("Formato válido: 99.999.999-X");
+      }
+    });
+
+    // alert(dni.value);
+
+    var nombre = document.getElementsByTagName("input")[1];
+    nombre.addEventListener("input", () => {
+      nombre.setCustomValidity("");
+      nombre.checkValidity();
+    });
+
+    nombre.addEventListener("invalid", () => {
+      if (nombre.validity.valueMissing) {
+        nombre.setCustomValidity("Introduzca al menos un nombre y un apellido. Máx: 2 nombres y 2 apellidos");
+      }
+      if (nombre.validity.patternMismatch) {
+        nombre.setCustomValidity("Los nombres y apellidos deben comenzar por mayúscula, tener al menos dos letras y estar separados por espacios.");
+      }
+    });
+
+    var fecha = document.getElementsByTagName("input")[2];
+    fecha.addEventListener("input", () => {
+      fecha.setCustomValidity("");
+      fecha.checkValidity();
+    });
+
+    fecha.addEventListener("invalid", () => {
+      if (fecha.validity.valueMissing) {
+        fecha.setCustomValidity("Debes introducir una fecha de nacimiento.");
+      }
+      if (fecha.validity.patternMismatch) {
+        fecha.setCustomValidity("Formato válido: dd/mm/yyyy");
+      }
+    });
+
+    var email = document.getElementsByTagName("input")[3];
+    email.addEventListener("input", () => {
+      email.setCustomValidity("");
+      email.checkValidity();
+    });
+
+    email.addEventListener("invalid", () => {
+      if (email.validity.valueMissing) {
+        email.setCustomValidity("Debes introducir un email.");
+      }
+      if (email.validity.patternMismatch) {
+        email.setCustomValidity("Formato válido: xxx@yyy.zzz");
+      }
+    });
+
+    var web = document.getElementsByTagName("input")[4];
+    web.addEventListener("input", () => {
+      web.setCustomValidity("");
+      web.checkValidity();
+    });
+
+    web.addEventListener("invalid", () => {
+      if (web.validity.valueMissing) {
+        web.setCustomValidity("Debes introducir una página web.");
+      }
+      if (web.validity.patternMismatch) {
+        web.setCustomValidity("Formato válido: http://www.xxx.yyy");
+      }
+    });
+
+    var pw1 = document.getElementsByTagName("input")[5];
+    pw1.addEventListener("input", () => {
+      pw1.setCustomValidity("");
+      pw1.checkValidity();
+    });
+
+    pw1.addEventListener("invalid", () => {
+      if (pw1.validity.valueMissing) {
+        pw1.setCustomValidity("Debes introducir una contraseña.");
+      }
+      if (pw1.validity.patternMismatch) {
+        pw1.setCustomValidity("Debe contener entre 8 y 10 caracteres")
+      }
+    });
+
+    var pw2 = document.getElementsByTagName("input")[6];
+    pw2.addEventListener("input", () => {
+      pw2.setCustomValidity("");
+      pw2.checkValidity();
+    });
+
+    pw2.addEventListener("invalid", () => {
+      if (pw2.validity.valueMissing) {
+        pw2.setCustomValidity("Debes introducir una contraseña.");
+      }
+      if (pw2.validity.patternMismatch) {
+        pw2.setCustomValidity("Debe contener entre 8 y 10 caracteres")
+      }
+    });
+
+    // comprobar que pw1 y pw2 son lo mismo?
+    // alert("pw1: " + pw1 + "-----pw2: " + pw2);
+    // alert(pw1 == pw2);
+
       // var dni = document.getElementById("dni");
-      var dni = document.getElementsByTagName("input")[0];
+      // var dni = document.getElementsByTagName("input")[0];
 
-      dni.addEventListener("input", () => {
-        dni.setCustomValidity("");
-        dni.checkValidity();
-      });
+      // dni.addEventListener("input", () => {
+      //   dni.setCustomValidity("");
+      //   dni.checkValidity();
+      // });
 
-      dni.addEventListener("invalid", () => {
-        if (dni.validity.valueMissing || dni.validity.patternMismatch) {
-          dni.setCustomValidity("Formato válido: 99.999.999-X");
-          // dni.checkValidity();
-        }
-      });
+      // dni.addEventListener("invalid", () => {
+      //   if (dni.validity.valueMissing || dni.validity.patternMismatch) {
+      //     dni.setCustomValidity("Formato válido: 99.999.999-X");
+      //     // dni.checkValidity();
+      //   }
+      // });
 
-    //   function validarDni() {
-    //     var dni = document.getElementById("dni");
-    //     if (!dni.checkValidity()) {
-    //       if (dni.validity.valueMissing) {
-    //         error(dni, "Es necesario introducir un DNI.");
-    //       }
-    //       if (dni.validity.patternMismatch) {
-    //         error(dni, "Formato válido: 99.999.999-X");  
-    //       }
-    //       // borrar
-    //       return false;
-    //     }
-    //     return true;
-    //   }
+      // window.onload = iniciar();
+
+      // function iniciar() {
+      //   document.getElementById("enviar").addEventListener("click", validar, false);
+      // }
+
+      // function borrarErrores () {
+      //   var form = document.forms[0];
+      //   for (let i = 0; i < form.elements.length; i++) {
+      //     form.elements[i].className = "";
+      //     form.elements[i].setCustomValidity("");
+      // n   }
+      // }
+
+      // function validarDni() {
+      //   borrarErrores();
+      //   var dni = document.getElementById("dni");
+      //   if (!dni.checkValidity()) {
+      //     if (dni.validity.valueMissing) {
+      //       dni.setCustomValidity(dni, "Es necesario introducir un DNI.");
+      //     }
+      //     if (dni.validity.patternMismatch) {
+      //       dni.setCustomValidity(dni, "Formato válido: 99.999.999-X");  
+      //     }
+      //     // borrar
+      //     return false;
+      //   }
+      //   return true;
+      // }
+
+      // function validar(e) {
+      //   if (validarDni()) {
+      //     return true;
+      //   } else {
+      //     e.preventDefault();
+      //     return false;
+      //   }
+      // }
+
 
     //   function validarNombre() {
     //     var nombre = document.getElementById("nombre");
@@ -81,48 +284,5 @@
     // }
 
     </script>
-  </head>
-  <body>
-    <h2>
-      12. Valida el siguiente formulario. Valide también que no puedan dejarse
-      en blanco. Validar el formulario ayudándote de los atributos de html5. La
-      validación se debe realizar poco a poco según el usuario vaya rellenando
-      los campos. En caso de introducir un valor incorrecto, limpiar el campo.
-    </h2>
-
-    <form action="">
-        <label for="dni">DNI: </label>
-        <input type="text" pattern="^\d{2}\.\d{3}.\d{3}-[A-Z]$" id="dni" required>
-        <!-- 99.999.999-X -->
-        <br>
-        <label for="nombre">Nombre: </label>
-        <input type="text" pattern="^([A-Z][a-z]*\s){2,4}$" id="nombre" required>
-        <!-- min: 1 nombre 1 apellido; max: 2 nombres 2 apellidos -->
-        <br>
-        <label for="fnac">Fecha de nacimiento: </label>
-        <input type="date" name="fnac" id="fnac"
-        pattern="^\d{2}\/\d{2}\/\d{4}$" required>
-        <!-- dd mm yyyy -->
-        <br>
-        <label for="email">Email: </label>
-        <input type="email" name="email" id="email" required>
-        <!-- xxx@yyy.zzz -->
-        <br>
-        <label for="web">Página web: </label>
-        <input type="url" name="web" id="web" required>
-        <!-- http://www.xxx.yyy -->
-        <br>
-        <label for="pw">Contraseña: </label>
-        <input type="password" name="pw" id="pw" minlength="8" maxlength="10" required>
-        <!-- 8 ~ 10 caracteres -->
-        <br>
-        <label for="pw2">Confirmar contraseña: </label>
-        <input type="password" name="pw2" id="pw2" minlength="8" maxlength="10" required>
-        <!-- 8 ~ 10 caracteres -->
-        <br>
-        <input type="submit" value="Guardar">
-        <input type="button" value="Ver">
-        
-    </form>
   </body>
 </html>
