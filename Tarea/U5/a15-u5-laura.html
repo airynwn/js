@@ -19,8 +19,59 @@
             var num = parseInt(visita.substring(visita.indexOf("=") + 1, visita.length));
             var numvisita = "visita=" + (num + 1);
             document.cookie = numvisita;
-            alert("Eres el visitante número " + num);
+            alert("Eres el visitante número " + visita);
         });
     </script>
 </body>
 </html>
+<!-- 
+    Para Chrome
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        window.addEventListener("load", () => {
+
+            var value = getCookie("visita");
+
+            if (value.length == 0) {
+                value="0"
+            } 
+
+            num = 1 + parseInt(value);
+            
+            setCookie("visita",num);
+            alert("Has visitado esta pÃ¡gina " + num + ' veces');
+        });
+
+
+
+        function setCookie(cname, cvalue) {
+            document.cookie = cname + "=" + cvalue;
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+    </script>
+</body>
+</html> -->
