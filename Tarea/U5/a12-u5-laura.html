@@ -54,131 +54,164 @@
     </form>
     <script type="text/javascript">
 
-    function crearCookie(campo, valor) {
-      document.cookie = campo + "=" + valor + ";";
-    }
-
-    // function leerCookies() {
-    //   alert(document.cookie);
+    // function crearCookie(campo, valor) {
+    //   document.cookie = campo + "=" + valor + ";";
     // }
+
+    // // function leerCookies() {
+    // //   alert(document.cookie);
+    // // }
     
-    var campos = getElementsByTagName("input");
-    alert(campos);
+    // var campos = getElementsByTagName("input");
+    // alert(campos);
 
-    // crear cookie de todo
-    enviar = document.getElementById("enviar");
-    enviar.addEventListener("click", () => crearCookie('dni', dni.value));
-    // Leer cookies
-    leerCookie = document.getElementById("ver");
-    leerCookie.addEventListener("click", () => alert(document.cookie));
+    // // crear cookie de todo
+    // enviar.addEventListener("click", () => crearCookie('dni', dni.value));
+    // // Leer cookies
+    // leerCookie = document.getElementById("ver");
+    // leerCookie.addEventListener("click", () => alert(document.cookie));
 
+    function validarCampo(campo, errorVacio, errorPatron) {
+      // Interrumpir validación
+      campo.addEventListener("input", () => {
+        campo.setCustomValidity("");
+        campo.checkValidity();
+      });
+      // Si no es válido:
+      campo.addEventListener("invalid", () => {
+        if (campo.validity.valueMissing) {
+          campo.setCustomValidity(errorVacio);
+        }
+        if (campo.validity.patternMismatch) {
+          campo.setCustomValidity(errorPatron);
+        }
+      });
+    }
+    
     var dni = document.getElementsByTagName("input")[0];
-    // Interrumpir validación
-    dni.addEventListener("input", () => {
-      dni.setCustomValidity("");
-      dni.checkValidity();
-    });
-    // Si no es válido:
-    dni.addEventListener("invalid", () => {
-      if (dni.validity.valueMissing) {
-        dni.setCustomValidity("Debes introducir un DNI");
-      }
-      if (dni.validity.patternMismatch) {
-        dni.setCustomValidity("Formato válido: 99.999.999-X");
-      }
-    });
+    validarCampo(dni, "Debes introducir un DNI", "Formato válido: 99.999.999-X");
+    var nombre = document.getElementsByTagName("input")[1];
+    validarCampo(nombre,
+    "Introduzca al menos un nombre y un apellido. Máx: 2 nombres y 2 apellidos",
+    "Los nombres y apellidos deben comenzar por mayúscula, tener al menos dos letras y estar separados por espacios.");
+    var fecha = document.getElementsByTagName("input")[2];
+    validarCampo(fecha, "Debes introducir una fecha de nacimiento.", "Formato válido: dd/mm/yyyy");
+    var email = document.getElementsByTagName("input")[3];
+    validarCampo(email, "Debes introducir un email.", "Formato válido: xxx@yyy.zzz");
+    var web = document.getElementsByTagName("input")[4];
+    validarCampo(web, "Debes introducir una página web.", "Formato válido: http://www.xxx.yyy");
+    var pw1 = document.getElementsByTagName("input")[5];
+    validarCampo(pw1, "Debes introducir una contraseña.", "Debe contener entre 8 y 10 caracteres");
+    var pw2 = document.getElementsByTagName("input")[6];
+    validarCampo(pw2, "Debes introducir una contraseña.", "Debe contener entre 8 y 10 caracteres");
+    var campos = [dni, nombre, fecha, email, web, pw1, pw2];
+
+    enviar = document.getElementById("enviar");
+    enviar.addEventListener("click", (e) => {
+      
+    })
+
+    // // Interrumpir validación
+    // dni.addEventListener("input", () => {
+    //   dni.setCustomValidity("");
+    //   dni.checkValidity();
+    // });
+    // // Si no es válido:
+    // dni.addEventListener("invalid", () => {
+    //   if (dni.validity.valueMissing) {
+    //     dni.setCustomValidity("Debes introducir un DNI");
+    //   }
+    //   if (dni.validity.patternMismatch) {
+    //     dni.setCustomValidity("Formato válido: 99.999.999-X");
+    //   }
+    // });
 
     // alert(dni.value);
 
-    var nombre = document.getElementsByTagName("input")[1];
-    nombre.addEventListener("input", () => {
-      nombre.setCustomValidity("");
-      nombre.checkValidity();
-    });
+    // nombre.addEventListener("input", () => {
+    //   nombre.setCustomValidity("");
+    //   nombre.checkValidity();
+    // });
 
-    nombre.addEventListener("invalid", () => {
-      if (nombre.validity.valueMissing) {
-        nombre.setCustomValidity("Introduzca al menos un nombre y un apellido. Máx: 2 nombres y 2 apellidos");
-      }
-      if (nombre.validity.patternMismatch) {
-        nombre.setCustomValidity("Los nombres y apellidos deben comenzar por mayúscula, tener al menos dos letras y estar separados por espacios.");
-      }
-    });
+    // nombre.addEventListener("invalid", () => {
+    //   if (nombre.validity.valueMissing) {
+    //     nombre.setCustomValidity("Introduzca al menos un nombre y un apellido. Máx: 2 nombres y 2 apellidos");
+    //   }
+    //   if (nombre.validity.patternMismatch) {
+    //     nombre.setCustomValidity("Los nombres y apellidos deben comenzar por mayúscula, tener al menos dos letras y estar separados por espacios.");
+    //   }
+    // });
 
-    var fecha = document.getElementsByTagName("input")[2];
-    fecha.addEventListener("input", () => {
-      fecha.setCustomValidity("");
-      fecha.checkValidity();
-    });
+    // fecha.addEventListener("input", () => {
+    //   fecha.setCustomValidity("");
+    //   fecha.checkValidity();
+    // });
 
-    fecha.addEventListener("invalid", () => {
-      if (fecha.validity.valueMissing) {
-        fecha.setCustomValidity("Debes introducir una fecha de nacimiento.");
-      }
-      if (fecha.validity.patternMismatch) {
-        fecha.setCustomValidity("Formato válido: dd/mm/yyyy");
-      }
-    });
+    // fecha.addEventListener("invalid", () => {
+    //   if (fecha.validity.valueMissing) {
+    //     fecha.setCustomValidity("Debes introducir una fecha de nacimiento.");
+    //   }
+    //   if (fecha.validity.patternMismatch) {
+    //     fecha.setCustomValidity("Formato válido: dd/mm/yyyy");
+    //   }
+    // });
 
-    var email = document.getElementsByTagName("input")[3];
-    email.addEventListener("input", () => {
-      email.setCustomValidity("");
-      email.checkValidity();
-    });
+    // email.addEventListener("input", () => {
+    //   email.setCustomValidity("");
+    //   email.checkValidity();
+    // });
 
-    email.addEventListener("invalid", () => {
-      if (email.validity.valueMissing) {
-        email.setCustomValidity("Debes introducir un email.");
-      }
-      if (email.validity.patternMismatch) {
-        email.setCustomValidity("Formato válido: xxx@yyy.zzz");
-      }
-    });
+    // email.addEventListener("invalid", () => {
+    //   if (email.validity.valueMissing) {
+    //     email.setCustomValidity("Debes introducir un email.");
+    //   }
+    //   if (email.validity.patternMismatch) {
+    //     email.setCustomValidity("Formato válido: xxx@yyy.zzz");
+    //   }
+    // });
 
-    var web = document.getElementsByTagName("input")[4];
-    web.addEventListener("input", () => {
-      web.setCustomValidity("");
-      web.checkValidity();
-    });
+    // web.addEventListener("input", () => {
+    //   web.setCustomValidity("");
+    //   web.checkValidity();
+    // });
 
-    web.addEventListener("invalid", () => {
-      if (web.validity.valueMissing) {
-        web.setCustomValidity("Debes introducir una página web.");
-      }
-      if (web.validity.patternMismatch) {
-        web.setCustomValidity("Formato válido: http://www.xxx.yyy");
-      }
-    });
+    // web.addEventListener("invalid", () => {
+    //   if (web.validity.valueMissing) {
+    //     web.setCustomValidity("Debes introducir una página web.");
+    //   }
+    //   if (web.validity.patternMismatch) {
+    //     web.setCustomValidity("Formato válido: http://www.xxx.yyy");
+    //   }
+    // });
 
-    var pw1 = document.getElementsByTagName("input")[5];
-    pw1.addEventListener("input", () => {
-      pw1.setCustomValidity("");
-      pw1.checkValidity();
-    });
+    // pw1.addEventListener("input", () => {
+    //   pw1.setCustomValidity("");
+    //   pw1.checkValidity();
+    // });
 
-    pw1.addEventListener("invalid", () => {
-      if (pw1.validity.valueMissing) {
-        pw1.setCustomValidity("Debes introducir una contraseña.");
-      }
-      if (pw1.validity.patternMismatch) {
-        pw1.setCustomValidity("Debe contener entre 8 y 10 caracteres")
-      }
-    });
+    // pw1.addEventListener("invalid", () => {
+    //   if (pw1.validity.valueMissing) {
+    //     pw1.setCustomValidity("Debes introducir una contraseña.");
+    //   }
+    //   if (pw1.validity.patternMismatch) {
+    //     pw1.setCustomValidity("Debe contener entre 8 y 10 caracteres")
+    //   }
+    // });
 
-    var pw2 = document.getElementsByTagName("input")[6];
-    pw2.addEventListener("input", () => {
-      pw2.setCustomValidity("");
-      pw2.checkValidity();
-    });
+    // var pw2 = document.getElementsByTagName("input")[6];
+    // pw2.addEventListener("input", () => {
+    //   pw2.setCustomValidity("");
+    //   pw2.checkValidity();
+    // });
 
-    pw2.addEventListener("invalid", () => {
-      if (pw2.validity.valueMissing) {
-        pw2.setCustomValidity("Debes introducir una contraseña.");
-      }
-      if (pw2.validity.patternMismatch) {
-        pw2.setCustomValidity("Debe contener entre 8 y 10 caracteres")
-      }
-    });
+    // pw2.addEventListener("invalid", () => {
+    //   if (pw2.validity.valueMissing) {
+    //     pw2.setCustomValidity("Debes introducir una contraseña.");
+    //   }
+    //   if (pw2.validity.patternMismatch) {
+    //     pw2.setCustomValidity("Debe contener entre 8 y 10 caracteres")
+    //   }
+    // });
 
     // comprobar que pw1 y pw2 son lo mismo?
     // alert("pw1: " + pw1 + "-----pw2: " + pw2);
