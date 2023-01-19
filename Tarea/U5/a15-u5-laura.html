@@ -8,9 +8,19 @@
 </head>
 <body>
     <script type="text/javascript">
-        function visita() {
-            document.cookie
-        }
+        window.addEventListener("load", () => {
+            var visita = decodeURIComponent(document.cookie);
+
+            if (visita.length == 0) {
+                visita = "visita=0";
+                document.cookie = visita;
+            }
+
+            var num = parseInt(visita.substring(visita.indexOf("=") + 1, visita.length));
+            var numvisita = "visita=" + (num + 1);
+            document.cookie = numvisita;
+            alert("Eres el visitante número " + num);
+        });
     </script>
 </body>
 </html>
