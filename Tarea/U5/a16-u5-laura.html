@@ -21,13 +21,14 @@
     </form>
     <p id="resultados"></p>
     <script type="text/javascript">
-        // enviar = document.getElementById("enviar");
-        var form = document.getElementsByTagName("form")[0];
-        form.addEventListener("submit", () => {
+        enviar = document.getElementById("enviar");
+        // var form = document.getElementsByTagName("form")[0];
+        enviar.addEventListener("click", () => {
             var votos = decodeURIComponent(document.cookie);
-            var opciones = document.querySelectorAll('input[type=radio][name="os"]');
-            opciones.forEach(os => os.addEventListener(
-            "change", () => {
+            // var opciones = document.querySelectorAll('input[type=radio][name="os"]');
+            var os = document.querySelector('input[type=radio][name="os"]:checked').value
+            // opciones.forEach(os => os.addEventListener(
+            // "change", () => {
                 // os.value = Nombre del OS
                 // Crear cookie os.value=num y sumarle 1 al num por click
                 if (votos.length == 0) {
@@ -38,17 +39,18 @@
                     document.cookie = "Otro=0";
 
                 }
-                for (i of votos.split(";")) {
-                    if (os.value == i.substring(0, i.indexOf("="))) {
+                for (i of votos.split("; ")) {
+                    if (os == i.substring(0, i.indexOf("="))) {
                         var num = parseInt(i.substring(i.indexOf("=") + 1, i.length))
                     }
                 }
             // var num = parseInt(visita.substring(visita.indexOf("=") + 1, visita.length));
             var numvoto = os.value + "=" + (num + 1);
             document.cookie = numvoto;
-            document.getElementById("resultados").innerHTML = votos;
-            }
-            ));   
+            document.getElementById("resultados").innerHTML = decodeURIComponent(document.cookie);
+
+            // }
+            // ));   
             
             // alert("Eres el visitante número " + (num + 1));
         });
