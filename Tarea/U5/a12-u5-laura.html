@@ -84,6 +84,12 @@
         }
         if (campo.validity.patternMismatch) {
           campo.setCustomValidity(errorPatron);
+        // Borrar cuando esté fuera de focus si es inválido
+        campo.addEventListener("focusout", () => {
+          if (campo.validity.valueMissing || campo.validity.patternMismatch) {
+            campo.value = "";
+          }
+        });
         }
       });
     }
@@ -112,6 +118,7 @@
       // para aquellos que la validity sea incorrecta
       // Problema: no se puede darle a enviar sin que los campos estén validados
       // así que nunca se van a poder limpiar los errores
+      // ! BORRAR CUANDO ESTE FUERA DE FOCUS
     })
     </script>
   </body>
