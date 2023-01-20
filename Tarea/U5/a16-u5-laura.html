@@ -23,7 +23,8 @@
     <script type="text/javascript">
         enviar = document.getElementById("enviar");
         // var form = document.getElementsByTagName("form")[0];
-        enviar.addEventListener("click", () => {
+        enviar.addEventListener("click", (e) => {
+            e.preventDefault();
             var votos = decodeURIComponent(document.cookie);
             // var opciones = document.querySelectorAll('input[type=radio][name="os"]');
             var os = document.querySelector('input[type=radio][name="os"]:checked').value
