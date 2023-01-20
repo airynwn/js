@@ -54,6 +54,7 @@
     </form>
     <script type="text/javascript">
 
+// Cookie  en proceso
     // function crearCookie(campo, valor) {
     //   document.cookie = campo + "=" + valor + ";";
     // }
@@ -104,6 +105,7 @@
     validarCampo(fecha, "Debes introducir una fecha de nacimiento.", "Formato válido: dd/mm/yyyy");
     var email = document.getElementsByTagName("input")[3];
     validarCampo(email, "Debes introducir un email.", "Formato válido: xxx@yyy.zzz");
+    // ! No funciona la validación de web
     var web = document.getElementsByTagName("input")[4];
     validarCampo(web, "Debes introducir una página web.", "Formato válido: http://www.xxx.yyy");
     var pw1 = document.getElementsByTagName("input")[5];
@@ -118,7 +120,7 @@
       // para aquellos que la validity sea incorrecta
       // Problema: no se puede darle a enviar sin que los campos estén validados
       // así que nunca se van a poder limpiar los errores
-      // ! BORRAR CUANDO ESTE FUERA DE FOCUS
+      // ! SOLUCIÓN: BORRAR CUANDO ESTE FUERA DE FOCUS (iGNORAR ESTO)
     })
     </script>
   </body>
