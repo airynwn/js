@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>¿Qué sistema operativo móvil te gusta más?</h2>
+    <form action="">
+        <input type="radio" name="os" id="ios" value="iOS">iOS
+        <br>
+        <input type="radio" name="os" id="Android" value="Android">Android
+        <br>
+        <input type="radio" name="os" id="wp" value="Windows Phone">Windows Phone
+        <br>
+        <input type="radio" name="os" id="otro" value="Otro">Otro
+        <br>
+        <button type="submit" id="enviar">¡Votar!</button>
+    </form>
+    <p id="resultados"></p>
+    <script type="text/javascript">
+        // enviar = document.getElementById("enviar");
+        var form = document.getElementsByTagName("form")[0];
+        form.addEventListener("submit", () => {
+            var votos = decodeURIComponent(document.cookie);
+            var opciones = document.querySelectorAll('input[type=radio][name="os"]');
+            opciones.forEach(os => os.addEventListener(
+            "change", () => {
+                // os.value = Nombre del OS
+                // Crear cookie os.value=num y sumarle 1 al num por click
+                if (votos.length == 0) {
+                    votos = "iOS=0;Android=0;Windows Phone=0;Otro=0";
+                    document.cookie = "iOS=0";
+                    document.cookie = "Android=0";
+                    document.cookie = "Windows Phone=0";
+                    document.cookie = "Otro=0";
+
+                }
+                for (i of votos.split(";")) {
+                    if (os.value == i.substring(0, i.indexOf("="))) {
+                        var num = parseInt(i.substring(i.indexOf("=") + 1, i.length))
+                    }
+                }
+            // var num = parseInt(visita.substring(visita.indexOf("=") + 1, visita.length));
+            var numvoto = os.value + "=" + (num + 1);
+            document.cookie = numvoto;
+            document.getElementById("resultados").innerHTML = votos;
+            }
+            ));   
+            
+            // alert("Eres el visitante número " + (num + 1));
+        });
+    </script>
+</body>
+</html>
