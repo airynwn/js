@@ -46,28 +46,28 @@
         <br>
         <label for="dias">Selecciona los días con disponibilidad: </label>
         <br>
-        <input type="checkbox" name="dias" id="lunes">
+        <input type="checkbox" name="dias" id="lunes" value="lunes">
         lunes
         <br>
-        <input type="checkbox" name="dias" id="martes">
+        <input type="checkbox" name="dias" id="martes" value="martes">
         martes
         <br>
-        <input type="checkbox" name="dias" id="miercoles">
+        <input type="checkbox" name="dias" id="miercoles" value="miercoles">
         miercoles
         <br>
-        <input type="checkbox" name="dias" id="jueves">
+        <input type="checkbox" name="dias" id="jueves" value="jueves">
         jueves
         <br>
-        <input type="checkbox" name="dias" id="viernes">
+        <input type="checkbox" name="dias" id="viernes" value="viernes">
         viernes
         <br>
         <label for="pref">Selecciona el día preferente: </label>
         <select name="pref" id="pref">
-            <option value="lun">lunes</option>
-            <option value="mar">martes</option>
-            <option value="mie">miercoles</option>
-            <option value="jue">jueves</option>
-            <option value="vie">viernes</option>
+            <option value="lunes">lunes</option>
+            <option value="martes">martes</option>
+            <option value="miercoles">miercoles</option>
+            <option value="jueves">jueves</option>
+            <option value="viernes">viernes</option>
         </select>
         <br>
         <input type="submit" id="enviar" value="Haz clic para enviar información">
@@ -82,7 +82,6 @@
         var sobremi = document.getElementById("google");
         sobremi.addEventListener("click", () => location.href = "http://www.google.com");
 
-
         // 9. enviar el cuestionario al profesor de la asignatura seleccionada
         var asignaturas = document.querySelector(".asignatura");
         asignaturas.addEventListener(
@@ -92,24 +91,14 @@
 
         // 10. Marcar como día preferente el día marcado disponible.
         // Si hay varios días marcados disponibles, se marca preferente el último de estos.
-
-        // var preferente = document.querySelector(".dias");
-        // var submit = document.getElementById("enviar");
-        // submit.addEventListener("click", preferente);
-
-        // function preferente() {
-        //   var pref;
-        //   // var arr = document.getElementsByName("dias")
-        //   // for (i = 0; i < arr.length; i++) {
-        //   //     if (arr[i].checked) {
-        //   //       pref = arr[i];
-        //   //     }
-        //   // }
-        //   var arr = document.querySelectorAll("input[name='dias']:checked");
-        //   arr.forEach(dia => dia.addEventListener("change", () => alert(dia.value)))
-        //   alert(arr);
-        //   alert("Día preferente: " + pref);
-        // }
+          var dias = document.querySelectorAll('input[type=checkbox][name="dias"]');
+          dias.forEach(dia => dia.addEventListener("change", () => {
+            // Al marcar un día disponible, poner por defecto ese día como selected en preferentes
+            // Comprobar que el día haya sido marcado y no desmarcado en el change
+            if (dia.checked) {
+              document.querySelector('select[name="pref"]').value = dia.value;
+            }            
+          }));
 
         // 11. cambiar coloro de fondo segun input radio seleccionado
         var colores = document.querySelectorAll('input[type=radio][name="color"]');
