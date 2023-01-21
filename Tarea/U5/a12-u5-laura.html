@@ -16,11 +16,13 @@
 
     <form action="">
         <label for="dni">DNI: </label>
-        <input type="text" pattern="^\d{2}\.\d{3}.\d{3}-[A-Z]$" id="dni" required>
+        <input type="text" name="dni"
+        pattern="^\d{2}\.\d{3}.\d{3}-[A-Z]$" id="dni" required>
         <!-- 99.999.999-X -->
         <br>
         <label for="nombre">Nombre: </label>
-        <input type="text" pattern="^([A-Z][a-z]*\s[A-Z][a-z]*){1,2}$" id="nombre" required>
+        <input type="text" name="nombre"
+        pattern="^([A-Z][a-z]*\s[A-Z][a-z]*){1,2}$" id="nombre" required>
         <!-- min: 1 nombre 1 apellido; max: 2 nombres 2 apellidos -->
         <br>
         <label for="fnac">Fecha de nacimiento: </label>
@@ -54,37 +56,22 @@
     </form>
     <script type="text/javascript">
 
-// Cookie  en proceso
-    // function crearCookie(campo, valor) {
-    //   document.cookie = campo + "=" + valor + ";";
-    // }
-
-    // // function leerCookies() {
-    // //   alert(document.cookie);
-    // // }
-    
-    // var campos = getElementsByTagName("input");
-    // alert(campos);
-
-    // // crear cookie de todo
-    // enviar.addEventListener("click", () => crearCookie('dni', dni.value));
-    // // Leer cookies
-    // leerCookie = document.getElementById("ver");
-    // leerCookie.addEventListener("click", () => alert(document.cookie));
-
     function validarCampo(campo, errorVacio, errorPatron) {
       // Interrumpir validación
       campo.addEventListener("input", () => {
         campo.setCustomValidity("");
         campo.checkValidity();
       });
+
       // Si no es válido:
       campo.addEventListener("invalid", () => {
         if (campo.validity.valueMissing) {
           campo.setCustomValidity(errorVacio);
         }
+        
         if (campo.validity.patternMismatch) {
           campo.setCustomValidity(errorPatron);
+
         // Borrar cuando esté fuera de focus si es inválido
         campo.addEventListener("focusout", () => {
           if (campo.validity.valueMissing || campo.validity.patternMismatch) {
@@ -101,6 +88,7 @@
     validarCampo(nombre,
     "Introduzca al menos un nombre y un apellido. Máx: 2 nombres y 2 apellidos",
     "Los nombres y apellidos deben comenzar por mayúscula, tener al menos dos letras y estar separados por espacios.");
+    // ! Mejorar validación de fecha (los años se pasan)
     var fecha = document.getElementsByTagName("input")[2];
     validarCampo(fecha, "Debes introducir una fecha de nacimiento.", "Formato válido: dd/mm/yyyy");
     var email = document.getElementsByTagName("input")[3];
@@ -112,16 +100,30 @@
     validarCampo(pw1, "Debes introducir una contraseña.", "Debe contener entre 8 y 10 caracteres");
     var pw2 = document.getElementsByTagName("input")[6];
     validarCampo(pw2, "Debes introducir una contraseña.", "Debe contener entre 8 y 10 caracteres");
-    var campos = [dni, nombre, fecha, email, web, pw1, pw2];
 
+    // Crear cookies de los datos introducidos
     enviar = document.getElementById("enviar");
     enviar.addEventListener("click", (e) => {
-      // Tras la validación de todos los campos, cambiar el value de los input a ""
-      // para aquellos que la validity sea incorrecta
-      // Problema: no se puede darle a enviar sin que los campos estén validados
-      // así que nunca se van a poder limpiar los errores
-      // ! SOLUCIÓN: BORRAR CUANDO ESTE FUERA DE FOCUS (iGNORAR ESTO)
-    })
+      var campos = [dni, nombre, fecha, email, web, pw1, pw2];
+  
+      function crearCookie(campo, valor) {
+        document.cookie = campo + "=" + valor;
+      }
+
+      // Crea una cookie nombredelcampo=valor por cada campo al darle al botón
+      for (campo of campos) {
+        crearCookie(campo.getAttribute("name"), campo.value);
+      }
+    });
+
+    // Mostrar las cookies
+      ver = document.getElementById("ver");
+      ver.addEventListener("click", () => {
+        var datos = decodeURIComponent(document.cookie);
+        alert(datos);
+      });
+
+  
     </script>
   </body>
 </html>
