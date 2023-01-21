@@ -5,6 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        div.barra {
+            background: #f0f0f0;
+            box-shadow: 0.5px 0.5px 0.5px 0px gray;
+            max-width: 20%;
+            border-radius: 5px;
+            margin: 5px;
+            /* overflow: hidden; */
+            /* position: relative; */
+
+        }
+
+        div.barra > div {
+            padding: 10px;
+            /* max-width: 0%; */
+            border-radius: 5px;
+            text-align: center;
+            font-style: white;
+        }
+
+        div#ios-barra {
+            background-color: rgb(51, 95, 238);
+        }
+
+        div#android-barra {
+            background-color: rgb(51, 218, 126);
+        }
+
+        div#wp-barra {
+            background-color: rgb(141, 69, 223);
+        }
+
+        div#otro-barra {
+            background-color: rgb(255, 82, 177);
+        }
+    </style>
 </head>
 <body>
     <h2>¿Qué sistema operativo móvil te gusta más?</h2>
@@ -20,40 +60,98 @@
         <button type="submit" id="enviar">¡Votar!</button>
     </form>
     <p id="resultados"></p>
+    <label for="ios">iOS</label>
+    <div class="barra">
+        <div id="ios-barra"></div>
+    </div>
+    <label for="android">Android</label>
+    <div class="barra">
+        <div id="android-barra"></div>
+    </div>
+    <label for="wp">Windows Phone</label>
+    <div class="barra">
+        <div id="wp-barra"></div>
+    </div>
+    <label for="otro">Otro</label>
+    <div class="barra">
+        <div id="otro-barra"></div>
+    </div>
+
     <script type="text/javascript">
+
+        function subirProgreso() {
+            var ios = document.getElementById("ios-barra");
+            var android = document.getElementById("android-barra");
+            var wp = document.getElementById("wp-barra");
+            var otro = document.getElementById("otro-barra");
+
+            var barras = [ios, android, wp, otro];
+            
+            // Número de votos para cada OS
+            for (os of decodeURIComponent(document.cookie).split("; ")) {
+                switch (os.substring(0, os.indexOf("="))) {
+                    case "iOS":
+                        var votosios = parseInt(os.substring(os.indexOf("=") + 1, os.length));
+                        break;
+                    case "Android":
+                        var votosandroid = parseInt(os.substring(os.indexOf("=") + 1, os.length));
+                        break;
+                    case "Windows Phone":
+                        var votoswp = parseInt(os.substring(os.indexOf("=") + 1, os.length));
+                        break;
+                    case "Otro":
+                        var votosotro = parseInt(os.substring(os.indexOf("=") + 1, os.length));
+                        break;
+                }
+            }
+
+            // Número total (100%) de votos
+            var arrVotos = [votosios, votosandroid, votoswp, votosotro];
+            var total = 0;
+            arrVotos.forEach((i) => {total += i});
+            // alert(total);
+            // alert(arrVotos);
+
+            // Calcula el porcentaje de votos para cada OS
+            // y lo coloca como maxwidth a la barra correspondiente
+            for (i in arrVotos) {
+                arrVotos[i] = (arrVotos[i] * 100) / total;
+                barras[i].style.maxWidth = arrVotos[i] + "%";
+                barras[i].innerHTML = Math.round(arrVotos[i]) + "%";
+            }
+            // alert(arrVotos);
+            // alert(barras);
+        }
+
         enviar = document.getElementById("enviar");
-        // var form = document.getElementsByTagName("form")[0];
         enviar.addEventListener("click", (e) => {
             e.preventDefault();
             var votos = decodeURIComponent(document.cookie);
-            // var opciones = document.querySelectorAll('input[type=radio][name="os"]');
             var os = document.querySelector('input[type=radio][name="os"]:checked').value
-            // opciones.forEach(os => os.addEventListener(
-            // "change", () => {
-                // os.value = Nombre del OS
-                // Crear cookie os.value=num y sumarle 1 al num por click
+                // Saca la cookie y el nombre del OS escogido, evitando que se envíe el formulario
+
+                // Crear cookie
                 if (votos.length == 0) {
-                    votos = "iOS=0;Android=0;Windows Phone=0;Otro=0";
+                    votos = "iOS=0; Android=0; Windows Phone=0; Otro=0";
                     document.cookie = "iOS=0";
                     document.cookie = "Android=0";
                     document.cookie = "Windows Phone=0";
                     document.cookie = "Otro=0";
-
                 }
+
+                // En la lista de votos, sacar el perteneciente al OS escogido
+                // y su número y sumarle 1
                 for (i of votos.split("; ")) {
                     if (os == i.substring(0, i.indexOf("="))) {
                         var num = parseInt(i.substring(i.indexOf("=") + 1, i.length))
                     }
                 }
-            // var num = parseInt(visita.substring(visita.indexOf("=") + 1, visita.length));
-            var numvoto = os.value + "=" + (num + 1);
+                
+            var numvoto = os + "=" + (num + 1);
+            subirProgreso();
             document.cookie = numvoto;
             document.getElementById("resultados").innerHTML = decodeURIComponent(document.cookie);
-
-            // }
-            // ));   
             
-            // alert("Eres el visitante número " + (num + 1));
         });
     </script>
 </body>
