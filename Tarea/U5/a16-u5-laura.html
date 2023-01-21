@@ -59,22 +59,21 @@
         <br>
         <button type="submit" id="enviar">¡Votar!</button>
     </form>
-    <p id="resultados"></p>
     <label for="ios">iOS</label>
     <div class="barra">
-        <div id="ios-barra"></div>
+        <div id="ios-barra" style="max-width: 0%;">0%</div>
     </div>
     <label for="android">Android</label>
     <div class="barra">
-        <div id="android-barra"></div>
+        <div id="android-barra" style="max-width: 0%;">0%</div>
     </div>
     <label for="wp">Windows Phone</label>
     <div class="barra">
-        <div id="wp-barra"></div>
+        <div id="wp-barra" style="max-width: 0%;">0%</div>
     </div>
     <label for="otro">Otro</label>
     <div class="barra">
-        <div id="otro-barra"></div>
+        <div id="otro-barra" style="max-width: 0%;">0%</div>
     </div>
 
     <script type="text/javascript">
@@ -109,18 +108,15 @@
             var arrVotos = [votosios, votosandroid, votoswp, votosotro];
             var total = 0;
             arrVotos.forEach((i) => {total += i});
-            // alert(total);
-            // alert(arrVotos);
 
             // Calcula el porcentaje de votos para cada OS
-            // y lo coloca como maxwidth a la barra correspondiente
+            // y lo colorea como maxwidth a la barra correspondiente
             for (i in arrVotos) {
                 arrVotos[i] = (arrVotos[i] * 100) / total;
                 barras[i].style.maxWidth = arrVotos[i] + "%";
                 barras[i].innerHTML = Math.round(arrVotos[i]) + "%";
             }
-            // alert(arrVotos);
-            // alert(barras);
+
         }
 
         enviar = document.getElementById("enviar");
@@ -148,9 +144,8 @@
                 }
                 
             var numvoto = os + "=" + (num + 1);
-            subirProgreso();
             document.cookie = numvoto;
-            document.getElementById("resultados").innerHTML = decodeURIComponent(document.cookie);
+            subirProgreso();
             
         });
     </script>
