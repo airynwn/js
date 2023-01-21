@@ -75,6 +75,19 @@
 
     <script type="text/javascript">
 
+        var cookie = decodeURIComponent(document.cookie);
+
+        // Si no existe, la crea. Si existe, retoma el progreso
+        if (cookie.length == 0) {
+            cookie = "iOS=0; Android=0; Windows Phone=0; Otro=0";
+            document.cookie = "iOS=0";
+            document.cookie = "Android=0";
+            document.cookie = "Windows Phone=0";
+            document.cookie = "Otro=0";
+        } else {
+            subirProgreso();
+        }
+
         function subirProgreso() {
             var ios = document.getElementById("ios-barra");
             var android = document.getElementById("android-barra");
@@ -118,19 +131,10 @@
 
         enviar = document.getElementById("enviar");
         enviar.addEventListener("click", (e) => {
+            // Saca la cookie y el nombre del OS escogido, evitando que se envíe el formulario
             e.preventDefault();
             var votos = decodeURIComponent(document.cookie);
             var os = document.querySelector('input[type=radio][name="os"]:checked').value
-                // Saca la cookie y el nombre del OS escogido, evitando que se envíe el formulario
-
-                // Crear cookie
-                if (votos.length == 0) {
-                    votos = "iOS=0; Android=0; Windows Phone=0; Otro=0";
-                    document.cookie = "iOS=0";
-                    document.cookie = "Android=0";
-                    document.cookie = "Windows Phone=0";
-                    document.cookie = "Otro=0";
-                }
 
                 // En la lista de votos, sacar el perteneciente al OS escogido
                 // y su número y sumarle 1
@@ -140,10 +144,10 @@
                     }
                 }
                 
+                // Actualiza el voto para el OS en la cookie
             var numvoto = os + "=" + (num + 1);
             document.cookie = numvoto;
             subirProgreso();
-            
         });
     </script>
 </body>
