@@ -1,0 +1,94 @@
+<script>
+// Modelo estándar de W3C
+
+elemento = document.getElementById("elemento");
+elemento.addEventListener("evento", () => { 
+    // funcion
+}, boolean); // boolean = captura o burbuja
+
+//! Eventos de ratón
+/*
+    click           boton izquierdo del raton
+    dblclick        doble click izquierdo
+    mousedown       algun boton del raton (0: izq, 1: rueda, 2: der)
+    mouseup         soltar boton del raton
+    mouseover       el puntero se desplaza a algun elemento o alguno de sus hijos
+    mouseout        el puntero esta dentro de algo y se desplaza fuera de ese elemento
+    mousemove       el puntero esta dentro de un elemento (se ejecuta mientras PERMANEZCA dentro)
+    mouseenter      cuando el puntero ENTRA dentro de un elemento
+    mouseleave      cuando el puntero SALE fuera de un elemento
+    contextmenu     click derecho del raton
+    wheel           mover la rueda del raton (scroll?)
+
+*/
+elemento.addEventListener("click", () => {});
+//! Eventos de teclado
+/*
+    keydown         pulsar una tecla, se ejecuta mientras permanezca pulsada
+    keyup           soltar una tecla
+    keypress        pulsar una tecla de un caracter alfanumerico (excepto shift, ctrl, alt, alt gr)
+
+*/
+elemento.addEventListener("keydown", () => {});
+
+//! Propiedades de teclado
+/*
+    altKey          devuelve true si se pulsa la tecla alt
+    code            devuelve el codigo de la tecla pulsada
+    ctrlKey         devuelve true si se pulsa la tecla ctrl
+    key             devuelve la tecla pulsada
+    location        0 (estandar) 1 (izq) 2 (der) 3 (teclado numerico)
+    shiftKey        devuelve true si se pulsa la tecla shift
+*/
+elemento.addEventListener("keydown", (e) => {e.code});
+//! Eventos HTML
+/*
+    load            cuando se carga la pagina, imagen u objeto
+    unload          cuando la pagina desaparece (cerrar la ventana) o el objeto
+    abort           cuando se detiene la descarga, actua sobre un objeto
+    error           error js cuando no se puede cargar una imagen o un objeto
+    beforeunload    al pulsar un enlace, refrescar (F5), cerrar...
+    resize          al redimensionar el navegador
+    scroll          cuando cambia la posicion de la barra de scroll en cualquier elemento
+*/
+window.addEventListener("load", () => {alert("hola")});
+//! Eventos FORMS
+/*
+    select          al seleccionar texto de cuadros de texto input y textarea
+    change          cuando input y textarea pierden el foco y el contenido cambia
+                            o cuando un select cambia de valor
+    reset           al pulsar un boton de reset
+    invalid         cuando el valor de un input no es correcto
+    submit          al pulsar un boton de submit
+    focus           cuando se focusea un elemento
+    focusin         como focus pero soporta bubbling
+    blur            cuando un elemento pierde el focus
+    focusout        como blur pero soporta bubbling
+    input           al escribir en un input o textarea
+*/
+elemento.addEventListener("invalid", () => { /*if noseque...*/});
+//! Formularios
+/*
+    aqui la idea es poner los distintos tipos de elementos
+    que se pueden usar en formularios
+    radio, checkbox, select option, select optgroup, no se que...
+*/
+
+//! Regex
+/*
+    patrones tipicos (fecha, telefono, email...)
+*/
+
+//! Forms API - Validación de formularios
+/*
+    funciones tipicas de validar formularios o que pase X al hacer Y
+    con queryselector, :checked y todo eso
+*/
+
+//! Cookies
+/*
+    todo lo de cookies, funciones para crear, leer y modificar, ejemplos
+    USAR EN MOZILLA!!!
+*/
+
+</script>
