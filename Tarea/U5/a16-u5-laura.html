@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="a16-u5-laura.js" defer></script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -73,11 +74,11 @@
         <div id="otro-barra" style="max-width: 0%;">0%</div>
     </div>
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
 
         var cookie = decodeURIComponent(document.cookie);
 
-        // Si no existe, la crea. Si existe, retoma el progreso
+        // Si no existe la cookie, la crea. Si existe, retoma el progreso.
         if (cookie.length == 0) {
             cookie = "iOS=0; Android=0; Windows Phone=0; Otro=0";
             document.cookie = "iOS=0";
@@ -120,7 +121,7 @@
             arrVotos.forEach((i) => {total += i});
 
             // Calcula el porcentaje de votos para cada OS
-            // y lo colorea como maxwidth a la barra correspondiente
+            // y lo colorea aumentando el tamaño de la barra correspondiente
             for (i in arrVotos) {
                 arrVotos[i] = (arrVotos[i] * 100) / total;
                 barras[i].style.maxWidth = arrVotos[i] + "%";
@@ -149,6 +150,6 @@
             document.cookie = numvoto;
             subirProgreso();
         });
-    </script>
+    </script> -->
 </body>
 </html>

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="a08-u5-laura.js" defer></script>
   </head>
   <body>
     <h2>
@@ -37,7 +38,7 @@
         Azul
         <br>
         <label for="asignatura">Selecciona la asignatura: </label>
-        <select class="asignatura" name="asignatura" id="asignatura">
+        <select name="asignatura" id="asignatura">
             <option value="mates">Matemáticas</option>
             <option value="lengua">Lengua</option>
             <option value="filosofía">Filosofía</option>
@@ -74,39 +75,5 @@
         <input type="reset" value="Comenzar a rellenar de nuevo">
         <input type="button" id="google" value="Haz clic sobre mí">
     </form>
-
-    <div class="texto"></div>
-
-    <script type="text/javascript">
-        // Sobre mí -> Google
-        var sobremi = document.getElementById("google");
-        sobremi.addEventListener("click", () => location.href = "http://www.google.com");
-
-        // 9. enviar el cuestionario al profesor de la asignatura seleccionada
-        var asignaturas = document.querySelector(".asignatura");
-        asignaturas.addEventListener(
-            "change",
-            (e) => alert('El cuestionario se enviará al profesor de ' + e.target.value
-            // ! MANDAR AL CORREO DEL PROFESOR SEGUN LOQ EUH AGAMOS EL LUNES
-            // COGIENDO EL VALOR DEL PROFESOR SELECCIONADO
-        ));
-
-        // 10. Marcar como día preferente el día marcado disponible.
-        // Si hay varios días marcados disponibles, se marca preferente el último de estos.
-          var dias = document.querySelectorAll('input[type=checkbox][name="dias"]');
-          dias.forEach(dia => dia.addEventListener("change", () => {
-            // Al marcar un día disponible, poner por defecto ese día como selected en preferentes
-            // Comprobar que el día haya sido marcado y no desmarcado en el change
-            if (dia.checked) {
-              document.querySelector('select[name="pref"]').value = dia.value;
-            }            
-          }));
-
-        // 11. cambiar coloro de fondo segun input radio seleccionado
-        var colores = document.querySelectorAll('input[type=radio][name="color"]');
-        colores.forEach(color => color.addEventListener(
-            "change", () => document.body.style.background = color.value));   
-
-    </script>
   </body>
 </html>

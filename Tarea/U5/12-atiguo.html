@@ -1,0 +1,84 @@
+<!-- <script type="text/javascript">
+      function validarCampo(campo, errorVacio, errorPatron) {
+        // Interrumpir validación
+        campo.addEventListener("input", () => {
+          campo.setCustomValidity("");
+          campo.checkValidity();
+        });
+
+        // Si no es válido:
+        campo.addEventListener("invalid", () => {
+          if (campo.validity.valueMissing) {
+            campo.setCustomValidity(errorVacio);
+          }
+          
+          if (campo.validity.patternMismatch) {
+            campo.setCustomValidity(errorPatron);
+
+          // Borrar cuando esté fuera de focus si es inválido
+          campo.addEventListener("focusout", () => {
+            if (campo.validity.valueMissing || campo.validity.patternMismatch) {
+              campo.value = "";
+            }
+          });
+          }
+        });
+      }
+      
+      var dni = document.getElementsByTagName("input")[0];
+      validarCampo(dni, "Debes introducir un DNI", "Formato válido: 99.999.999-X");
+      var nombre = document.getElementsByTagName("input")[1];
+      validarCampo(nombre,
+      "Introduzca al menos un nombre y un apellido. Máx: 2 nombres y 2 apellidos",
+      "Los nombres y apellidos deben comenzar por mayúscula, tener al menos dos letras y estar separados por espacios.");
+      // ! Mejorar validación de fecha (los años se pasan)
+      var fecha = document.getElementsByTagName("input")[2];
+      validarCampo(fecha, "Debes introducir una fecha de nacimiento.", "Formato válido: dd/mm/yyyy");
+      var email = document.getElementsByTagName("input")[3];
+      validarCampo(email, "Debes introducir un email.", "Formato válido: xxx@yyy.zzz");
+      // ! No funciona la validación de web
+      var web = document.getElementsByTagName("input")[4];
+      validarCampo(web, "Debes introducir una página web.", "Formato válido: http://www.xxx.yyy");
+      var pw1 = document.getElementsByTagName("input")[5];
+      validarCampo(pw1, "Debes introducir una contraseña.", "Debe contener entre 8 y 10 caracteres");
+      var pw2 = document.getElementsByTagName("input")[6];
+      validarCampo(pw2, "Debes introducir una contraseña.", "Debe contener entre 8 y 10 caracteres");
+      
+      // Crear cookies de los datos introducidos
+      enviar = document.getElementById("enviar");
+      enviar.addEventListener("click", (e) => {
+        e.preventDefault();
+        var campos = [dni, nombre, fecha, email, web, pw1, pw2];
+        var valido = true;
+
+        for (campo of campos) {
+          if (!campo.checkValidity()) {
+            valido = false;
+          }
+        }
+
+        if (valido) {
+          function crearCookie(campo, valor) {
+            document.cookie = campo + "=" + valor;
+          }
+  
+          // Crea una cookie nombredelcampo=valor por cada campo al darle al botón
+          for (campo of campos) {
+            crearCookie(campo.getAttribute("name"), campo.value);
+          }
+          alert("Datos guardados");
+        } else {
+          alert("No puedes guardar los datos hasta que todos los campos sean válidos");
+        }
+    
+      });
+
+      // Mostrar las cookies
+        ver = document.getElementById("ver");
+        ver.addEventListener("click", () => {
+          var datos = decodeURIComponent(document.cookie);
+          if (datos.length > 0) {
+            alert(datos);
+          }
+        });
+    </script> -->

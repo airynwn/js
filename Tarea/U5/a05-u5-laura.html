@@ -14,16 +14,16 @@
     </h2>
     <img src="1.gif" id="cambio">
     <script>
-      var img = document.getElementById("cambio");
+      let img = document.getElementById("cambio");
       document.addEventListener("mousedown", otraimg);
       document.addEventListener("mouseup", primeraimg);
 
       function otraimg() {
-        img.src = "1.gif";
+        img.src = "2.gif";
       }
 
       function primeraimg() {
-        img.src = "2.gif";
+        img.src = "1.gif";
       }
     </script>
   </body>

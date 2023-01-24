@@ -17,14 +17,14 @@
     </style>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
-        var left = 0;
-        var top = 0;
+        let left = 0;
+        let top = 0;
         document.addEventListener("keydown", mover);
 
         function mover(e) {
-          var key = e.keyCode;
+          let key = e.keyCode;
           console.log(key);
-          var caja = document.getElementById("caja");
+          let caja = document.getElementById("caja");
           switch (key) {
             case 100:
             case 37:

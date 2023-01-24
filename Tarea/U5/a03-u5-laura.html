@@ -12,10 +12,16 @@
       ratón al hacer click sobre la ventana del navegador.
     </h2>
     <script>
-      document.addEventListener("click", deshabilitar);
-
+      // Al hacer click, se deshabilita el click derecho
+      document.addEventListener("click", () => {
+        alert("Has hecho click. Se ha deshabilitado el click derecho.");
+        deshabilitar();
+      });
+      
       function deshabilitar() {
-        window.addEventListener("contextmenu", e => e.preventDefault());
+        window.addEventListener("contextmenu", e => {
+          e.preventDefault();
+        });
       }
     </script>
   </body>
