@@ -262,7 +262,11 @@ enviar.addEventListener("click", () => {
       }
     });
     --------------------------------
+    document.addEventListener('DOMContentLoaded', () =>  {
+      iniciar();
+    }
 
+})
 */
 
 //! Cookies
@@ -270,6 +274,23 @@ enviar.addEventListener("click", () => {
     todo lo de cookies, funciones para crear, leer y modificar, ejemplos
     USAR EN MOZILLA!!!
     arriba
+    CONTADOR DE VISITAS
+    ----------------------------
+    window.addEventListener("load", () => {
+            var visita = decodeURIComponent(document.cookie);
+            // Cuando carga la página, se saca la cookie y si no existe la empieza en 0
+            if (visita.length == 0) {
+                visita = "visita=0";
+                document.cookie = visita;
+            }
+            // Por cada vez que se cargue, el valor de la cookie (número de visita) aumenta en 1
+            var num = parseInt(visita.substring(visita.indexOf("=") + 1, visita.length));
+            var numvisita = "visita=" + (num + 1);
+            document.cookie = numvisita;
+            alert("Eres el visitante número " + (num + 1));
+        });
+    -------------------------
+    EJ 16 Votos
 */
 
 </script>
