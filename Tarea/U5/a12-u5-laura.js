@@ -1,12 +1,12 @@
+let mensaje = document.getElementById("msg");
 function validarCampo(campo, errorVacio, errorPatron) {
-    let mensaje = document.getElementById("msg");
     // Interrumpir validación
     campo.addEventListener("input", () => {
       mensaje.innerHTML = "";
       campo.setCustomValidity("");
       campo.checkValidity();
     });
-
+    
     // Si no es válido:
     campo.addEventListener("invalid", () => {
       /*
@@ -37,7 +37,7 @@ function validarCampo(campo, errorVacio, errorPatron) {
       }
     });
   }
-  
+
   let dni = document.getElementsByTagName("input")[0];
   validarCampo(dni, "Debes introducir un DNI", "Formato válido: 99.999.999-X");
   let nombre = document.getElementsByTagName("input")[1];
@@ -48,18 +48,24 @@ function validarCampo(campo, errorVacio, errorPatron) {
   validarCampo(fnac, "Debes introducir una fecha de nacimiento.", "Formato válido: dd/mm/yyyy");
   let email = document.getElementsByTagName("input")[3];
   validarCampo(email, "Debes introducir un email.", "Formato válido: xxx@yyy.zzz");
-  // ! No funciona la validación de web??
   let web = document.getElementsByTagName("input")[4];
   validarCampo(web, "Debes introducir una página web.", "Formato válido: http://www.xxx.yyy");
   let pw1 = document.getElementsByTagName("input")[5];
   validarCampo(pw, "Debes introducir una contraseña.", "Debe contener entre 8 y 10 caracteres");
   let pw2 = document.getElementsByTagName("input")[6];
   validarCampo(pw2, "Debes introducir una contraseña.", "Debe contener entre 8 y 10 caracteres");
+
   
+
   // Crear cookies de los datos introducidos
   let enviar = document.getElementById("enviar");
   enviar.addEventListener("click", (e) => {
     e.preventDefault();
+    if (pw1.value != pw2.value) {
+      alert("Las contraseñas deben ser iguales.");
+      pw2.value = "";
+      return false;
+    }
     let campos = [dni, nombre, fnac, email, web, pw, pw2];
     let valido = true;
 
