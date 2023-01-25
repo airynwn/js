@@ -168,12 +168,108 @@ Carne:
 /*
     funciones tipicas de validar formularios o que pase X al hacer Y
     con queryselector, :checked y todo eso
+    ---------------------------------------
+    // 10. Marcar como día preferente el día marcado disponible.
+// Si hay varios días marcados disponibles, se marca preferente el último de estos.
+let dias = document.querySelectorAll('input[type=checkbox][name="dias"]');
+dias.forEach((dia) =>
+  dia.addEventListener("change", () => {
+    // Al marcar un día disponible, poner por defecto ese día como selected en preferentes
+    // Comprobar que el día haya sido marcado y no desmarcado en el change
+    if (dia.checked) {
+      document.querySelector('select[name="pref"]').value = dia.value;
+    }
+  })
+);
+----------------------------------
+// 11. cambiar coloro de fondo según input radio seleccionado
+let colores = document.querySelectorAll('input[type=radio][name="color"]');
+colores.forEach((color) =>
+  color.addEventListener("change", () => (
+    document.body.style.background = color.value
+)));
+-------------------------------------
+// 9. Enviar el cuestionario al profesor de la asignatura seleccionada
+// ! SÓLO FUNCIONA EN FIREFOX por alguna extraña razón
+let enviar = document.getElementById("enviar");
+enviar.addEventListener("click", () => {
+  location.href = "mailto:" + document.querySelector("select").value + "@example.com";
+  ------------------------------------
+  campo.addEventListener("invalid", () => {
+      
+        Caso raro: En Firefox los mensajes de customvalidity sólo aparecen
+        cuando se focusea el campo. El de valuemissing sólo sale cuando se ha
+        escrito y borrado anteriormente en el campo; de primeras sale el mensaje predeterminado.
+        En Opera directamente no sale ninguno, sólo los predeterminados.
+        Antes funcionaba normal
+      
+
+      // Si está vacío
+      if (campo.validity.valueMissing) {
+        campo.setCustomValidity(errorVacio);
+        mensaje.innerHTML = errorVacio;
+      }
+      
+      // Si no se corresponde con el patrón
+      if (campo.validity.patternMismatch) {
+        campo.setCustomValidity(errorPatron);
+        mensaje.innerHTML = errorPatron;
+
+      // Borrar cuando esté fuera de focus si es inválido
+      campo.addEventListener("focusout", () => {
+        if (campo.validity.valueMissing || campo.validity.patternMismatch) {
+          campo.value = "";
+        }
+      });
+      }
+    });
+    -------------------------------
+    // Crear cookies de los datos introducidos
+  let enviar = document.getElementById("enviar");
+  enviar.addEventListener("click", (e) => {
+    e.preventDefault();
+    let campos = [dni, nombre, fnac, email, web, pw, pw2];
+    let valido = true;
+
+    for (campo of campos) {
+      if (!campo.checkValidity()) {
+        valido = false;
+      }
+    }
+
+    if (valido) {
+      function crearCookie(campo, valor) {
+        document.cookie = campo + "=" + valor;
+      }
+
+      // Crea una cookie nombredelcampo=valor por cada campo al darle al botón
+      for (campo of campos) {
+        crearCookie(campo.getAttribute("name"), campo.value);
+      }
+      alert("Datos guardados");
+    } else {
+      alert("No puedes guardar los datos hasta que todos los campos sean válidos");
+    }
+
+  });
+  --------------------------------------
+  // Mostrar las cookies
+    let ver = document.getElementById("ver");
+    ver.addEventListener("click", () => {
+        let datos = decodeURIComponent(document.cookie);
+      if (datos.length > 0) {
+        alert(datos);
+      }
+    });
+    --------------------------------
+
 */
 
 //! Cookies
 /*
     todo lo de cookies, funciones para crear, leer y modificar, ejemplos
     USAR EN MOZILLA!!!
+    arriba
 */
 
 </script>
