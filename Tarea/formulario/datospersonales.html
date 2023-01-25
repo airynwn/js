@@ -1,4 +1,3 @@
-<!-- COMPLETAR ESTO Y MANDARLO!()/"·(!)u=")/!("(=/!"()!/) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,51 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de datos personales</title>
     <style>
-        .verde {
+        fieldset:nth-child(odd) {
             background-color: chartreuse;
-            border: 4px dashed green;
+            border: 4px dashed seagreen;
+        }
+
+        fieldset:nth-child(even) {
+            background-color: mediumpurple;
+            border: 4px dashed midnightblue;
+        }
+
+        legend {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-style: oblique;
+            font-size: large;
+            font-weight: bolder;
+            text-align: center;
+            color:indigo;
         }
 
         .azul {
-            background-color: turquoise;
-            border: 2px solid purple;
+            background-color: royalblue;
+            border: 2px solid navy;
+            color: white;
         }
 
     </style>
 </head>
 <body>
     <form action="">
-        <fieldset class="verde">
+        <fieldset>
         <legend>Datos personales</legend>
         <div>
         <label for="nombre">
             Nombre:
-            <input type="text" name="nombre" id="nombre" size="20" required>
+            <input type="text" name="nombre" id="nombre" size="20" required
+            pattern="^[A-Z][a-z]+$">
         </label>
         </div>
         <div>
         <label for="apellidos">
             Apellidos:
-            <input class="azul" type="text" name="apellidos" id="apellidos" size="20" required>
+            <input class="azul" type="text" name="apellidos" id="apellidos" size="20" required
+            pattern="^([A-Z][a-z]+\s[A-Z][a-z]+)+$">
         </label>
         </div>
         <div>
         <label for="web">
             Página web:
-            <input type="url" name="web" id="web" size="20" required>
+            <input type="url" name="web" id="web" size="20" required placeholder="https://example.com">
         </label>
         </div>
         <div>
         <label for="correo">
             Correo:
-            <input type="email" name="correo" id="correo" size="20" required>
+            <input type="email" name="correo" id="correo" size="20" required placeholder="example@example.com">
         </label>
         </div>
         <div>
-            <label for="texto">
-                Texto:
-                <textarea name="texto" id="texto" cols="30" rows="5"></textarea>
-            </label>
+                <textarea name="texto" id="texto" cols="30" rows="5">Escribe aquí</textarea>
         </div>
         <div>
             <label for="color">
@@ -77,73 +90,75 @@
         <legend>Login</legend>
         <label for="user">
             Usuario:
-            <input type="text" name="user" id="user" size="20" required>
+            <input type="text" name="user" id="user" size="20" required
+            pattern="^\w+$">
         </label>
     </div>
     <div>
         <label for="pw">
             Contraseña:
-            <input type="password" name="pw" id="pw" size="20" required>
+            <input type="password" name="pw" id="pw" size="20" required
+            pattern="^\w{8,10}$">
         </label>
         </div>
     </fieldset>
 
     <fieldset>
         <legend>Consentimiento</legend>
-            <input name="noticia" type="checkbox" value="noticia" checked="checked"/>
+            <input name="noticia" type="checkbox" value="noticia" checked="checked" required>
             Quiero enterarme de las noticias y ofertas
             <br>
-            <input name="condiciones" type="checkbox" value="condiciones"/>
+            <input name="condiciones" type="checkbox" value="condiciones" required>
             Declaro haber leído y aceptar las condiciones del programa y la normativa sobre protección de datos
     </fieldset>
 
     <fieldset>
         <legend>Preferencias</legend>
             <input name="js" type="radio" value="js"/>
-            javascript
+            Javascript
             <br>
             <input name="py" type="radio" value="py"/>
-            python
+            Python
             <br>
             <input name="html" type="radio" value="html"/>
-            html
+            HTML
     </fieldset>
 
     <fieldset>
-        <legend>reserva hotel</legend>
-            fecha de llegada:
-            <input name="llegada" type="date"/>
+        <legend>Reserva hotel</legend>
+            Fecha de llegada:
+            <input id="llegada" name="hora" type="date"/>
             <br>
-            hora de entrada:
-            <input name="entrada" type="time"/>
+            Hora de entrada:
+            <input id="entrada" name="hora" type="time"/>
             <br>
-            fecha de salida:
-            <input name="fsalida" type="date"/>
+            Fecha de salida:
+            <input id="fsalida" name="hora" type="date"/>
             <br>
-            hora de salida:
-            <input name="hsalida" type="time"/>
+            Hora de salida:
+            <input id="hsalida" name="hora" type="time"/>
     </fieldset>
 
     <fieldset>
-        <legend>compra</legend>
-            numero de botellas:
-            <input type="number" name="paquete" id="paquete" step="2">
+        <legend>Compra</legend>
+            Número de botellas:
+            <input type="number" name="agua" id="agua" min="0" max="8">
             <br>
-            numero de botellas en paquete:
-            <input type="number" name="paquete" id="paquete">
+            Número de botellas en paquete:
+            <input type="number" name="agua" id="aguapaquete" min="0" step="6">
             <br>
-            carne:
+            Carne:
             <select name="carne" id="carne">
-                <option value="e">elija</option>
-                <option value="cr">carne roja</option>
-                <option value="cv">carne vegana</option>
+                <option value="e">Elija</option>
+                <option value="cr">Carne roja</option>
+                <option value="cv">Carne vegana</option>
             </select>
             <br>
-            cantidad:
+            Cantidad:
             <input type="text" placeholder="10kg o 10gr"
-            pattern="[0-9]+(kg|gr)">
+            pattern="^[0-9]+(kg|gr)$">
             <br>
-            carne:
+            Carne:
             <select name="carne2" id="carne2">
                 <optgroup label="Carne roja">
                   <option value="e">Elija</option>
@@ -152,9 +167,9 @@
                   <option value="bu">Buey</option>
                 </optgroup>
                 <optgroup label="Carne blanca">
-                  <option value="pollo">POLLO</option>
-                  <option value="pavo">pavo</option>
-                  <option value="conejo">conejo</option>
+                  <option value="pollo">Pollo</option>
+                  <option value="pavo" disabled>Pavo</option>
+                  <option value="conejo">Conejo</option>
                 </optgroup>
               </select>
     </fieldset>
@@ -163,6 +178,5 @@
     <input class="azul" type="submit" name="enviar" value="Enviar"></button>
     <input type="reset" name="borrar" value="Borrar"></button>
     </form>
-<script type="text/javascript"></script>
 </body>
 </html>
