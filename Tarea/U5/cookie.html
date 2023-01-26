@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="galleta.jpg" alt="Galleta" id="galleta">
+    <p id="texto"></p>
+    <script type="text/javascript">
+        galleta = document.getElementById("galleta");
+        galleta.addEventListener("click", () => {
+            var clicks = decodeURIComponent(document.cookie);
+            // Cuando carga la página, se saca la cookie y si no existe la empieza en 0
+            if (clicks.length == 0) {
+                clicks = "clicks=0";
+                document.cookie = clicks;
+            }
+            // Por cada vez que se cargue, el valor de la cookie (número de visita) aumenta en 1
+            var num = parseInt(clicks.substring(clicks.indexOf("=") + 1, clicks.length));
+            var numclicks = "clicks=" + (num + 1);
+            document.cookie = numclicks;
+            document.getElementById("texto").innerHTML = "Tienes " + (num) + " galletas";
+        });
+    </script>
+</body>
+</html>
