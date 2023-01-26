@@ -46,15 +46,15 @@ function validarCampo(campo, errorVacio, errorPatron) {
   "Los nombres y apellidos deben comenzar por mayúscula, tener al menos dos letras y estar separados por espacios.");
   let fecha = document.getElementsByTagName("input")[2];
   validarCampo(fnac, "Debes introducir una fecha de nacimiento.", "Formato válido: dd/mm/yyyy");
-  let email = document.getElementsByTagName("input")[3];
+  let email = document.getElementsByTagName("input")[4];
   validarCampo(email, "Debes introducir un email.", "Formato válido: xxx@yyy.zzz");
-  let web = document.getElementsByTagName("input")[4];
+  let web = document.getElementsByTagName("input")[5];
   validarCampo(web, "Debes introducir una página web.", "Formato válido: http://www.xxx.yyy");
-  let pw1 = document.getElementsByTagName("input")[5];
+  let pw1 = document.getElementsByTagName("input")[6];
   validarCampo(pw, "Debes introducir una contraseña.", "Debe contener entre 8 y 10 caracteres");
-  let pw2 = document.getElementsByTagName("input")[6];
+  let pw2 = document.getElementsByTagName("input")[7];
   validarCampo(pw2, "Debes introducir una contraseña.", "Debe contener entre 8 y 10 caracteres");
-
+  let color = document.getElementById("color");
   
 
   // Crear cookies de los datos introducidos
@@ -66,7 +66,7 @@ function validarCampo(campo, errorVacio, errorPatron) {
       pw2.value = "";
       return false;
     }
-    let campos = [dni, nombre, fnac, email, web, pw, pw2];
+    let campos = [dni, nombre, fnac, email, web, pw, pw2, color];
     let valido = true;
 
     for (campo of campos) {
@@ -97,5 +97,8 @@ function validarCampo(campo, errorVacio, errorPatron) {
         let datos = decodeURIComponent(document.cookie);
       if (datos.length > 0) {
         alert(datos);
+        let aux = datos.substring(datos.indexOf("color"));
+        let codcolor = aux.substring(aux.indexOf("#"), aux.length);
+        document.body.style.backgroundColor = codcolor;
       }
     });
