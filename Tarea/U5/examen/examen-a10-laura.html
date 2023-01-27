@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta sobre gustos de café</title>
+    <script type="text/javascript" src="10.js" defer></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h2 {
+            color: chocolate;
+            text-align: center;
+        }
+
+        div.barra {
+            background: #f0f0f0;
+            box-shadow: 1px 1px 2px gray;
+            max-width: 20%;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        div.barra > div {
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            text-shadow: 1px 1px 2px black;
+            color: white;
+        }
+
+        div#solo-barra {
+            background-color: #4d3e2e;
+        }
+
+        div#leche-barra {
+            background-color: #d6ad81;
+        }
+
+        div#descafeinado-barra {
+            background-color: #d17b1f
+        }
+
+        div#hielo-barra {
+            background-color: #6de9ed;
+        }
+
+        button {
+            background-color: deepskyblue;
+            color: midnightblue;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        input:last-child {
+            background-color: lightsalmon;
+            font-weight: bold;
+            font-style: italic;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>¿Qué tipo de café te gusta más?</h2>
+    <form action="">
+        <input type="radio" name="cafe" id="solo" value="Café Solo">Café Solo
+        <br>
+        <input type="radio" name="cafe" id="leche" value="Café con leche">Café con leche
+        <br>
+        <input type="radio" name="cafe" id="descafeinado" value="Café descafeinado">Café descafeinado
+        <br>
+        <input type="radio" name="cafe" id="hielo" value="Café solo con hielo">Café solo con hielo
+        <br>
+        <button type="submit" id="enviar">¡Votar!</button>
+        <input type="button" value="Enviar por correo" id="correo">
+    </form>
+    <label for="solo">Café Solo</label>
+    <div class="barra">
+        <div id="solo-barra" style="max-width: 0%;">0%</div>
+    </div>
+    <label for="leche">Café con leche</label>
+    <div class="barra">
+        <div id="leche-barra" style="max-width: 0%;">0%</div>
+    </div>
+    <label for="descafeinado">Café descafeinado</label>
+    <div class="barra">
+        <div id="descafeinado-barra" style="max-width: 0%;">0%</div>
+    </div>
+    <label for="hielo">Café solo con hielo</label>
+    <div class="barra">
+        <div id="hielo-barra" style="max-width: 0%;">0%</div>
+    </div>
+</body>
+</html>

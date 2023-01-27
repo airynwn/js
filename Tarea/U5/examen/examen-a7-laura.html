@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        fieldset {
+            background-color: lightblue;
+            border-radius: 10px;
+            border: 5px dotted mediumorchid
+        }
+
+        legend {
+            font-weight: bold;
+            color: midnightblue
+        }
+
+        input,
+        select {
+            padding: 3px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 2px plum;
+        }
+
+        input[type=submit] {
+            background-color: lime;
+            font-weight: bold;
+        }
+
+        input[type=button] {
+            background-color: pink;
+        }
+        
+    </style>
+    <script type="text/javascript" src="7.js" defer></script>
+</head>
+<body>
+    <form action="Rafael.figueroa@iesdonana.org">
+        <fieldset>
+            <legend>DATOS PERSONALES DE ACCESO</legend>
+            <label for="nombre">Nombre:
+                <input type="text" name="nombre" id="nombre" 
+                placeholder="Nombre">
+            </label>
+            <br>
+            <label for="apellido">Apellido:
+                <input type="text" name="apellido" id="apellido"
+                placeholder="Apellido">
+            </label>
+            <br>
+            <label for="edad">Edad:
+                <input type="text" name="edad" id="edad"
+                placeholder="Edad">
+            </label>
+            <br>
+            <label for="dni">DNI: 
+                <input type="text" name="dni" id="dni"
+                placeholder="DNI 99.999.999-X">
+            </label>
+            <br>
+            <label for="sexo">Sexo: 
+                <select name="sexo" id="sexo" required>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </label>
+            <br>
+            <label for="lugar">Lugar de Nacimiento:
+                <input type="text" name="lugar" id="lugar">
+            </label>
+        </fieldset>
+        <br>
+        <input type="submit" value="GUARDAR" id="guardar">
+        <input type="button" value="VER" id="ver">
+    </form>
+</body>
+</html>
