@@ -5,7 +5,7 @@ let p3 = document.getElementById("p3");
 p1.addEventListener("click", () => {
     switch (p1.value) {
         case "Ocultar": 
-            p1.
+            p1.classList.add(clase display hidden)
             break;
         case "Visualizar":
         
