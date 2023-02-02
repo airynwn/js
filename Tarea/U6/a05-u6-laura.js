@@ -1,14 +1,17 @@
-let p1 = document.getElementById("p1");
-let p2 = document.getElementById("p2");
-let p3 = document.getElementById("p3");
+let ocultar = document.getElementById("ocultar");
 
-p1.addEventListener("click", () => {
-    switch (p1.value) {
-        case "Ocultar": 
-            p1.classList.add(clase display hidden)
-            break;
-        case "Visualizar":
-        
-            break;
-    }
-})
+ocultar.addEventListener("click", () => {
+    let num = prompt("¿Qué párrafo deseas ocultar? 1, 2 ó 3: ");
+    let p = document.getElementById("p" + num);
+    p.classList = [];
+    p.classList.add("oculto");
+});
+
+let visualizar = document.getElementById("visualizar");
+
+visualizar.addEventListener("click", () => {
+    let num = prompt("¿Qué párrafo deseas visualizar? 1, 2 ó 3: ");
+    let p = document.getElementById("p" + num);
+    p.classList = [];
+    p.classList.add("visible");
+});

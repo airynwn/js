@@ -6,6 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script type="text/javascript" src="a05-u6-laura.js" defer></script>
+    <style>
+      .oculto {
+        visibility: hidden;
+      }
+
+      .visible {
+        visibility: visible;
+      }
+
+      #ocultar {
+        background-color: purple;
+        color: cornsilk;
+        padding: 5px;
+        border: 3px double hotpink;
+        border-radius: 10px;
+      }
+
+      #visualizar {
+        background-color: royalblue;
+        color: aliceblue;
+        padding: 5px;
+        border: 3px dashed skyblue;
+        border-radius: 10px;
+      }
+    </style>
   </head>
   <body>
     <h2>
@@ -14,8 +39,11 @@
       párrafo que elegido. Para ello puedes utilizar dos clases en CSS y,
       mediante JavaScript, se irá can1biando la clase al elemento del DOM
     </h2>
-    <p>párrafo 1</p> <input type="button" value="Ocultar" id="p1">
-    <p>asdasdasd</p> <input type="button" value="Ocultar" id="p2">
-    <p>Buenos días</p> <input type="button" value="Ocultar" id="p3">
+    <p id="p1">párrafo 1</p>
+    <p id="p2">hola</p>
+    <p id="p3">buenas noches</p>
+    <br>
+    <input type="button" value="Ocultar" id="ocultar">
+    <input type="button" value="Visualizar" id="visualizar">
   </body>
 </html>
