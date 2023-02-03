@@ -9,5 +9,45 @@
 <body>
     <a href="https://www.google.es/">Google</a>
     <h1>???</h1>
+    <script type="text/javascript" defer>
+        let html = document.documentElement;
+        let head = html.firstChild;
+
+        let ul = document.createElement("ul");
+        let li = document.createElement("li");
+        li.appendChild(document.createTextNode("HTML Document"));
+        ul.appendChild(li);
+        let ulhead = document.createElement("ul");
+        let lihead = document.createElement("li");
+        lihead.appendChild(document.createTextNode("Head"));
+        ulhead.appendChild(lihead);
+        let ulbody = document.createElement("ul");
+        let libody = document.createElement("li");
+        libody.appendChild(document.createTextNode("Body"));
+        ulbody.appendChild(libody);
+        ul.appendChild(ulhead);
+        ul.appendChild(ulbody);
+        
+        let ul3 = document.createElement("ul");
+        for (i of head.children) {
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(i.nodeName));
+            ul3.appendChild(li);
+        }
+        ulhead.appendChild(ul3)
+
+        let body = html.lastChild;
+
+        let ul4 = document.createElement("ul");
+        for (i of body.children) {
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(i.nodeName));
+            ul4.appendChild(li);
+        }
+        ulbody.appendChild(ul4);
+
+        body.appendChild(ul);
+        
+    </script>
 </body>
 </html>
