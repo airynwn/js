@@ -5,30 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script>
-    function showHint(str) {
-        if (str.length == 0) {
-            document.getElementById("txtHint").innerHTML = "";
-            return;
-        } else {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-        };
-            xmlhttp.open("GET", "gethint.php?q=" + str, true);
-            xmlhttp.send();
-        }
-    }
-    </script>
+    <script type="text/javascript" src="a02-u7-laura.js" defer></script>
 </head>
 <body>
-    <p><b>Start typing a name in the input field below:</b></p>
+    <p><b>Escribe el nombre de alguna ciudad donde quieras ir:</b></p>
     <form action="">
-    <label for="fname">First name:</label>
-    <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)">
+    <label for="ciudad">Ciudad:</label>
+    <input type="text" id="ciudad" name="ciudad">
     </form>
-    <p>Suggestions: <span id="txtHint"></span></p>
+    <p>Sugerencias: <span id="sugerencia"></span></p>
 </body>
 </html>
