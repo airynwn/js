@@ -1,5 +1,4 @@
 <?php
-// Array with names
 $a[] = 'Alava';
 $a[] = 'Albacete';
 $a[] = 'Alicante';
@@ -51,25 +50,28 @@ $a[] = 'Vizcaya';
 $a[] = 'Zamora';
 $a[] = 'Zaragoza';
 
-// get the q parameter from URL
+// Recoge el parámetro de la URL y crea la sugerencia
 $q = $_REQUEST["q"];
 
-$hint = "";
+$sugerencia = "";
 
-// lookup all hints from array if $q is different from ""
+// Si el parámetro no está vacío, comprueba que coincida con alguna ciudad
 if ($q !== "") {
   $q = strtolower($q);
-  $len=strlen($q);
-  foreach ($a as $name) {
-    if (stristr($q, substr($name, 0, $len))) {
-      if ($hint === "") {
-        $hint = $name;
+  $len = strlen($q);
+  foreach ($a as $ciudad) {
+    // Busca si el parámetro recogido coincide con el principio de alguna ciudad
+    if (stristr($q, substr($ciudad, 0, $len))) {
+      if ($sugerencia === "") {
+        // Construye las sugerencias. Si está vacía, pone una sola
+        $sugerencia = $ciudad;
       } else {
-        $hint .= ", $name";
+        // Si hay más sugerencias, le añade una coma
+        $sugerencia .= ", $ciudad";
       }
     }
   }
 }
 
-// Output "no suggestion" if no hint was found or output correct values
-echo $hint === "" ? "no suggestion" : $hint;
+// Muestra si el parámetro recogido coincide o no con ninguna ciudad
+echo $sugerencia === "" ? "No se ha encontrado ninguna ciudad" : $sugerencia;

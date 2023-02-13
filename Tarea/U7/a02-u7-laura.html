@@ -6,13 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script type="text/javascript" src="a02-u7-laura.js" defer></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: whitesmoke;
+        }
+
+        fieldset {
+            background: linear-gradient(150deg, #994ed6, #f08a62);
+            border: solid 3px midnightblue;
+            border-radius: 20px;
+        }
+        
+        legend {
+            background: linear-gradient(150deg, #40aeda, #5e5bfc);
+            border: solid 2px midnightblue;
+            border-radius: 20px;
+            padding: 0.5em;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        input {
+            border-radius: 5px;
+            border: solid 2px mediumvioletred;
+        }
+    </style>
 </head>
 <body>
-    <p><b>Escribe el nombre de alguna ciudad donde quieras ir:</b></p>
-    <form action="">
-    <label for="ciudad">Ciudad:</label>
-    <input type="text" id="ciudad" name="ciudad">
-    </form>
-    <p>Sugerencias: <span id="sugerencia"></span></p>
+    <fieldset>
+        <legend>Buscador de ciudades</legend>
+        <p><b>Escribe el nombre de alguna ciudad donde quieras ir:</b></p>
+        <form action="">
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" id="ciudad" name="ciudad">
+        </form>
+        <p><b>Sugerencias</b>: <span id="sugerencia"></span></p>
+    </fieldset>
 </body>
 </html>
