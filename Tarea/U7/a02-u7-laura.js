@@ -27,7 +27,7 @@ function mostrarSugerencia() {
         Realiza la petición GET al servidor de manera asíncrona a la URL ciudadessugerencias.php
         enviándole el parámetro ( ?q=inputCiudad ) para buscar las sugerencias correspondientes
     */
-        xmlhttp.open("GET", "ciudadessugerencias.php?q=" + inputCiudad, true);
+        xmlhttp.open("GET", "ciudadessugerencias.php?p=" + inputCiudad, true);
         xmlhttp.send();
     }
 }

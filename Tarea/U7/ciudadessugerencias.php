@@ -51,17 +51,17 @@ $a[] = 'Zamora';
 $a[] = 'Zaragoza';
 
 // Recoge el parámetro de la URL y crea la sugerencia
-$q = $_REQUEST["q"];
+$p = $_REQUEST["p"];
 
 $sugerencia = "";
 
 // Si el parámetro no está vacío, comprueba que coincida con alguna ciudad
-if ($q !== "") {
-  $q = strtolower($q);
-  $len = strlen($q);
+if ($p !== "") {
+  $p = strtolower($p);
+  $len = strlen($p);
   foreach ($a as $ciudad) {
     // Busca si el parámetro recogido coincide con el principio de alguna ciudad
-    if (stristr($q, substr($ciudad, 0, $len))) {
+    if (stristr($p, substr($ciudad, 0, $len))) {
       if ($sugerencia === "") {
         // Construye las sugerencias. Si está vacía, pone una sola
         $sugerencia = $ciudad;
