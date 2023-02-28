@@ -7,7 +7,7 @@
     <title>Document</title>
     <script src="crear.js" type="text/javascript" defer></script>
     <style>
-        body {
+        body, input {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -19,11 +19,20 @@
         td {
             border: 1px solid midnightblue;
         }
+
+        input {
+            border-radius: 5px;
+            border: 1px solid darkmagenta;
+            padding: 5px;
+            background-color: plum;
+            color: darkmagenta;
+        }
     </style>
 </head>
 <body>
     <table id="tabla"> 
     </table>
+    <br>
     <form>
         <input type="button" onclick="crearTabla()" value="Crear tabla">
     </form>
