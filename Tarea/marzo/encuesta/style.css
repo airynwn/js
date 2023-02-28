@@ -1,0 +1,42 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h2 {
+    color: rgb(40, 182, 248);
+}
+div.barra {
+    background: #f0f0f0;
+    box-shadow: 1px 1px 2px gray;
+    max-width: 20%;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+div.barra > div {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+    color: white;
+}
+
+#ichika {
+    background-color: #ffa1d6;
+}
+
+#nino {
+    background-color: rgb(186, 69, 240);
+}
+
+#miku {
+    background-color: rgb(202, 105, 186);
+}
+
+#yotsuba {
+    background-color: rgb(255, 148, 48);
+}
+
+#itsuki {
+    background-color: rgb(255, 90, 104);
+}
