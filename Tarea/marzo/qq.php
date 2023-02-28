@@ -39,35 +39,22 @@ fputs($fp, $insertvoto);
 fclose($fp);
 
 // Calcular % de voto
-$denominador = (int)$ichi + (int)$nino + (int)$miku + (int)$yots + (int)$itsu;
-$tantoIchi = 100 * round($ichi / $denominador, 2);
-$tantoNino = 100 * round($nino / $denominador, 2);
-$tantoMiku = 100 * round($miku / $denominador, 2);
-$tantoYots = 100 * round($yots / $denominador, 2);
-$tantoItsu = 100 * round($itsu / $denominador, 2);
+$total = array_sum($arr);
+$porcentajes = [];
 
-?>
+foreach ($arr as $voto) {
+    if ($total != 0) {
+        $porcentajes[] = number_format(100 * $voto / $total, 2);
+    } else {
+        $porcentajes[] = 0;
+    }
+}
 
-<h2>Resultado</h2>
-<table>
-    <tr>
-        <td>Ichika:</td>
-        <td><?php echo $tantoIchi  ?>%</td>
-    </tr>
-    <tr>
-        <td>Nino:</td>
-        <td><?php echo $tantoNino ?>%</td>
-    </tr>
-    <tr>
-        <td>Miku:</td>
-        <td><?php echo $tantoMiku ?>%</td>
-    </tr>
-    <tr>
-        <td>Yotsuba:</td>
-        <td><?php echo $tantoYots ?>%</td>
-    </tr>
-    <tr>
-        <td>Itsuki:</td>
-        <td><?php echo $tantoItsu ?>%</td>
-    </tr>
-</table>
+echo "<h2>Resultado</h2>";
+for ($i = 0; $i < count($arr); $i++) {
+    echo "<tr>";
+    echo "<td>" . $arr[$i] . ":</td>";
+    echo "<td><progress value='" . $porcentajes[$i] . "' ' max='100'>" . "</progress>" .  $porcentajes[$i] . "%</td>";
+    echo "</tr>";
+}
+echo "</table>";

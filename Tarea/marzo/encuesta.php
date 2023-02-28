@@ -23,5 +23,8 @@
             <label for="itsuki">Itsuki</label>
         </form>
     </div>
+    <div id="resultado">
+
+    </div>
 </body>
 </html>

@@ -3,7 +3,7 @@ function obtenerVoto(int) {
     
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 & this.status == 200) {
-            document.getElementById("encuesta").innerHTML = this.responseText;
+            document.getElementById("resultado").innerHTML = this.responseText;
         }
     }
     
