@@ -1,7 +1,10 @@
 <?php
 $fichero = "resultados.txt";
 // Nombre de votos
-$arr = ["Ichika", "Nino", "Miku", "Yotsuba", "Itsuki"];
+// $arr = ["Ichika", "Nino", "Miku", "Yotsuba", "Itsuki"];
+// JSON (Sacar el index importante)
+$arr = json_decode(file_get_contents("encuesta.json"), true);
+$pjs = $arr['personajes'];
 
 $contenido = file($fichero);
 $votos = explode("||", $contenido[0]);
@@ -9,7 +12,7 @@ $votos = explode("||", $contenido[0]);
 // Colocar voto en el archivo de resultados
 if (isset($_REQUEST['voto'])) {
     $voto = $_REQUEST['voto'];
-    if ($voto >= 0 && $voto < count($arr)) {
+    if ($voto >= 0 && $voto < count($pjs)) {
         $votos[$voto] += 1;
         $insertvoto = implode("||", $votos);
         file_put_contents($fichero, $insertvoto);
@@ -31,8 +34,8 @@ foreach ($votos as $voto) {
 $ids = ["ichika", "nino", "miku", "yotsuba", "itsuki"];
 
 // Genera HTML con barras: label Nombre - x votos, barra coloreada que aumenta según %
-for ($i = 0; $i < count($arr); $i++) {
-    echo "<label for='" . $arr[$i] . "'>" . $arr[$i] . " - " . $votos[$i] . " votos</label>";
+for ($i = 0; $i < count($pjs); $i++) {
+    echo "<label for='" . $pjs[$i] . "'>" . $pjs[$i] . " - " . $votos[$i] . " votos</label>";
     echo "<div class='barra'>";
     echo "<div id='" . $ids[$i] . "' style='max-width:" . $porcentajes[$i] . "%'>" . $porcentajes[$i] . "%</div>";
     echo "</div>";
