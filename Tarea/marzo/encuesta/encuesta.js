@@ -13,6 +13,12 @@ function getVoto(int) {
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
         xhr.send(data); 
     */
-    xmlhttp.open("GET", "encuesta_voto.php?voto=" + int, true);
-    xmlhttp.send();
+
+    let busqueda = "voto=" + int;
+    xmlhttp.open("POST", "encuesta_voto.php", true); 
+    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+    xmlhttp.send(busqueda); 
+
+    // xmlhttp.open("GET", "encuesta_voto.php?voto=" + int, true);
+    // xmlhttp.send();
 }
