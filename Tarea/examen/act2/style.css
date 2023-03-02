@@ -1,0 +1,46 @@
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+h2 {
+    color: rgb(31, 187, 122);
+}
+div.barra {
+    background: #f0f0f0;
+    box-shadow: 1px 1px 2px gray;
+    max-width: 20%;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+div.barra > div {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+    color: white;
+}
+
+#pescado {
+    background-color: #ffa1d6;
+}
+
+#carnesrojas {
+    background-color: rgb(186, 69, 240);
+}
+
+#pollo {
+    background-color: rgb(202, 105, 186);
+}
+
+#cerdo {
+    background-color: rgb(255, 72, 48);
+}
+
+#verduras {
+    background-color: rgb(115, 255, 90);
+}
+
+#frutas {
+    background-color: #ffb13b;
+}

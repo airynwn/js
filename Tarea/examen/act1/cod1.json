@@ -1,0 +1,17 @@
+{
+    "clientes": {
+        "cliente": {
+            "id": "123",
+            "nombre": "Rafael Garcia Garcia",
+            "direccion": {
+                "verificada": "si",
+                "calle": "Avda Colombia",
+                "numero": "1450",
+                "ciudad": "Madrid",
+                "provincia": "Madrid",
+                "codigopostal": "29500",
+                "pais": "España"
+            }
+        }
+    }
+}

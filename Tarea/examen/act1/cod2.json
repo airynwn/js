@@ -1,0 +1,21 @@
+{
+    "empleados": {
+        "empleado": [
+        {
+            "nombre": "Jorge",
+            "apellidos": "Mesa",
+            "edad": "28"
+        },
+        {
+            "nombre": "Ana",
+            "apellidos": "Sánchez",
+            "edad": "21"
+        },
+        {
+            "nombre": "Pedro",
+            "apellidos": "Lee",
+            "edad": "44"
+        }
+        ]
+    }
+}
