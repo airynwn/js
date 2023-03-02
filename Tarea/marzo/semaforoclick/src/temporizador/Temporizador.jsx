@@ -38,7 +38,7 @@ function App() {
         <div className="card">
           <p>Soy un conteo hasta el {segundos} y han transcurrido {temporizador} segundos</p>
           <div className="contador">
-            {temporizador} / {segundos}
+            {segundos-temporizador} / {segundos}
           </div>
         </div>
       </div>
