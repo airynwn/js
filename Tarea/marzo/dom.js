@@ -1,13 +1,3 @@
-/*
-<ul>
-    <li>nodos
-        <ul>
-            <li>nodo1</li>
-            <li>nodo2</li>
-        </ul>
-        </li>
-        </ul>
-        */
 let res = document.getElementById("resultado");
 
 function generaListaRecursiva(nodo, lista) {
